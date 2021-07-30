@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SpaController;
+
+Route::get( '/{any}', [ SpaController::class, 'index' ] )->where( 'any', '.*' );
 
 Route::get( 'contact', [ ContactController::class, 'index' ] );
 Route::post( 'contact', [ ContactController::class, 'store' ] );
