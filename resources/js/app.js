@@ -5,9 +5,12 @@ import { Form, HasError, AlertError } from 'vform';
 Vue.use( VueRouter );
 
 //Main pages
+import App from './views/App';
 import Contact from './views/Contact';
 import Home from './views/Home';
-import App from './views/App';
+import About from './views/About';
+import Services from './views/Services';
+import Portfolio from './views/Portfolio';
 import '../css/app.css';
 
 window.Form = Form;
@@ -18,9 +21,24 @@ const router = new VueRouter( {
 	                              mode:   'history',
 	                              routes: [
 		                              {
-			                              path:      '/home',
+			                              path:      '/',
 			                              name:      'home',
 			                              component: Home,
+		                              },
+		                              {
+			                              path:      '/about',
+			                              name:      'about',
+			                              component: About,
+		                              },
+		                              {
+			                              path:      '/services',
+			                              name:      'services',
+			                              component: Services,
+		                              },
+		                              {
+			                              path:      '/portfolio',
+			                              name:      'portfolio',
+			                              component: Portfolio,
 		                              },
 		                              {
 			                              path:      '/contact',

@@ -1,0 +1,11 @@
+.required:after {
+    content:" *";
+    color: red;
+}
+.error{
+    color:red;
+}
+
+.invalid-feedback{
+    display: block !important;
+}

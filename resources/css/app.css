@@ -1,11 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import '~bootstrap';
+@import '~bootstrap-icons/font/bootstrap-icons';
 
-.required:after {
-    content:" *";
-    color: red;
-}
-.error{
-    color:red;
-}
+@import 'theme/text.scss';
+@import 'theme/home.scss';
+

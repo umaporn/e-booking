@@ -1,59 +1,71 @@
 <template>
 	<div>
-		<div class="container mx-auto px-4">
-			<form action="" method="POST" @submit.prevent="register">
-				<div class="mt-8 max-w-lg">
-					<div class="grid grid-cols-1 gap-8">
-						<label class="block">
-							<span class="text-gray-800 required">Name</span>
-							<input type="text"
-							       v-model="form.name"
-							       class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
-							       placeholder=""
-							       name="name"
-							>
-							<has-error :form="form" field="name" class="error"></has-error>
-						</label>
-						<label class="block">
-							<span class="text-gray-700 required">Email</span>
-							<input type="email"
-							       v-model="form.email"
-							       class="required mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
-							       placeholder="john@example.com"
-							       name="email"
-							>
-							<has-error :form="form" field="email" class="error"></has-error>
-						</label>
-						<label class="block">
-							<span class="text-gray-700 required">Phone</span>
-							<input type="tel"
-							       v-model="form.phone"
-							       class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
-							       placeholder=""
-							       name="phone"
-							>
-							<has-error :form="form" field="phone" class="error"></has-error>
-						</label>
-						<label class="block">
-							<span class="text-gray-700 required">Message</span>
-							<textarea name="message"
-							          v-model="form.message"
-							          class="mt-1 block w-full bg-gray-100 rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:border-gray-500 focus:bg-white focus:ring-0"></textarea>
-							<has-error :form="form" field="message" class="error"></has-error>
-						</label>
-						<div class="px-4 py-3 text-right sm:px-6">
-							<button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-								Save
-							</button>
-						</div>
-						<div class="px-3 py-3 mb-3 bg-blue-100"
-						     v-bind:class="{ invisible: isInvisible }"
-						     id="response-message">
-						</div>
+		<section class="page-section" id="contact">
+			<div class="container px-4 px-lg-5">
+				<div class="row gx-4 gx-lg-5 justify-content-center">
+					<div class="col-lg-8 col-xl-6 text-center">
+						<h2 class="mt-0">Let's Get In Touch!</h2>
+						<hr class="divider"/>
+						<p class="text-muted mb-5">Ready to start your next project with us? Send us a messages and we will get back
+						                           to you as soon as possible!
+						</p>
 					</div>
 				</div>
-			</form>
-		</div>
+				<div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+					<div class="col-lg-6">
+						<form action="" id="contactForm" method="POST" @submit.prevent="register">
+							<div class="form-floating mb-3">
+								<label for="name">Full name</label>
+								<input class="form-control"
+								       id="name"
+								       type="text"
+								       name="name"
+								       v-model="form.name"
+								       placeholder="Enter your name..."/>
+								<has-error :form="form" field="name" class="error"></has-error>
+							</div>
+							<div class="form-floating mb-3">
+								<label for="email">Email address</label>
+								<input class="form-control"
+								       id="email"
+								       type="email"
+								       v-model="form.email"
+								       placeholder="name@example.com"
+								/>
+								<has-error :form="form" field="email" class="error"></has-error>
+							</div>
+							<div class="form-floating mb-3">
+								<label for="phone">Phone number</label>
+								<input class="form-control"
+								       id="phone"
+								       type="tel"
+								       v-model="form.phone"
+								       name="phone"
+								       placeholder="(123) 456-7890"
+								/>
+								<has-error :form="form" field="phone" class="error"></has-error>
+							</div>
+							<div class="form-floating mb-3">
+								<label for="message">Message</label>
+								<textarea class="form-control"
+								          name="message"
+								          v-model="form.message"
+								          >
+								</textarea>
+								<has-error :form="form" field="message" class="error"></has-error>
+							</div>
+							<div class="d-grid">
+								<button class="btn btn-primary btn-xl" type="submit">Submit</button>
+							</div>
+							<div class="px-3 py-3 mb-3 bg-blue-100"
+							     v-bind:class="{ invisible: isInvisible }"
+							     id="response-message">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
 	</div>
 </template>
 
