@@ -20,7 +20,7 @@
 								<div class="project-category text-white-50">Category</div>
 								<div class="project-name">Project Name</div>
 							</div>
-						</a>s
+						</a>
 					</div>
 					<div class="col-lg-4 col-sm-6">
 						<a class="portfolio-box" href="images/portfolio/fullsize/3.jpg" title="Project Name">
@@ -63,7 +63,9 @@
 		</div>
 	</div>
 </template>
-
 <script>
-
+  import { showDisplayLigthbox } from './../script/app.js';
+	export default {
+		name:       'port',
+	};
 </script>

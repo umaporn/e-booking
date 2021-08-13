@@ -1,8 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import { Form, HasError, AlertError } from 'vform';
+import { showDisplayLigthbox } from './script/app.js';
 
 Vue.use( VueRouter );
+Vue.use( showDisplayLigthbox );
 
 //Main pages
 import App from './views/App';
@@ -53,3 +55,4 @@ const app = new Vue( {
 	                     components: { App },
 	                     router,
                      } );
+

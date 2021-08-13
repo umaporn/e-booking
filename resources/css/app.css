@@ -1,5 +1,6 @@
 @import '~bootstrap';
 @import '~bootstrap-icons/font/bootstrap-icons';
+@import '~simplelightbox/dist/simple-lightbox.min.css';
 
 @import 'theme/text.scss';
 @import 'theme/home.scss';
