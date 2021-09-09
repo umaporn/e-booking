@@ -10,6 +10,6 @@
 <body>
 
 
-<script src="{{ mix('js/app.js') }}"></script>
+<script src="{{ mix('js/simple-lightbox.js') }}"></script>
 </body>
 </html>

@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import { Form, HasError, AlertError } from 'vform';
-import { showDisplayLigthbox } from './script/app.js';
+import VueI18n from 'vue-i18n';
 
 Vue.use( VueRouter );
-Vue.use( showDisplayLigthbox );
+Vue.use( VueI18n );
 
 //Main pages
 import App from './views/App';
@@ -18,6 +18,8 @@ import '../css/app.css';
 window.Form = Form;
 Vue.component( HasError.name, HasError );
 Vue.component( AlertError.name, AlertError );
+
+require('./bootstrap');
 
 const router = new VueRouter( {
 	                              mode:   'history',
@@ -50,9 +52,38 @@ const router = new VueRouter( {
 	                              ],
                               } );
 
+const messages = {
+	en: {
+		message: {
+			value: 'This is an example of content translation.'
+		}
+	},
+	th: {
+		message: {
+			value: 'นี่คือตัวอย่างการแปลเนื้อหา'
+		}
+	},
+	da: {
+		message: {
+			value: 'Dette er et eksempel på oversættelse af indhold.'
+		}
+	},
+	hr: {
+		message: {
+			value: 'Ovo je primjer prevođenja sadržaja.'
+		}
+	}
+};
+
+const i18n = new VueI18n({
+	                         locale: 'en',
+	                         messages
+                         });
+
 const app = new Vue( {
 	                     el:         '#app',
 	                     components: { App },
 	                     router,
+	                     i18n
                      } );
 

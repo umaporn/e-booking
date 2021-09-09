@@ -31,6 +31,12 @@
 							</router-link>
 						</li>
 					</ul>
+					<ul class="navbar-nav">
+						<locale-dropdown locale="en"
+						                 link-en="http://starter-kits.dm.com/en"
+						                 link-th="http://starter-kits.dm.com/th"
+						></locale-dropdown>
+					</ul>
 				</div>
 			</div>
 		</nav>
@@ -39,7 +45,11 @@
 </template>
 
 <script>
+	import LocaleDropdown from './LocaleDropdown'
+
 	export default {
-		name: 'NavBar',
+	  components: {
+		  LocaleDropdown
+	  },
 	};
 </script>

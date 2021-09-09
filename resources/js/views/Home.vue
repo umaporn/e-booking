@@ -5,6 +5,9 @@
 				<div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
 					<div class="col-lg-8 align-self-end">
 						<h1 class="text-white font-weight-bold">Your Favorite Place for Free Bootstrap Themes</h1>
+						<h2 class="text-white font-weight-bold">
+							{{ $t('message.value', { value: 'This is an example of content translation' }) }}
+						</h2>
 						<hr class="divider" />
 					</div>
 					<div class="col-lg-8 align-self-baseline">

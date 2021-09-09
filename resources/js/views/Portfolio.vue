@@ -63,9 +63,3 @@
 		</div>
 	</div>
 </template>
-<script>
-  import { showDisplayLigthbox } from './../script/app.js';
-	export default {
-		name:       'port',
-	};
-</script>
