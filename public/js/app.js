@@ -1860,14 +1860,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'SwitchLocale',
   data: function data() {
@@ -2240,6 +2232,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Services__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/Services */ "./resources/js/views/Services.vue");
 /* harmony import */ var _views_Portfolio__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/Portfolio */ "./resources/js/views/Portfolio.vue");
 /* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../css/app.css */ "./resources/css/app.css");
+/* harmony import */ var _lang_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./lang.js */ "./resources/js/lang.js");
 
 
 
@@ -2284,31 +2277,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__.default({
     component: _views_Contact__WEBPACK_IMPORTED_MODULE_5__.default
   }]
 });
-var messages = {
-  en: {
-    message: {
-      value: 'This is an example of content translation.'
-    }
-  },
-  th: {
-    message: {
-      value: 'นี่คือตัวอย่างการแปลเนื้อหา'
-    }
-  },
-  da: {
-    message: {
-      value: 'Dette er et eksempel på oversættelse af indhold.'
-    }
-  },
-  hr: {
-    message: {
-      value: 'Ovo je primjer prevođenja sadržaja.'
-    }
-  }
-};
+
 var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_3__.default({
   locale: 'en',
-  messages: messages
+  messages: _lang_js__WEBPACK_IMPORTED_MODULE_11__.messages
 });
 var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
   el: '#app',
@@ -2337,12 +2309,12 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 try {
   window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js").default;
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+  window.SimpleLightbox = __webpack_require__(/*! simplelightbox/dist/simple-lightbox.js */ "./node_modules/simplelightbox/dist/simple-lightbox.js");
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.SimpleLightbox = __webpack_require__(/*! simplelightbox/dist/simple-lightbox.js */ "./node_modules/simplelightbox/dist/simple-lightbox.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -2357,6 +2329,42 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/lang.js":
+/*!******************************!*\
+  !*** ./resources/js/lang.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "messages": () => (/* binding */ messages)
+/* harmony export */ });
+var messages = {
+  en: {
+    message: {
+      value: 'This is an example of content translation.'
+    }
+  },
+  th: {
+    message: {
+      value: 'นี่คือตัวอย่างการแปลเนื้อหา'
+    }
+  },
+  da: {
+    message: {
+      value: 'Dette er et eksempel på oversættelse af indhold.'
+    }
+  },
+  hr: {
+    message: {
+      value: 'Ovo je primjer prevođenja sadržaja.'
+    }
+  }
+};
 
 /***/ }),
 

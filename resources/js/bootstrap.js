@@ -6,16 +6,16 @@ window._ = require( 'lodash' );
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-try {
-	window.Popper = require('popper.js').default;
-	window.$ = window.jQuery = require('jquery');
+try{
+	window.Popper         = require( 'popper.js' ).default;
+	window.$              = window.jQuery = require( 'jquery' );
+	window.SimpleLightbox = require( 'simplelightbox/dist/simple-lightbox.js' );
+	require( 'bootstrap' );
+} catch( e ) {
 
-	require('bootstrap');
-} catch (e) {}
+}
 
 window.axios = require( 'axios' );
-
-window.SimpleLightbox                                    = require( 'simplelightbox/dist/simple-lightbox.js' );
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
@@ -34,3 +34,4 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
