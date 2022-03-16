@@ -13,4 +13,13 @@ const mix = require( 'laravel-mix' );
 
 mix.js( 'resources/js/app.js', 'public/js' )
    .postCss( 'resources/css/app.css', 'public/css' )
-   .vue();
+   .vue()
+   .babel( [
+	           'resources/js/libs/Confirmation.js',
+	           'resources/js/libs/Form.js',
+	           'resources/js/libs/Search.js',
+	           'resources/js/libs/Utility.js',
+	           'resources/js/libs/PasswordToggle.js',
+	           'resources/js/bootstrap.js',
+           ], 'public/js/all.js' )
+   .version();

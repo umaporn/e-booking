@@ -50,7 +50,7 @@
 								<textarea class="form-control"
 								          name="message"
 								          v-model="form.message"
-								          >
+								>
 								</textarea>
 								<has-error :form="form" field="message" class="error"></has-error>
 							</div>
@@ -71,7 +71,6 @@
 
 <script>
 	export default {
-
 		data(){
 			return {
 				form:        new Form( {
@@ -83,7 +82,6 @@
 				isInvisible: true,
 			};
 		},
-
 		methods: {
 
 			register(){
@@ -99,6 +97,13 @@
 
 				    } );
 			},
+			loadScript(){
+				this.$loadScript( './script.js' );
+			},
+		},
+
+		beforeMount(){
+			this.loadScript();
 		},
 	};
 </script>

@@ -35,3 +35,18 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: true
 // });
 
+$( document )
+	.ajaxStart( function(){
+		SpinnerSelector.show();
+	} )
+	.ajaxComplete( function(){
+		SpinnerSelector.hide();
+	} )
+	.ready( function(){
+		/** Initialize all JavaScript modules. */
+		Menu.initialize();
+		Search.initialize();
+		Confirmation.initialize();
+		Form.initialize();
+		PasswordToggle.initialize();
+	} );
