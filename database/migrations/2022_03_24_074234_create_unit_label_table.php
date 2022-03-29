@@ -35,5 +35,7 @@ class CreateUnitLabelTable extends Migration
     public function down()
     {
         Schema::dropIfExists('unit_label');
+        DB::table( 'directus_fields' )->where( 'collection', 'unit_label' )->delete();
+        DB::table( 'directus_relations' )->where( 'many_collection', 'unit_label' )->delete();
     }
 }

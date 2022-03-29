@@ -42,5 +42,7 @@ class CreatePromotionTable extends Migration
     public function down()
     {
         Schema::dropIfExists('promotion');
+        DB::table( 'directus_fields' )->where( 'collection', 'promotion' )->delete();
+        DB::table( 'directus_relations' )->where( 'many_collection', 'promotion' )->delete();
     }
 }

@@ -42,5 +42,7 @@ class CreateBannerTable extends Migration
     public function down()
     {
         Schema::dropIfExists( 'banner' );
+        DB::table( 'directus_fields' )->where( 'collection', 'banner' )->delete();
+        DB::table( 'directus_relations' )->where( 'many_collection', 'banner' )->delete();
     }
 }

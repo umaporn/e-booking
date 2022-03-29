@@ -14,5 +14,23 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        $this->call( [
+                         BannerFieldsSeeder::class,
+                         UsersFieldsSeeder::class,
+                         BookingHistoryFieldsSeeder::class,
+                         CartFieldsSeeder::class,
+                         FAQFieldsSeeder::class,
+                         GalleryFieldsSeeder::class,
+                         PaymentGatewayFieldsSeeder::class,
+                         HowToBookingFieldsSeeder::class,
+                         BuildingLayoutFieldsSeeder::class,
+                         FloorLayoutFieldsSeeder::class,
+                         UnitLayoutFieldsSeeder::class,
+                         ProjectManagementFieldsSeeder::class,
+                         ProjectStatusFieldsSeeder::class,
+                         ProjectTypeFieldsSeeder::class,
+                         RelationFieldsSeeder::class,
+                     ] );
+
     }
 }

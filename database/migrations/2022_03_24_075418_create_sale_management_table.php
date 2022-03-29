@@ -38,5 +38,7 @@ class CreateSaleManagementTable extends Migration
     public function down()
     {
         Schema::dropIfExists('sale_management');
+        DB::table( 'directus_fields' )->where( 'collection', 'sale_management' )->delete();
+        DB::table( 'directus_relations' )->where( 'many_collection', 'sale_management' )->delete();
     }
 }

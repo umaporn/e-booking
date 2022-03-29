@@ -17,7 +17,7 @@ class CreateGalleryTable extends Migration
             $table->increments( 'id' );
             $table->string( 'name_english', 255 );
             $table->string( 'name_thai', 255 );
-            $table->string( 'gallery_image', 255 );
+            $table->integer( 'gallery_image' );
             $table->string( 'status', 255 );
         });
     }
@@ -27,8 +27,11 @@ class CreateGalleryTable extends Migration
      *
      * @return void
      */
+
     public function down()
     {
         Schema::dropIfExists('gallery');
+        DB::table( 'directus_fields' )->where( 'collection', 'gallery' )->delete();
+        DB::table( 'directus_relations' )->where( 'many_collection', 'gallery' )->delete();
     }
 }

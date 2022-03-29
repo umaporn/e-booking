@@ -34,5 +34,7 @@ class CreateHowToBookingTable extends Migration
     public function down()
     {
         Schema::dropIfExists('how_to_booking');
+        DB::table( 'directus_fields' )->where( 'collection', 'how_to_booking' )->delete();
+        DB::table( 'directus_relations' )->where( 'many_collection', 'how_to_booking' )->delete();
     }
 }

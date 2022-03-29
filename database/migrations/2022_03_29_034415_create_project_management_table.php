@@ -46,19 +46,11 @@ class CreateProjectManagementTable extends Migration
             $table->string( 'project_brochure', 255 );
             $table->string( 'project_brochure_online_link', 255 );
             $table->string( 'project_progress_code', 255 );
-            $table->string( 'building_layout_name_english', 255 );
-            $table->string( 'building_layout_name_thai', 255 );
-            $table->string( 'building_layout_image', 255 );
-            $table->string( 'floor_layout_name_english', 255 );
-            $table->string( 'floor_layout_name_thai', 255 );
-            $table->string( 'floor_layout_name_image', 255 );
-            $table->string( 'building_layout_link', 255 );
-            $table->string( 'unit_layout_name_english', 255 );
-            $table->string( 'unit_layout_name_thai', 255 );
-            $table->string( 'unit_layout_name_image', 255 );
-            $table->string( 'floor_layout_link', 255 );
-            $table->string( 'nearby_detail_english', 255 );
-            $table->string( 'nearby_detail_thai', 255 );
+            $table->string( 'building_layout_id', 255 );
+            $table->string( 'floor_layout_id', 255 );
+            $table->string( 'unit_layout_id', 255 );
+            $table->text( 'nearby_detail_english' );
+            $table->text( 'nearby_detail_thai' );
             $table->string( 'youtube', 255 );
             $table->string( 'youtube_preview_text_english', 255 );
             $table->string( 'youtube_preview_text_thai', 255 );
@@ -82,5 +74,7 @@ class CreateProjectManagementTable extends Migration
     public function down()
     {
         Schema::dropIfExists('project_management');
+        DB::table( 'directus_fields' )->where( 'collection', 'project_management' )->delete();
+        DB::table( 'directus_relations' )->where( 'many_collection', 'project_management' )->delete();
     }
 }

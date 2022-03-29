@@ -36,5 +36,7 @@ class CreateFaqTable extends Migration
     public function down()
     {
         Schema::dropIfExists('faq');
+        DB::table( 'directus_fields' )->where( 'collection', 'faq' )->delete();
+        DB::table( 'directus_relations' )->where( 'many_collection', 'faq' )->delete();
     }
 }

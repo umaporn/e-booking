@@ -36,5 +36,7 @@ class CreatePaymentGatewayTable extends Migration
     public function down()
     {
         Schema::dropIfExists('payment_gateway');
+        DB::table( 'directus_fields' )->where( 'collection', 'payment_gateway' )->delete();
+        DB::table( 'directus_relations' )->where( 'many_collection', 'payment_gateway' )->delete();
     }
 }

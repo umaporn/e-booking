@@ -63,5 +63,7 @@ class CreateUnitTable extends Migration
     public function down()
     {
         Schema::dropIfExists('unit');
+        DB::table( 'directus_fields' )->where( 'collection', 'unit' )->delete();
+        DB::table( 'directus_relations' )->where( 'many_collection', 'unit' )->delete();
     }
 }

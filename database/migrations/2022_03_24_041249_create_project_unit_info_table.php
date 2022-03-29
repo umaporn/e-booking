@@ -33,5 +33,7 @@ class CreateProjectUnitInfoTable extends Migration
     public function down()
     {
         Schema::dropIfExists('project_unit_info');
+        DB::table( 'directus_fields' )->where( 'collection', 'project_unit_info' )->delete();
+        DB::table( 'directus_relations' )->where( 'many_collection', 'project_unit_info' )->delete();
     }
 }

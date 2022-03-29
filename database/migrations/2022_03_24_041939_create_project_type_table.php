@@ -33,5 +33,7 @@ class CreateProjectTypeTable extends Migration
     public function down()
     {
         Schema::dropIfExists('project_type');
+        DB::table( 'directus_fields' )->where( 'collection', 'project_type' )->delete();
+        DB::table( 'directus_relations' )->where( 'many_collection', 'project_type' )->delete();
     }
 }

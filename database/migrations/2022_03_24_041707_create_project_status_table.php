@@ -35,5 +35,7 @@ class CreateProjectStatusTable extends Migration
     public function down()
     {
         Schema::dropIfExists('project_status');
+        DB::table( 'directus_fields' )->where( 'collection', 'project_status' )->delete();
+        DB::table( 'directus_relations' )->where( 'many_collection', 'project_status' )->delete();
     }
 }

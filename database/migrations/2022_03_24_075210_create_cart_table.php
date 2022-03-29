@@ -33,5 +33,7 @@ class CreateCartTable extends Migration
     public function down()
     {
         Schema::dropIfExists('cart');
+        DB::table( 'directus_fields' )->where( 'collection', 'cart' )->delete();
+        DB::table( 'directus_relations' )->where( 'many_collection', 'cart' )->delete();
     }
 }
