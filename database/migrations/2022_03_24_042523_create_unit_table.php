@@ -24,13 +24,13 @@ class CreateUnitTable extends Migration
             $table->text( 'unit_detail_english', 255 );
             $table->text( 'unit_detail_thai', 255 );
             $table->string( 'booking_price', 255 );
-            $table->string( 'Sold_out_status', 255 );
+            $table->string( 'sold_out_status', 255 );
             $table->string( 'total_price', 255 );
             $table->string( 'price_per_sqm', 255 );
             $table->string( 'contract_payment', 255 );
             $table->string( 'down_payment', 255 );
             $table->string( 'transfer_payment', 255 );
-            $table->string( 'total_price_After_discount', 255 );
+            $table->string( 'total_price_after_discount', 255 );
             $table->string( '360_video_link', 255 );
             $table->string( 'unit_gallery', 255 );
             $table->string( 'file_upload', 255 );

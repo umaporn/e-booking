@@ -29,6 +29,9 @@ class DatabaseSeeder extends Seeder
                          ProjectManagementFieldsSeeder::class,
                          ProjectStatusFieldsSeeder::class,
                          ProjectTypeFieldsSeeder::class,
+                         PromotionFieldsSeeder::class,
+                         UnitFieldsSeeder::class,
+                         UnitLabelFieldsSeeder::class,
                          RelationFieldsSeeder::class,
                      ] );
 
