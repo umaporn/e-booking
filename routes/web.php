@@ -13,10 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controllers\ContactController;
+//////From Theme Starter kits
+/* use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SpaController;
 
 Route::get( '/{any}', [ SpaController::class, 'index' ] )->where( 'any', '.*' );
-
 Route::get( 'contact', [ ContactController::class, 'index' ] );
-Route::post( 'contact', [ ContactController::class, 'store' ] );
+Route::post( 'contact', [ ContactController::class, 'store' ] ); */
+
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ThemeController;
+
+Route::get( '/', [ HomeController::class, 'index' ] );
+
+Route::group( [ 'prefix' => 'theme' ], function(){
+    Route::get( 'fullpage', [ ThemeController::class, 'fullpage' ] );
+} );

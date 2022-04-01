@@ -1,0 +1,44 @@
+$colors: (
+    "mqdc": $color-svg-mqdc,
+    "icon": $color-svg-icon,
+    "fav": $color-svg-fav,
+    "white": $color-svg-white
+);
+
+.online-content {
+    @each $name, $filtername in $colors {
+        &.svg-#{$name} {
+            filter: $filtername;
+        }
+    }
+
+    &.header{
+        font-family: $font-bold;
+        @include font-size(50px);
+        text-transform: uppercase;
+    }
+
+    &.sub-header{
+        font-family: $font-bold;
+        @include font-size(34px);
+        text-transform: uppercase;
+    }
+
+    &.sub-text{
+        color:$color-text-nd;
+        @include font-size(20px);
+    }
+
+    &.title{
+        @include font-size(36px);
+        font-family: $font-bold;
+    }
+
+    &.color-link{
+        color: $color-link;
+    }
+
+    &.color-white{
+        color: white;
+    }
+}

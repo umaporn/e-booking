@@ -35,6 +35,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: true
 // });
 
+
+/**Call Vendor liberies*/
+import UIkit from 'uikit';
+
 $( document )
 	.ajaxStart( function(){
 		SpinnerSelector.show();

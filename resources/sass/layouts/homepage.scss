@@ -1,0 +1,67 @@
+.online-home {
+    .highlight-homepage {
+        position: relative;
+        overflow-x: hidden;
+        width: 100vw;
+
+        @include media-breakpoint-up(xl) {
+            background: rgb(239, 247, 248);
+            background: linear-gradient(
+                50deg,
+                rgba(239, 247, 248, 1) 0%,
+                rgba(247, 247, 247, 1) 40%
+            );
+        }
+    }
+
+    .home-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+    }
+
+    .slide-dotnav {
+        z-index: 99;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+
+        @include media-breakpoint-down(lg) {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .uk-dotnav > * > * {
+            width: 30px;
+            height: 4px;
+            border-radius: 0;
+        }
+    }
+
+    .home-search {
+        padding-bottom: 20px;
+
+        @include media-breakpoint-up(xl) {
+            position: relative;
+            z-index: 3;
+            padding-top: 180px;
+            padding-bottom: 50px;
+        }
+
+        &-mobile {
+            @include media-breakpoint-down(lg) {
+                padding-top: $space-box*2;
+                min-height: 530px;
+                position: relative;
+
+                .header,
+                .sub-header,
+                .sub-text {
+                    color: white;
+                    text-shadow: $text-shadow;
+                }
+            }
+        }
+    }
+}

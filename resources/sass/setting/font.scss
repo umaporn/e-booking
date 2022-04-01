@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'dbhelvethaicax';
+    src: url('#{$font-path}/dbhelvethaicax-webfont.woff') format('woff'),
+         url('#{$font-path}/dbhelvethaicax-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'dbhelvethaicax-bd';
+    src: url('#{$font-path}/dbhelvethaicaxbd-webfont.woff') format('woff'),
+         url('#{$font-path}/dbhelvethaicaxbd-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

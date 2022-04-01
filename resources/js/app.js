@@ -15,7 +15,7 @@ import Home from './views/Home';
 import About from './views/About';
 import Services from './views/Services';
 import Portfolio from './views/Portfolio';
-import '../css/app.css';
+import '../sass/app.scss';
 
 window.Form = Form;
 Vue.component( HasError.name, HasError );

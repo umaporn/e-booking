@@ -1,0 +1,10 @@
+body{
+    font-family: $font-normal;
+    @include font-size(18px);
+}
+
+@media (min-width: 1800px) {
+    .width-xxl{
+        max-width: 1600px;
+    }
+}
