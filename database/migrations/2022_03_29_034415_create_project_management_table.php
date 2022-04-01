@@ -75,6 +75,6 @@ class CreateProjectManagementTable extends Migration
     {
         Schema::dropIfExists('project_management');
         DB::table( 'directus_fields' )->where( 'collection', 'project_management' )->delete();
-        DB::table( 'directus_relations' )->where( 'many_collection', 'project_management' )->delete();
+        DB::table( 'directus_relations' )->delete();
     }
 }
