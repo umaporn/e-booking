@@ -111,4 +111,35 @@ return [
         "sort_field"              => null,
         "one_deselect_action"     => "nullify"
 	],
+    [
+        "many_collection"     => "floor_layout",
+        "many_field"          => "building_layout_link",
+        "one_collection"      => "building_layout",
+        "one_deselect_action" => "nullify",
+    ],
+    [
+        "many_collection"     => "unit_layout",
+        "many_field"          => "floor_layout_link",
+        "one_collection"      => "floor_layout",
+        "one_deselect_action" => "nullify",
+    ],
+    [
+        "many_collection"     => "project_management",
+        "many_field"          => "building_layout_id",
+        "one_collection"      => "building_layout",
+        "one_deselect_action" => "nullify",
+    ],
+    [
+        "many_collection"     => "project_management",
+        "many_field"          => "floor_layout_id",
+        "one_collection"      => "floor_layout",
+        "one_deselect_action" => "nullify",
+    ],
+    [
+        "many_collection"     => "project_management",
+        "many_field"          => "unit_layout_id",
+        "one_collection"      => "unit_layout",
+        "one_deselect_action" => "nullify",
+    ],
+
 ];

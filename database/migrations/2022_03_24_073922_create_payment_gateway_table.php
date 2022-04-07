@@ -23,7 +23,7 @@ class CreatePaymentGatewayTable extends Migration
             $table->string( 'm_id', 255 );
             $table->string( 'currency', 255 );
             $table->string( 'test_amount_pay', 255 );
-            $table->timestamp( 'updated_at' );
+            $table->timestamp( 'updated_at' )->nullable();
             $table->timestamp( 'created_at' )->useCurrent();
         });
     }

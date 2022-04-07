@@ -19,7 +19,7 @@ class CreateFloorLayoutTable extends Migration
             $table->string( 'floor_layout_name_thai', 255 );
             $table->string( 'floor_layout_image', 255 );
             $table->string( 'building_layout_link', 255 );
-            $table->timestamp( 'updated_at' );
+            $table->timestamp( 'updated_at' )->nullable();
             $table->timestamp( 'created_at' )->useCurrent();
         });
     }

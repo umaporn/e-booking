@@ -61,7 +61,7 @@ class CreateProjectManagementTable extends Migration
             $table->datetime( 'publish_date' );
             $table->string( 'feature_property', 255 );
             $table->string( 'status', 255 );
-            $table->timestamp( 'updated_at' );
+            $table->timestamp( 'updated_at' )->nullable();
             $table->timestamp( 'created_at' )->useCurrent();
         });
     }

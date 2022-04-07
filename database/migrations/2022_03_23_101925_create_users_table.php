@@ -39,7 +39,7 @@ class CreateUsersTable extends Migration
             $table->string( 'contact_country', 255 );
             $table->string( 'contact_postal_code', 10 );
             $table->string( 'status', 10 );
-            $table->timestamp( 'updated_at' );
+            $table->timestamp( 'updated_at' )->nullable();
             $table->timestamp( 'created_at' )->useCurrent();
         } );
     }

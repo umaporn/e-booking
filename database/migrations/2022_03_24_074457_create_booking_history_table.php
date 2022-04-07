@@ -24,7 +24,7 @@ class CreateBookingHistoryTable extends Migration
             $table->date( 'booking_date' );
             $table->string( 'booking_status', 255 );
             $table->string( 'booking_log', 255 );
-            $table->timestamp( 'updated_at' );
+            $table->timestamp( 'updated_at' )->nullable();
             $table->timestamp( 'created_at' )->useCurrent();
         });
     }

@@ -22,7 +22,7 @@ class CreateUnitLabelTable extends Migration
             $table->string( 'icon', 255 );
             $table->datetime( 'publish_date' );
             $table->string( 'status', 255 );
-            $table->timestamp( 'updated_at' );
+            $table->timestamp( 'updated_at' )->nullable();
             $table->timestamp( 'created_at' )->useCurrent();
         });
     }

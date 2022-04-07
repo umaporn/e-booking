@@ -29,7 +29,7 @@ class CreateBannerTable extends Migration
             $table->string( 'expired_status', 255 );
             $table->datetime( 'expired_date' );
             $table->string( 'banner_status', 255 );
-            $table->timestamp( 'updated_at' );
+            $table->timestamp( 'updated_at' )->nullable();
             $table->timestamp( 'created_at' )->useCurrent();
         } );
     }

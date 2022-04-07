@@ -25,7 +25,7 @@ class CreateSaleManagementTable extends Migration
             $table->string( 'cc_email', 10 );
             $table->date( 'date' );
             $table->string( 'sales_status', 255 );
-            $table->timestamp( 'updated_at' );
+            $table->timestamp( 'updated_at' )->nullable();
             $table->timestamp( 'created_at' )->useCurrent();
         });
     }

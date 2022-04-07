@@ -19,7 +19,7 @@ class CreateUnitLayoutTable extends Migration
             $table->string( 'unit_layout_name_thai', 255 );
             $table->string( 'unit_layout_image', 255 );
             $table->string( 'floor_layout_link', 255 );
-            $table->timestamp( 'updated_at' );
+            $table->timestamp( 'updated_at' )->nullable();
             $table->timestamp( 'created_at' )->useCurrent();
         });
     }

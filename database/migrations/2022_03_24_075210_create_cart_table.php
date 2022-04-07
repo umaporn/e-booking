@@ -20,7 +20,7 @@ class CreateCartTable extends Migration
             $table->string( 'unit_id', 255 );
             $table->string( 'booking_price', 255 );
             $table->date( 'add_cart_date' );
-            $table->timestamp( 'updated_at' );
+            $table->timestamp( 'updated_at' )->nullable();
             $table->timestamp( 'created_at' )->useCurrent();
         });
     }

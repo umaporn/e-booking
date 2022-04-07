@@ -245,7 +245,7 @@ return [
         [
             'collection'      => 'banner',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -263,7 +263,7 @@ return [
         [
             'collection'      => 'banner',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -936,7 +936,7 @@ return [
         [
             'collection'      => 'users',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -954,7 +954,7 @@ return [
         [
             'collection'      => 'users',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -1154,7 +1154,7 @@ return [
         [
             'collection'      => 'booking_history',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -1172,7 +1172,7 @@ return [
         [
             'collection'      => 'booking_history',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -1301,7 +1301,7 @@ return [
         [
             'collection'      => 'cart',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -1319,7 +1319,7 @@ return [
         [
             'collection'      => 'cart',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -1502,7 +1502,7 @@ return [
         [
             'collection'      => 'faq',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -1520,7 +1520,7 @@ return [
         [
             'collection'      => 'faq',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -1760,7 +1760,7 @@ return [
 
             'collection'      => 'how_to_booking',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -1779,7 +1779,7 @@ return [
 
             'collection'      => 'how_to_booking',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -1817,7 +1817,7 @@ return [
         [
             'collection'      => 'payment_gateway',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -1835,7 +1835,7 @@ return [
         [
             'collection'      => 'payment_gateway',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -2701,7 +2701,7 @@ return [
         [
             'collection'      => 'project_management',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -2719,7 +2719,7 @@ return [
         [
             'collection'      => 'project_management',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -2934,7 +2934,7 @@ return [
         ],
         [
             'collection'      => 'project_management',
-            'field'           => 'building_layout',
+            'field'           => 'building_layout_id',
             'special'         => 'm2o',
             'interface'       => 'select-dropdown-m2o',
             'options'         => '{"template":"{{building_layout_name_english}}"}',
@@ -2952,7 +2952,7 @@ return [
         ],
         [
             'collection'      => 'project_management',
-            'field'           => 'unit_layout',
+            'field'           => 'unit_layout_id',
             'special'         => 'm2o',
             'interface'       => 'select-dropdown-m2o',
             'options'         => '{"template":"{{unit_layout_name_english}}"}',
@@ -2970,7 +2970,7 @@ return [
         ],
         [
             'collection'      => 'project_management',
-            'field'           => 'floor_layout',
+            'field'           => 'floor_layout_id',
             'special'         => 'm2o',
             'interface'       => 'select-dropdown-m2o',
             'options'         => '{"template":"{{floor_layout_name_english}}"}',
@@ -3009,7 +3009,7 @@ return [
         [
             'collection'      => 'building_layout',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -3027,7 +3027,7 @@ return [
         [
             'collection'      => 'building_layout',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -3155,7 +3155,7 @@ return [
         [
             'collection'      => 'floor_layout',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -3173,7 +3173,7 @@ return [
         [
             'collection'      => 'floor_layout',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -3247,7 +3247,7 @@ return [
         [
             'collection'      => 'unit_layout',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -3265,7 +3265,7 @@ return [
         [
             'collection'      => 'unit_layout',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -3339,8 +3339,8 @@ return [
             'field'           => 'floor_layout_link',
             'special'         => 'm2o',
             'interface'       => 'select-dropdown-m2o',
-            'options'         => null,
-            'display'         => null,
+            'options'         => '{"template":"{{floor_layout_name_english}}"}',
+            'display'         => 'select-dropdown-m2o',
             'display_options' => null,
             'readonly'        => 0,
             'hidden'          => 0,
@@ -3501,7 +3501,7 @@ return [
         [
             'collection'      => 'project_status',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -3519,7 +3519,7 @@ return [
         [
             'collection'      => 'project_status',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -3642,7 +3642,7 @@ return [
         [
             'collection'      => 'project_type',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -3660,7 +3660,7 @@ return [
         [
             'collection'      => 'project_type',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -3896,7 +3896,7 @@ return [
         [
             'collection'      => 'promotion',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -3914,7 +3914,7 @@ return [
         [
             'collection'      => 'promotion',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -4499,7 +4499,7 @@ return [
         ],
         [ 'collection'      => 'unit',
           'field'           => 'updated_at',
-          'special'         => null,
+          'special'         => 'date-created,date-updated',
           'interface'       => null,
           'options'         => null,
           'display'         => null,
@@ -4516,7 +4516,7 @@ return [
         ],
         [ 'collection'      => 'unit',
           'field'           => 'created_at',
-          'special'         => null,
+          'special'         => 'date-created',
           'interface'       => null,
           'options'         => null,
           'display'         => null,
@@ -5145,7 +5145,7 @@ return [
         ],
         [ 'collection'      => 'unit',
           'field'           => 'updated_at',
-          'special'         => null,
+          'special'         => 'date-created,date-updated',
           'interface'       => null,
           'options'         => null,
           'display'         => null,
@@ -5162,7 +5162,7 @@ return [
         ],
         [ 'collection'      => 'unit',
           'field'           => 'created_at',
-          'special'         => null,
+          'special'         => 'date-created',
           'interface'       => null,
           'options'         => null,
           'display'         => null,
@@ -5431,7 +5431,7 @@ return [
         [
             'collection'      => 'unit_label',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -5449,7 +5449,7 @@ return [
         [
             'collection'      => 'unit_label',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -5623,7 +5623,7 @@ return [
         [
             'collection'      => 'sale_management',
             'field'           => 'updated_at',
-            'special'         => null,
+            'special'         => 'date-created,date-updated',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
@@ -5641,7 +5641,7 @@ return [
         [
             'collection'      => 'sale_management',
             'field'           => 'created_at',
-            'special'         => null,
+            'special'         => 'date-created',
             'interface'       => null,
             'options'         => null,
             'display'         => null,
