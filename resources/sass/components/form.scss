@@ -1,4 +1,26 @@
 .online-form {
+    .form-group {
+        @include media-breakpoint-up(xl) {
+            margin-bottom: 0;
+            padding: $space-box 0;
+        }
+
+        label{
+            color: $color-text-nd;
+            @include font-size(14px);
+            margin-bottom: 0;
+        }
+    }
+
+    .form-control {
+        border-radius: 0;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: $color-text-st;
+        color: $color-text-st;
+    }
+
     &.search {
         background-color: white;
         box-shadow: $box-shadow;
@@ -16,27 +38,6 @@
             @include media-breakpoint-down(lg){
                 padding: $space-box $space-box 0;
             }
-        }
-
-        .form-group {
-            @include media-breakpoint-up(xl) {
-                margin-bottom: 0;
-                padding: $space-box 0;
-            }
-
-            label{
-                color: $color-text-nd;
-                @include font-size(14px);
-                margin-bottom: 0;
-            }
-        }
-
-        .form-control {
-            border-radius: 0;
-            border-top-color: transparent;
-            border-left-color: transparent;
-            border-right-color: transparent;
-            border-bottom-color: $color-text-st;
         }
 
         .search-button {

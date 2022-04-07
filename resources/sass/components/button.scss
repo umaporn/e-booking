@@ -1,0 +1,39 @@
+.button {
+    display: inline-block;
+    padding: $space-box/2 $space-box;
+    border-radius: 0;
+
+    &.link {
+        background-color: $color-link;
+        color: white;
+
+        &:hover {
+            background-color: $color-text-st;
+        }
+    }
+
+    &.more-text {
+        color: $color-text-st;
+        white-space: nowrap;
+
+        &:hover {
+            color: $color-link;
+
+            &::after {
+                border-bottom-color: $color-link;
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            &::after {
+                content: "";
+                display: inline-block;
+                border-bottom: 1px solid $color-text-st;
+                width: 50px;
+                height: 1px;
+                margin-left: $space-box/4;
+                margin-bottom: $space-box/10 * 2;
+            }
+        }
+    }
+}

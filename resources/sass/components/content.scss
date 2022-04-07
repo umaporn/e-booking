@@ -12,33 +12,90 @@ $colors: (
         }
     }
 
-    &.header{
+    &.header {
         font-family: $font-bold;
-        @include font-size(50px);
+        @include font-size(48px);
         text-transform: uppercase;
     }
 
-    &.sub-header{
+    &.sub-header {
         font-family: $font-bold;
+        @include font-size(32px);
+        text-transform: uppercase;
+    }
+
+    &.sub-text {
+        color: $color-text-nd;
+        @include font-size(18px);
+    }
+
+    &.sub-text-small {
+        color: $color-text-nd;
+        @include font-size(12px);
+    }
+
+    &.title {
         @include font-size(34px);
+        font-family: $font-bold;
         text-transform: uppercase;
     }
 
-    &.sub-text{
-        color:$color-text-nd;
+    &.sub-title {
         @include font-size(20px);
-    }
-
-    &.title{
-        @include font-size(36px);
         font-family: $font-bold;
     }
 
-    &.color-link{
+    &.font-bold {
+        font-family: $font-bold;
+    }
+
+    &.color-link {
         color: $color-link;
     }
 
-    &.color-white{
+    &.color-white {
         color: white;
+    }
+
+    &.content-padding {
+        padding-top: $space-box * 2;
+        padding-bottom: $space-box * 2;
+
+        @include media-breakpoint-up(xl) {
+            padding-top: $space-box * 4;
+            padding-bottom: $space-box * 4;
+        }
+    }
+
+    &.image-4by3 {
+        position: relative;
+        padding-top: 75%;
+        width: 100%;
+        overflow: hidden;
+
+        > img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &.image-16by9 {
+        position: relative;
+        padding-top: 56.25%;
+        width: 100%;
+        overflow: hidden;
+
+        > img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 }

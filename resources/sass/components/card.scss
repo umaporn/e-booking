@@ -1,0 +1,661 @@
+.card-benefit {
+    @include media-breakpoint-down(lg) {
+        margin-bottom: $space-box;
+    }
+    .image-icon {
+        background: $color-link;
+        border-radius: $border-radius;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 54px;
+        height: 54px;
+        width: 100%;
+        margin-bottom: 0;
+        margin-right: $space-box/4;
+
+        img {
+            filter: $color-svg-white;
+            width: 26px;
+        }
+    }
+
+    .benefit-header {
+        font-family: $font-bold;
+        color: $color-text-th;
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+}
+
+.card-proprety-highlight {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    box-shadow: $box-shadow-small;
+
+    .image {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin-bottom: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .detail {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: $space-box;
+        left: 0;
+        top: 0;
+
+        .box {
+            width: 100%;
+            height: 100%;
+            border: 1px solid white;
+            padding: $space-box;
+            display: block;
+
+            &:hover {
+                background-color: rgba(black, 0.3);
+                .link {
+                    background-color: $color-text-st;
+                }
+            }
+
+            .online-content {
+                text-shadow: $text-shadow;
+            }
+        }
+    }
+}
+.card-project-highlight {
+    position: relative;
+    box-shadow: $box-shadow-small;
+    height: 100%;
+
+    @include media-breakpoint-down(md) {
+        height: auto;
+    }
+
+    .box-click {
+        display: block;
+        background-color: white;
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+
+        &:hover {
+            .image {
+                img {
+                    transform: scale(1.1, 1.1);
+                }
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            background: rgb(36, 34, 34);
+            background: linear-gradient(
+                0deg,
+                rgba(36, 34, 34, 1) 0%,
+                rgba(25, 25, 25, 0) 50%
+            );
+            width: 100%;
+            height: 100%;
+            left: 0;
+            bottom: 5px;
+            z-index: 1;
+        }
+    }
+
+    .image {
+        position: relative;
+        border-bottom: 5px solid $color-text-nd;
+        margin-bottom: $space-box/4;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+
+        @include media-breakpoint-down(md) {
+            padding-top: 56.25%;
+            height: auto;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: $transition;
+        }
+    }
+
+    .status {
+        position: absolute;
+        color: white;
+        text-transform: uppercase;
+        top: 0;
+        left: 0;
+        @include font-size(14px);
+        font-family: $font-bold;
+        z-index: 2;
+
+        .move {
+            background-color: $color-text-th;
+            padding: $space-box/10 $space-box/2;
+        }
+
+        .new {
+            background-color: $color-link;
+            padding: $space-box/10 $space-box/2;
+            display: inline-block;
+        }
+    }
+
+    .name {
+        background-color: $color-text-nd;
+        color: white;
+        @include font-size(14px);
+        padding: $space-box/10 $space-box/2;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+    }
+
+    .detail {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: white;
+        padding-left: $space-box;
+        padding-bottom: $space-box;
+        z-index: 2;
+    }
+
+    .sub-title {
+        color: white;
+        max-height: 56px;
+        overflow: hidden;
+    }
+
+    .sub-text {
+        color: white;
+    }
+
+    .location {
+        max-height: 56px;
+        overflow: hidden;
+
+        img {
+            filter: $color-svg-white;
+        }
+    }
+}
+
+.card-project {
+    position: relative;
+    box-shadow: $box-shadow-small;
+
+    .box-click {
+        display: block;
+        background-color: white;
+        overflow: hidden;
+        position: relative;
+
+        &:hover {
+            text-decoration: none;
+
+            .image {
+                img {
+                    transform: scale(1.1, 1.1);
+                }
+            }
+
+            .button {
+                background-color: $color-text-st;
+            }
+        }
+
+        .logo {
+            position: absolute;
+            background-color: white;
+            right: -40px;
+            top: -40px;
+            z-index: 3;
+            border-radius: 100%;
+            height: 120px;
+            width: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 25px;
+            padding-top: 30px;
+
+            img {
+                width: 60px;
+            }
+        }
+
+        .detail {
+            padding: $space-box/2 $space-box/2 0;
+            height: 208px;
+            overflow: hidden;
+        }
+
+        .image {
+            position: relative;
+            border-bottom: 5px solid $color-text-nd;
+            margin-bottom: $space-box/4;
+            padding-top: 56.25%;
+            width: 100%;
+            overflow: hidden;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: $transition;
+            }
+        }
+
+        .status {
+            position: absolute;
+            color: white;
+            text-transform: uppercase;
+            top: 0;
+            left: 0;
+            @include font-size(14px);
+            font-family: $font-bold;
+
+            .move {
+                background-color: $color-text-th;
+                padding: $space-box/10 $space-box/2;
+            }
+
+            .new {
+                background-color: $color-link;
+                padding: $space-box/10 $space-box/2;
+                display: inline-block;
+            }
+        }
+
+        .name {
+            background-color: $color-text-nd;
+            color: white;
+            @include font-size(14px);
+            padding: $space-box/10 $space-box/2;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        .property-type {
+            text-transform: capitalize;
+            color: $color-text-st;
+
+            &::before {
+                content: "";
+                display: inline-block;
+                background-color: $color-bg-3;
+                height: 10px;
+                width: 10px;
+                border-radius: $space-box/10;
+                margin-right: $space-box/4;
+            }
+        }
+
+        .sub-title {
+            color: $color-text-st;
+            max-height: 56px;
+            overflow: hidden;
+        }
+
+        .location {
+            max-height: 56px;
+            overflow: hidden;
+
+            img {
+                filter: $color-svg-icon;
+            }
+        }
+    }
+}
+
+.card-project-unit {
+    position: relative;
+    box-shadow: $box-shadow-small;
+
+    .icons {
+        position: absolute;
+        top: $space-box/2;
+        right: $space-box/2;
+        z-index: 3;
+
+        .icon {
+            background-color: $color-bg-2;
+            border-radius: $border-radius-round;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: $space-box/4;
+
+            img {
+                filter: $color-svg-icon;
+            }
+
+            &.icon-fav {
+                &:hover,
+                &.active {
+                    img {
+                        filter: $color-svg-fav;
+                    }
+                }
+            }
+
+            &.icon-compare {
+                &:hover,
+                &.active {
+                    background-color: $color-link;
+
+                    img {
+                        filter: $color-svg-white;
+                    }
+                }
+            }
+        }
+    }
+
+    .box-click {
+        display: block;
+        background-color: white;
+        overflow: hidden;
+
+        &:hover {
+            text-decoration: none;
+
+            .image {
+                img {
+                    transform: scale(1.1, 1.1);
+                }
+            }
+
+            .booking {
+                .booking-button {
+                    background-color: $color-text-st;
+                }
+            }
+        }
+
+        .detail {
+            padding: $space-box/2 $space-box/2 0;
+            height: 164px;
+            overflow: hidden;
+        }
+
+        .image {
+            position: relative;
+            border-bottom: 5px solid $color-text-nd;
+            margin-bottom: $space-box/4;
+            padding-top: 75%;
+            width: 100%;
+            overflow: hidden;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: $transition;
+            }
+        }
+
+        .status {
+            position: absolute;
+            color: white;
+            text-transform: uppercase;
+            top: 0;
+            left: 0;
+            @include font-size(14px);
+            font-family: $font-bold;
+
+            .move {
+                background-color: $color-text-th;
+                padding: $space-box/10 $space-box/2;
+            }
+
+            .new {
+                background-color: $color-link;
+                padding: $space-box/10 $space-box/2;
+                display: inline-block;
+            }
+        }
+
+        .unit-no {
+            background-color: $color-text-nd;
+            color: white;
+            @include font-size(14px);
+            padding: $space-box/10 $space-box/2;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        .type {
+            display: flex;
+            color: $color-text-st;
+            justify-content: space-between;
+            margin-bottom: $space-box/4;
+
+            p {
+                margin-bottom: 0;
+            }
+
+            .property-type {
+                text-transform: capitalize;
+
+                &::before {
+                    content: "";
+                    display: inline-block;
+                    background-color: $color-bg-3;
+                    height: 10px;
+                    width: 10px;
+                    border-radius: $space-box/10;
+                    margin-right: $space-box/4;
+                }
+            }
+
+            .sub-type {
+                display: flex;
+            }
+        }
+
+        .sub-title {
+            color: $color-text-st;
+            max-height: 56px;
+            overflow: hidden;
+        }
+
+        .location {
+            max-height: 56px;
+            overflow: hidden;
+
+            img {
+                filter: $color-svg-icon;
+            }
+        }
+
+        .booking {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+
+            .price {
+                background-color: $color-bg-2;
+                padding: $space-box/2;
+                width: 100%;
+            }
+
+            .price-booking {
+                color: $color-link;
+                @include font-size(28px);
+                font-family: $font-bold;
+                margin-bottom: 0%;
+                transition: $transition;
+            }
+
+            .price-show {
+                color: $color-text-st;
+                margin-bottom: $space-box/4;
+
+                &::before {
+                    content: "฿";
+                    display: inline-block;
+                    margin-right: $space-box/10;
+                }
+
+                span {
+                    color: $color-text-th;
+                    @include font-size(14px);
+                    text-decoration: line-through;
+
+                    &::before {
+                        content: "฿";
+                        display: inline-block;
+                        margin-right: $space-box/10;
+                    }
+                }
+            }
+
+            .booking-button {
+                transition: $transition;
+                color: white;
+                background-color: $color-link;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                flex-shrink: 1;
+            }
+        }
+    }
+}
+.card-video-highlight {
+    margin-bottom: $space-box;
+
+    .box-click {
+        position: relative;
+        color: $color-text-st;
+
+        &:hover {
+            figure {
+                > img {
+                    transform: scale(1.1, 1.1);
+                }
+            }
+        }
+    }
+
+    .image-box {
+        position: relative;
+        overflow: hidden;
+
+        img {
+            transition: $transition;
+        }
+
+        .icon {
+            position: absolute;
+            filter: $color-svg-white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .detail {
+        .sub-title {
+            max-height: 60px;
+            overflow: hidden;
+        }
+
+        .tag {
+            @include font-size(16px);
+        }
+    }
+}
+
+.card-video {
+    margin-bottom: $space-box;
+
+    .box-click {
+        display: flex;
+        color: $color-text-st;
+
+        &:hover {
+            figure {
+                > img {
+                    transform: scale(1.1, 1.1);
+                }
+            }
+        }
+    }
+
+    .image-box {
+        flex: 0 0 45%;
+        position: relative;
+        overflow: hidden;
+
+        @include media-breakpoint-up(md) {
+            flex: 0 0 35%;
+        }
+
+        img {
+            transition: $transition;
+        }
+
+        .icon {
+            position: absolute;
+            filter: $color-svg-white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    .detail {
+        flex: 0 0 55%;
+        padding-left: $space-box/4 * 3;
+
+        @include media-breakpoint-up(md) {
+            flex: 0 0 65%;
+        }
+
+        .sub-title {
+            max-height: 60px;
+            overflow: hidden;
+        }
+
+        .tag {
+            @include font-size(16px);
+        }
+    }
+}

@@ -1,10 +1,24 @@
-body{
+body {
     font-family: $font-normal;
-    @include font-size(18px);
+    @include font-size(16px);
 }
 
 @media (min-width: 1800px) {
-    .width-xxl{
+    .container ,.width-xxl{
         max-width: 1600px;
+    }
+}
+
+p {
+    margin-top: 0;
+}
+
+a{
+    color: $color-link;
+    transition: $transition;
+
+    &:hover{
+        color: lighten($color-link, 20%);
+        text-decoration: none;
     }
 }

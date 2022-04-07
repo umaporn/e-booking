@@ -1,5 +1,5 @@
 .online-home {
-    .highlight-homepage {
+    .home-highlight {
         position: relative;
         overflow-x: hidden;
         width: 100vw;
@@ -40,19 +40,19 @@
     }
 
     .home-search {
-        padding-bottom: 20px;
+        padding-bottom: $space-box * 2;
 
         @include media-breakpoint-up(xl) {
             position: relative;
             z-index: 3;
-            padding-top: 180px;
-            padding-bottom: 50px;
+            padding-top: $space-box * 9;
+            padding-bottom: $space-box * 5;
         }
 
         &-mobile {
             @include media-breakpoint-down(lg) {
-                padding-top: $space-box*2;
-                min-height: 530px;
+                padding-top: $space-box * 2;
+                min-height: 580px;
                 position: relative;
 
                 .header,
@@ -63,5 +63,15 @@
                 }
             }
         }
+    }
+
+    .home-benefits {
+        background-color: $color-bg-1;
+    }
+
+    .home-more {
+        text-align: center;
+        padding: $space-box * 2 0;
+        border-bottom: 15px solid $color-bg-2;
     }
 }
