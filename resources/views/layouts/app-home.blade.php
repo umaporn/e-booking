@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 </head>
 <body>
-    @include('layouts.header-home')
-    @yield('content')
-    @include('layouts.footer')
-    
+@include('layouts.header-home')
+@yield('content')
+@include('layouts.footer')
+
 <script src="{{ mix('js/app.js') }}"></script>
 <script src="{{ mix('js/all.js') }}"></script>
 </body>

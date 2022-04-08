@@ -28,6 +28,7 @@
     .with-icon {
         figure {
             display: inline-block;
+
             img {
                 width: 20px;
             }
@@ -61,7 +62,7 @@
     .copyright {
         @include media-breakpoint-up(md) {
             display: flex;
-            p{
+            p {
                 margin-right: $space-box*2;
             }
         }

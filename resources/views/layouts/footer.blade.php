@@ -1,4 +1,4 @@
-<footer class="online-footer">
+<footer class="online-footer mt-auto">
     <div class="container online-content content-padding">
         <div class="row">
             <div class="col-md-2 order-md-4 pt-md-5">
@@ -27,10 +27,11 @@
             <div class="col-md order-md-2">
                 <p class="header-footer">Address</p>
                 <p><b>Magnolia Quality Development Corporation Limited</b><br>
-                695 Soi Sukumvit 50,
-                Sukumvit Rd. Phrakanong,
-                Klong Toey, Bangkok
-                10260</p>
+                    695 Soi Sukumvit 50,
+                    Sukumvit Rd. Phrakanong,
+                    Klong Toey, Bangkok
+                    10260
+                </p>
             </div>
             <div class="col-md order-md-3">
                 <p class="header-footer">Connect</p>
@@ -44,10 +45,11 @@
                     <figure class="svg-white mb-0">
                         <img src="{{asset( config('images.icons.callcenter'))}}">
                     </figure>
-                    <a href="#" class="online-content color-white"> Call center :  1265</a>
+                    <a href="#" class="online-content color-white"> Call center : 1265</a>
                 </div>
-                <p class="my-0">Opening hours<br>08.00 - 22.00 hrs.</p>  
-                <p class="my-0">International Call <br><a href="#" class="online-content color-white">+662-012-4555</a></p>
+                <p class="my-0">Opening hours<br>08.00 - 22.00 hrs.</p>
+                <p class="my-0">International Call <br><a href="#" class="online-content color-white">+662-012-4555</a>
+                </p>
                 <ul class="social-footer">
                     <li><a href="#"><img src="{{asset( config('images.icons.social.fb'))}}"></a></li>
                     <li><a href="#"><img src="{{asset( config('images.icons.social.tw'))}}"></a></li>
@@ -58,7 +60,9 @@
             </div>
         </div>
         <div class="copyright mt-4">
-            <p class="online-content white mb-0">© <?php echo date( 'Y' ) ?> Magnolia Quality Development Corporation Limited. All Rights Reserved.</p>
+            <p class="online-content white mb-0">© <?php echo date( 'Y' ) ?> Magnolia Quality Development Corporation
+                                                 Limited. All Rights Reserved.
+            </p>
             <div class="policy-box">
                 <a href="#" class="my-0">Privacy</a>
                 <a href="#" class="my-0">Cookie Policy</a>

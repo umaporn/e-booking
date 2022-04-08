@@ -2,18 +2,15 @@
 @import '~bootstrap';
 @import '~bootstrap-icons/font/bootstrap-icons';
 @import '~uikit';
-
 ///////Setting
 @import 'setting/variables';
 @import 'setting/font';
 @import 'setting/base';
-
 //////Components
 @import 'components/content';
 @import 'components/form';
 @import 'components/card';
 @import 'components/button';
-
 //////Layouts
 @import 'layouts/nav';
 @import 'layouts/homepage';

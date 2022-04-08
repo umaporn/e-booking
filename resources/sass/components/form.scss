@@ -5,7 +5,7 @@
             padding: $space-box 0;
         }
 
-        label{
+        label {
             color: $color-text-nd;
             @include font-size(14px);
             margin-bottom: 0;
@@ -34,8 +34,8 @@
             padding-left: 0;
         }
 
-        .search-p-mobile{
-            @include media-breakpoint-down(lg){
+        .search-p-mobile {
+            @include media-breakpoint-down(lg) {
                 padding: $space-box $space-box 0;
             }
         }
@@ -44,7 +44,7 @@
             background-color: $color-link;
             text-align: center;
 
-            @include media-breakpoint-down(lg){
+            @include media-breakpoint-down(lg) {
                 margin-left: -$space-box;
                 margin-right: -$space-box;
             }

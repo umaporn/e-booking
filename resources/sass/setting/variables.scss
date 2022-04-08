@@ -15,7 +15,7 @@ $font-normal: "dbhelvethaicax", serif;
 $font-bold: "dbhelvethaicax-bd", serif;
 $font-footer: "vinegar", serif;
 $font-read: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
-    Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
 //font-size use rfs-css
 $enable-responsive-font-sizes: true !default;
@@ -28,33 +28,33 @@ $enable-responsive-font-sizes: true !default;
 $color-link: #37a8b8;
 $color-text-st: #000000;
 $color-text-nd: #acacac;
-$color-text-th:#505050;
+$color-text-th: #505050;
 $color-line: #acacac;
-$color-bg-1:#F8F8F8;
-$color-bg-2:#F2F2F2;
-$color-bg-3:#DDDDDD;
+$color-bg-1: #F8F8F8;
+$color-bg-2: #F2F2F2;
+$color-bg-3: #DDDDDD;
 
 //color-svg - filter:
-$color-svg-mqdc:invert(57%) sepia(34%) saturate(769%) hue-rotate(139deg) brightness(94%) contrast(87%);
-$color-svg-icon:invert(81%) sepia(0%) saturate(138%) hue-rotate(153deg) brightness(89%) contrast(90%);
-$color-svg-fav:invert(46%) sepia(99%) saturate(1291%) hue-rotate(323deg) brightness(123%) contrast(109%);
-$color-svg-white:invert(97%) sepia(100%) saturate(11%) hue-rotate(212deg) brightness(104%) contrast(102%);
+$color-svg-mqdc: invert(57%) sepia(34%) saturate(769%) hue-rotate(139deg) brightness(94%) contrast(87%);
+$color-svg-icon: invert(81%) sepia(0%) saturate(138%) hue-rotate(153deg) brightness(89%) contrast(90%);
+$color-svg-fav: invert(46%) sepia(99%) saturate(1291%) hue-rotate(323deg) brightness(123%) contrast(109%);
+$color-svg-white: invert(97%) sepia(100%) saturate(11%) hue-rotate(212deg) brightness(104%) contrast(102%);
 
 /*
 |--------------------------------------------------------------------------
 | Space
 |--------------------------------------------------------------------------
 */
-$space-box:1.25rem;
+$space-box: 1.25rem;
 
 /*
 |--------------------------------------------------------------------------
 | Style
 |--------------------------------------------------------------------------
 */
-$text-shadow: 0px 0px 10px rgba(0,0,0,0.8);
-$box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
-$box-shadow-small: 0px 0px 20px 0px rgba(0,0,0,0.2);
-$border-radius : 10px;
-$border-radius-round : 50%;
+$text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+$box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.2);
+$box-shadow-small: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+$border-radius: 10px;
+$border-radius-round: 50%;
 $transition: all 500ms ease;

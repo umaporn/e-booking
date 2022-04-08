@@ -9,7 +9,6 @@
 </head>
 <body>
 
-
 <script src="{{ mix('js/simple-lightbox.js') }}"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'logo-alt'  =>  'MQDC logo',
-    'login-alt' =>  'Login icon',
-    'menu-alt' =>  'Menu icon',
+    'logo-alt'  => 'MQDC logo',
+    'login-alt' => 'Login icon',
+    'menu-alt'  => 'Menu icon',
 ];
