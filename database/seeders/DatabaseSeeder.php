@@ -32,6 +32,8 @@ class DatabaseSeeder extends Seeder
                          PromotionFieldsSeeder::class,
                          UnitFieldsSeeder::class,
                          UnitLabelFieldsSeeder::class,
+                         UnitLabelFieldsSeeder::class,
+                         SaleManagementFieldsSeeder::class,
                          RelationFieldsSeeder::class,
                      ] );
 
