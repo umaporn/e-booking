@@ -1,0 +1,14 @@
+.uk-open, .list-faq {
+    border: 1px groove #DDDDDD;
+    border-radius: 5px;
+    padding: 2%;
+}
+
+.uk-open .uk-accordion-title {
+    color: $color-link;
+}
+
+.uk-open > .uk-accordion-title:before {
+    filter: $color-svg-mqdc;
+}
+

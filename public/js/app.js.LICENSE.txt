@@ -42,6 +42,8 @@
  * Date: 2021-03-02T17:08Z
  */
 
+/*! UIkit 3.13.5 | https://www.getuikit.com | (c) 2014 - 2022 YOOtheme | MIT License */
+
 /**
  * @license
  * Lodash <https://lodash.com/>
