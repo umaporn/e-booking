@@ -1,0 +1,26 @@
+.promotion {
+    &-tag-top {
+        background-color: #B70707;
+        color: #ffffff;
+        @include font-size(16px);
+        padding: 0.1rem 0.6rem;
+        top: 2%;
+        right: 7px;
+    }
+
+    &-tag-bottom-date {
+        background-color: $color-link;
+        color: #ffffff;
+        padding: 0 0.5rem;
+        bottom: 4%;
+        left: 10px;
+    }
+
+    &-tag-bottom-month-year {
+        background-color: #ffffff;
+        padding: 0.19rem 0.5rem;
+        bottom: 4%;
+        left: 52px;
+    }
+
+}

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\HowtoBookController;
+use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\QuestionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +28,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ThemeController;
 
 Route::get( '/', [ HomeController::class, 'index' ] );
-
+Route::get( '/promotion', [ PromotionController::class, 'index' ] );
+Route::get( '/promotion/detail', [ PromotionController::class, 'detail' ] )->name( 'promotion_detail' );
+Route::get( '/how-to-book', [ HowtoBookController::class, 'index' ] );
+Route::get( '/faq', [ QuestionsController::class, 'index' ] );
 Route::group( [ 'prefix' => 'theme' ], function(){
     Route::get( 'fullpage', [ ThemeController::class, 'fullpage' ] );
 } );
