@@ -15,7 +15,7 @@
                                 <div class="uk-position-bottom-left promotion-tag-bottom-month-year">JUL 2021</div>
                             </div>
                             <h2 class="uk-text-truncate article-title uk-margin-small-top uk-margin-small-bottom">
-                                <a class="uk-link-reset" href="http://e-booking.local/promotion/detail">WISDOM ESSENCE
+                                <a class="uk-link-reset" href="http://e-booking.local/promotion/detail">WHIZDOM ESSENCE
                                                                                                         SUKHUMVIT</a>
                             </h2>
                             <span class="article-sub-title article-content">LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD.</span>
@@ -30,7 +30,7 @@
                                 <div class="uk-position-bottom-left promotion-tag-bottom-month-year">JUL 2021</div>
                             </div>
                             <h2 class="uk-text-truncate article-title uk-margin-small-top uk-margin-small-bottom">
-                                <a class="uk-link-reset" href="http://e-booking.local/promotion/detail">WISDOM ESSENCE
+                                <a class="uk-link-reset" href="http://e-booking.local/promotion/detail">WHIZDOM ESSENCE
                                                                                                         SUKHUMVIT</a>
                             </h2>
                             <span class="article-sub-title article-content">LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD.</span>
@@ -45,7 +45,7 @@
                                 <div class="uk-position-bottom-left promotion-tag-bottom-month-year">JUL 2021</div>
                             </div>
                             <h2 class="uk-text-truncate article-title uk-margin-small-top uk-margin-small-bottom">
-                                <a class="uk-link-reset" href="http://e-booking.local/promotion/detail">WISDOM ESSENCE
+                                <a class="uk-link-reset" href="http://e-booking.local/promotion/detail">WHIZDOM ESSENCE
                                                                                                         SUKHUMVIT</a>
                             </h2>
                             <span class="article-sub-title article-content">LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD.</span>
@@ -60,7 +60,7 @@
                                 <div class="uk-position-bottom-left promotion-tag-bottom-month-year">JUL 2021</div>
                             </div>
                             <h2 class="uk-text-truncate article-title uk-margin-small-top uk-margin-small-bottom">
-                                <a class="uk-link-reset" href="http://e-booking.local/promotion/detail">WISDOM ESSENCE
+                                <a class="uk-link-reset" href="http://e-booking.local/promotion/detail">WHIZDOM ESSENCE
                                                                                                         SUKHUMVIT</a>
                             </h2>
                             <span class="article-sub-title article-content">LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD.</span>
@@ -75,7 +75,7 @@
                                 <div class="uk-position-bottom-left promotion-tag-bottom-month-year">JUL 2021</div>
                             </div>
                             <h2 class="uk-text-truncate article-title uk-margin-small-top uk-margin-small-bottom">
-                                <a class="uk-link-reset" href="http://e-booking.local/promotion/detail">WISDOM ESSENCE
+                                <a class="uk-link-reset" href="http://e-booking.local/promotion/detail">WHIZDOM ESSENCE
                                                                                                         SUKHUMVIT</a>
                             </h2>
                             <span class="article-sub-title article-content">LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD.</span>
