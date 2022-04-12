@@ -27,11 +27,15 @@ Route::post( 'contact', [ ContactController::class, 'store' ] ); */
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ThemeController;
 
-Route::get( '/', [ HomeController::class, 'index' ] );
-Route::get( '/promotion', [ PromotionController::class, 'index' ] );
-Route::get( '/promotion/detail', [ PromotionController::class, 'detail' ] )->name( 'promotion_detail' );
-Route::get( '/how-to-book', [ HowtoBookController::class, 'index' ] );
-Route::get( '/faq', [ QuestionsController::class, 'index' ] );
+Route::get( '', [ HomeController::class, 'index' ] );
+Route::get( 'how-to-book', [ HowtoBookController::class, 'index' ] );
+Route::get( 'faq', [ QuestionsController::class, 'index' ] );
+
+Route::group( [ 'prefix' => 'promotion' ], function(){
+    Route::get( '', [ PromotionController::class, 'index' ] )->name( 'promotion.index' );
+    Route::get( 'detail', [ PromotionController::class, 'detail' ] )->name( 'promotion.detail' );
+} );
+
 Route::group( [ 'prefix' => 'theme' ], function(){
     Route::get( 'fullpage', [ ThemeController::class, 'fullpage' ] );
 } );
