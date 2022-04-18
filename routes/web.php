@@ -1,10 +1,5 @@
 <?php
 
-use App\Http\Controllers\HowtoBookController;
-use App\Http\Controllers\PromotionController;
-use App\Http\Controllers\QuestionsController;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,16 +11,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//////From Theme Starter kits
-/* use App\Http\Controllers\ContactController;
-use App\Http\Controllers\SpaController;
-
-Route::get( '/{any}', [ SpaController::class, 'index' ] )->where( 'any', '.*' );
-Route::get( 'contact', [ ContactController::class, 'index' ] );
-Route::post( 'contact', [ ContactController::class, 'store' ] ); */
-
+use App\Http\Controllers\HowtoBookController;
+use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\QuestionsController;
+use App\Http\Controllers\LanguageController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ThemeController;
+use App\Libraries\Utility;
+
+
+foreach( config( 'app.language_codes' ) as $languageCode ){
+
+    $routePrefix = '';
+    $urlPrefix   = '';
+
+    if( $languageCode !== Utility::getDefaultLanguageCode() ){
+        $urlPrefix   = $languageCode;
+        $routePrefix = $languageCode . '-';
+    }
+
+    Route::group( [ 'prefix' => $urlPrefix, 'as' => $routePrefix ], function(){
+        globalRoutes();
+    } );
+
+}
+
+function globalRoutes(){
+
+    Route::get( 'language/{languageCode}', [ LanguageController::class, 'changeLanguage' ] )->name( 'language.change' );
+    Route::get( '/', [ HomeController::class, 'homepage' ] );
+
+}
 
 Route::get( '', [ HomeController::class, 'index' ] );
 Route::get( 'how-to-book', [ HowtoBookController::class, 'index' ] );

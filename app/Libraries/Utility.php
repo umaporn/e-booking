@@ -19,7 +19,7 @@ class Utility
      *
      * @return string String Base URL
      */
-    public function getBaseUrl()
+    public static function getBaseUrl()
     {
         $protocol = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] === 'on' ) ? 'https' : 'http';
 
@@ -54,9 +54,9 @@ class Utility
      *
      * @return string Old language code
      */
-    private function getOldLanguageCode()
+    public static function getOldLanguageCode()
     {
-        $oldCodeRegex = '@^' . $this->getBaseUrl() . '/(\w+)@';
+        $oldCodeRegex = '@^' . Utility::getBaseUrl() . '/(\w+)@';
 
         preg_match( $oldCodeRegex, url()->previous(), $match );
 
@@ -74,7 +74,7 @@ class Utility
      *
      * @return string Default language code
      */
-    public function getDefaultLanguageCode()
+    public static function getDefaultLanguageCode()
     {
         return config( 'app.fallback_locale' );
     }
@@ -86,15 +86,15 @@ class Utility
      *
      * @return string Redirected URL
      */
-    public function getRedirectedUrl( string $languageCode )
+    public static function getRedirectedUrl( string $languageCode )
     {
         $redirectedUrl = url()->previous();
 
         if( in_array( $languageCode, config( 'app.language_codes' ) ) ){
 
-            $baseUrl       = $this->getBaseUrl();
-            $oldCode       = $this->getOldLanguageCode();
-            $newCode       = $languageCode !== $this->getDefaultLanguageCode() ? $languageCode : '';
+            $baseUrl       = Utility::getBaseUrl();
+            $oldCode       = Utility::getOldLanguageCode();
+            $newCode       = $languageCode !== Utility::getDefaultLanguageCode() ? $languageCode : '';
             $regex         = '@^' . $baseUrl . ( $oldCode ? '(/' . $oldCode . '(/.+)|/' . $oldCode . '$)' : '(/.+)?' ) . '@';
             $replacement   = $baseUrl . ( $newCode ? '/' . $newCode : '' ) . ( $oldCode ? '${2}' : '${1}' );
             $redirectedUrl = preg_replace( $regex, $replacement, $redirectedUrl );
