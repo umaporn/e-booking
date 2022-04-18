@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
                          UnitLabelFieldsSeeder::class,
                          UnitLabelFieldsSeeder::class,
                          SaleManagementFieldsSeeder::class,
+                         ProjectPreviewFieldsSeeder::class,
                          RelationFieldsSeeder::class,
                      ] );
 
