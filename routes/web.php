@@ -44,7 +44,7 @@ function globalRoutes(){
 
 }
 
-Route::get( '', [ HomeController::class, 'index' ] );
+//Route::get( '', [ HomeController::class, 'index' ] );
 Route::get( 'how-to-book', [ HowtoBookController::class, 'index' ] );
 Route::get( 'faq', [ QuestionsController::class, 'index' ] );
 

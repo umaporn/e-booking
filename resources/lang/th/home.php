@@ -19,4 +19,7 @@ return [
     'page_description' => [
         'index' => 'เอ็มคิวดีซี (MQDC) ดำเนินงานภายใต้พันธกิจ ‘For All Well-Being’ ที่เชื่อว่าสรรพสิ่งในโลกสามารถอยู่ร่วมกันอย่างยั่งยืนได้',
     ],
+    'feature-unit'     => [
+        'booking_price' => 'จอง',
+    ],
 ];
