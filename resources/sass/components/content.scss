@@ -115,3 +115,19 @@ $colors: (
     }
 
 }
+.uk-totop {
+    color: #333;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    right: 3%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background: transparent url('/images/icons/icon-to-top.svg') 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.uk-icon>* {
+    display: none;
+}
