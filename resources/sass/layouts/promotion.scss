@@ -8,19 +8,20 @@
         right: 7px;
     }
 
+    &-tag-bottom {
+        width: 10rem;
+        bottom: 0.4rem;
+        left: 7px;
+    }
+
     &-tag-bottom-date {
         background-color: $color-link;
         color: #ffffff;
-        padding: 0 0.5rem;
-        bottom: 4%;
-        left: 10px;
     }
 
     &-tag-bottom-month-year {
         background-color: #ffffff;
-        padding: 0.19rem 0.5rem;
-        bottom: 4%;
-        left: 52px;
+        @include font-size(18px);
     }
 
 }
