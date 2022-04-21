@@ -22,6 +22,34 @@ class ProjectModel extends Model
     }
 
     /**
+     * Get Project property list
+     *
+     * @return mixed
+     */
+    public function project_property()
+    {
+        $result = $this->where( 'status', 'publish' )
+                       ->where( 'feature_property', 'yes' )
+                       ->orderby( 'publish_date', 'DESC' )
+                       ->get();
+
+        return $this->transformContent( $result );
+    }
+
+    public function getSearchOption()
+    {
+        $searchOption = $this->where( 'status', 'publish' )
+                             ->get( [ 'project_location_english', 'project_location_thai', 'project_name_english', 'project_name_thai' ] );
+
+        foreach( $searchOption as $list ){
+            $list->setAttribute( 'project_title', Utility::getLanguageFields( 'project_name', $list ) );
+            $list->setAttribute( 'location', Utility::getLanguageFields( 'project_location', $list ) );
+        }
+
+        return $searchOption;
+    }
+
+    /**
      * Transform Project data
      *
      * @param $content

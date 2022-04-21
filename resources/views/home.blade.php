@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="col-6 col-xl">
                                         <div class="form-group">
-                                            <label for="priceSelect">Price</label>
+                                            <label for="priceSelect">@lang('home.search.price.title')</label>
                                             <select class="form-control uk-select" id="priceSelect">
                                                 <option>Select Price</option>
                                                 <option>2</option>
@@ -107,164 +107,7 @@
                 </div>
             </article>
         </section>
-        <section class="home-property">
-            <div class="container online-content content-padding">
-                <h2 class="online-content title mb-0">FEATURED PROPERTY</h2>
-                <span class="online-content sub-text">The list of properties that reach great popularity</span>
-                <div class="row mt-5">
-                    <div class="col-xl-6 mb-3 mb-xl-0 px-xl-0 order-xl-2">
-                        <article class="card-proprety-highlight">
-                            <figure class="image">
-                                <img src="images/theme/example-img-banner-01.jpg" alt="">
-                            </figure>
-                            <section class="detail">
-                                <a href="#" target="_blank" class="box">
-                                    <h2 class="online-content sub-header color-white mb-0">Mulberry Grove</h2>
-                                    <p class="online-content color-white mb-2">The Forestias Condominiums</p>
-                                    <button class="btn button link">View Project</button>
-                                </a>
-                            </section>
-                        </article>
-                    </div>
-                    <div class="col-xl-6 order-xl-1">
-                        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
-                            <ul class="uk-slider-items uk-grid uk-grid-small">
-                                @for ($i = 0; $i < 2; $i++)
-                                    <li class="uk-width-4-5 uk-width-1-2@s">
-                                        <article class="card-project-unit">
-                                            <section class="icons">
-                                                <a href="#" class="icon icon-fav">
-                                                    <img src="{{asset( config('images.icons.favorite'))}}" alt="favorite icon">
-                                                </a>
-                                                <a href="#" class="icon icon-compare">
-                                                    <img src="{{asset( config('images.icons.compare'))}}" alt="compare icon">
-                                                </a>
-                                            </section>
-                                            <a href="#" class="box-click">
-                                                <figure class="image">
-                                                    <img src="images/theme/example-img-banner-02.jpg" alt="example image alt">
-                                                    <div class="status">
-                                                        <p class="move mb-0">Ready to move</p>
-                                                    </div>
-                                                    <span class="unit-no">103A01</span>
-                                                </figure>
-                                                <section class="detail">
-                                                    <div class="type">
-                                                        <p class="property-type">condo</p>
-                                                        <div class="sub-type">
-                                                            <p class="bedroom">
-                                                                <img src="{{asset( config('images.icons.bed'))}}"
-                                                                     alt=""> <b>1</b></p>
-                                                            <p class="sqm">
-                                                                <img src="{{asset( config('images.icons.sqm'))}}"
-                                                                     alt=""> <b>33.60</b>Sq.m.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <h3 class="online-content sub-title my-0">Mulberry Grove The
-                                                                                              Forestias
-                                                                                              Condominiums</h3>
-                                                    <p class="online-content sub-text location">
-                                                        <img src="{{asset( config('images.icons.location'))}}" alt="">
-                                                        Khlong Toei, Bangkok Near BTS Ekkamai
-                                                    </p>
-                                                </section>
-                                                <section class="booking">
-                                                    <div class="price">
-                                                        <p class="price-booking">จอง 10,000</p>
-                                                        <p class="price-show">14,721,000 <span>15,721,000</span></p>
-                                                    </div>
-                                                    <div class="booking-button">Book now</div>
-                                                </section>
-                                            </a>
-                                        </article>
-                                    </li>
-                                @endfor
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-12 home-more order-xl-3">
-                        <a href="#" class="button link">All Unit</a>
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col-xl-6 mb-3 mb-xl-0">
-                        <article class="card-proprety-highlight">
-                            <figure class="image">
-                                <img src="images/theme/example-img-banner-01.jpg" alt="">
-                            </figure>
-                            <section class="detail">
-                                <a href="#" target="_blank" class="box">
-                                    <h2 class="online-content sub-header color-white mb-0">Mulberry Grove</h2>
-                                    <p class="online-content color-white mb-2">The Forestias Condominiums</p>
-                                    <button class="btn button link">View Project</button>
-                                </a>
-                            </section>
-                        </article>
-                    </div>
-                    <div class="col-xl-6 px-xl-0">
-                        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
-                            <ul class="uk-slider-items uk-grid uk-grid-small">
-                                @for ($i = 0; $i < 2; $i++)
-                                    <li class="uk-width-4-5 uk-width-1-2@s">
-                                        <article class="card-project-unit">
-                                            <section class="icons">
-                                                <a href="#" class="icon icon-fav">
-                                                    <img src="{{asset( config('images.icons.favorite'))}}" alt="favorite icon">
-                                                </a>
-                                                <a href="#" class="icon icon-compare">
-                                                    <img src="{{asset( config('images.icons.compare'))}}" alt="compare icon">
-                                                </a>
-                                            </section>
-                                            <a href="#" class="box-click">
-                                                <figure class="image">
-                                                    <img src="images/theme/example-img-banner-01.jpg" alt="example image alt">
-                                                    <div class="status">
-                                                        <p class="move mb-0">Ready to move</p>
-                                                    </div>
-                                                    <span class="unit-no">103A01</span>
-                                                </figure>
-                                                <section class="detail">
-                                                    <div class="type">
-                                                        <p class="property-type">condo</p>
-                                                        <div class="sub-type">
-                                                            <p class="bedroom">
-                                                                <img src="{{asset( config('images.icons.bed'))}}"
-                                                                     alt=""> <b>1</b></p>
-                                                            <p class="sqm">
-                                                                <img src="{{asset( config('images.icons.sqm'))}}"
-                                                                     alt=""> <b>33.60</b>Sq.m.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <h3 class="online-content sub-title my-0">Mulberry Grove The
-                                                                                              Forestias
-                                                                                              Condominiums</h3>
-                                                    <p class="online-content sub-text location">
-                                                        <img src="{{asset( config('images.icons.location'))}}" alt="">
-                                                        Khlong Toei, Bangkok Near BTS Ekkamai
-                                                    </p>
-                                                </section>
-                                                <section class="booking">
-                                                    <div class="price">
-                                                        <p class="price-booking">จอง 10,000</p>
-                                                        <p class="price-show">14,721,000 <span>15,721,000</span></p>
-                                                    </div>
-                                                    <div class="booking-button">Book now</div>
-                                                </section>
-                                            </a>
-                                        </article>
-                                    </li>
-                                @endfor
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-12 home-more">
-                        <a href="#" class="button link">All Unit</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        @include('partials.home-page.feature-property')
         <section class="home-benefits">
             <div class="container online-content content-padding">
                 <div class="row">
@@ -285,53 +128,8 @@
                 </div>
             </div>
         </section>
-        <section class="home-preview">
-            <div class="container online-content content-padding">
-                <h2 class="online-content title">Featured Projects Preview</h2>
-                <div class="row">
-                    <div class="col-md-6">
-                        <article class="card-video-highlight">
-                            <a href="#" class="box-click">
-                                <div class="image-box">
-                                    <figure class="online-content image-16by9 mb-1">
-                                        <img src="images/theme/example-img-banner-01.jpg" alt="">
-                                        <span class="icon"> <img src="{{asset( config('images.icons.play'))}}" alt="play icon"></span>
-                                    </figure>
-                                </div>
-                                <div class="detail">
-                                    <span class="tag">พรีวิวโครงการ</span>
-                                    <p class="online-content sub-title mb-0">Project Highlight : Mulberry Grove The
-                                                                             Forestias CondO
-                                    </p>
-                                    <span class="online-content sub-text-small">PUBLISHED : 23 AUG 2021 AT 06:09</span>
-                                </div>
-                            </a>
-                        </article>
-                    </div>
-                    <div class="col-md-6">
-                        @for ($i = 0; $i < 3; $i++)
-                            <article class="card-video">
-                                <a href="#" class="box-click">
-                                    <div class="image-box">
-                                        <figure class="online-content image-16by9 mb-0">
-                                            <img src="images/theme/example-img-banner-01.jpg" alt="">
-                                            <span class="icon"> <img src="{{asset( config('images.icons.play'))}}" alt="play icon"></span>
-                                        </figure>
-                                    </div>
-                                    <div class="detail">
-                                        <span class="tag">พรีวิวโครงการ</span>
-                                        <p class="online-content sub-title mb-0">Project Highlight : Mulberry Grove The
-                                                                                 Forestias CondO
-                                        </p>
-                                        <span class="online-content sub-text-small">PUBLISHED : 23 AUG 2021 AT 06:09</span>
-                                    </div>
-                                </a>
-                            </article>
-                        @endfor
-                    </div>
-                </div>
-            </div>
-        </section>
+
+        @include('partials.home-page.feature-preview')
         @include('partials.home-page.feature-project')
         @include('partials.home-page.feature-unit')
     </section>

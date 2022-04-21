@@ -20,7 +20,7 @@ return [
         'index' => 'MQDC operates on the principle ‘For All Well-Being’. It means we strive to provide the best life not only for humankind but for all living beings.',
     ],
 
-    'benefits'        => [
+    'benefits'         => [
         [
             'image'       => 'images.icons.benefits.good-1',
             'image-alt'   => 'various types of condo icon',
@@ -46,20 +46,36 @@ return [
             'description' => 'By buying a condo at our agent you will get a tax discount',
         ],
     ],
-    'feature-unit'    => [
+    'feature-unit'     => [
         'header_line'   => 'Featured Units',
         'booking_price' => 'book',
         'button'        => [
             'all_unit' => 'All Units',
         ],
     ],
-    'feature-project' => [
+    'feature-project'  => [
         'header_line' => 'Featured Projects',
         'button'      => [
             'all_project' => 'All Project',
-            'view_unit'        => 'UNIT IN PROJECT',
+            'view_unit'   => 'UNIT IN PROJECT',
         ],
     ],
-
-    'book_now' => 'Book now',
+    'feature-preview'  => [
+        'header_line' => 'Featured Projects Preview',
+    ],
+    'feature-property' => [
+        'header_line' => 'FEATURED PROPERTY',
+        'banner_line' => 'The list of properties that reach great popularity',
+    ],
+    'search'           => [
+        'price' => [
+            'title'   => 'Price',
+            'default' => 'Select Price',
+            'option'  => [ '0 - 4.99 MB', '5 - 9.99 MB', '10+ MB' ],
+        ],
+    ],
+    'book_now'         => 'Book now',
+    'publish'          => 'PUBLISHED',
+    'view_project'     => 'View Project',
+    'all_unit'         => 'All Unit',
 ];

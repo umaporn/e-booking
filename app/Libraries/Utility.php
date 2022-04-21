@@ -6,7 +6,7 @@
 namespace App\Libraries;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\App;
+use App;
 
 /**
  * This class keeps all utility functions for all classes.
@@ -31,9 +31,9 @@ class Utility
      *
      * @return string Language code
      */
-    public function getLanguageCode()
+    public static function getLanguageCode()
     {
-        $language = $this->getDefaultLanguageCode();
+        $language = Utility::getDefaultLanguageCode();
 
         if( !is_null( request()->route() ) ){
 

@@ -56,3 +56,16 @@ Route::group( [ 'prefix' => 'promotion' ], function(){
 Route::group( [ 'prefix' => 'theme' ], function(){
     Route::get( 'fullpage', [ ThemeController::class, 'fullpage' ] );
 } );
+
+function addPrefixResourceRouteName( $prefix )
+{
+    return [
+        'index'   => $prefix . '.index',
+        'create'  => $prefix . '.create',
+        'store'   => $prefix . '.store',
+        'show'    => $prefix . '.show',
+        'edit'    => $prefix . '.edit',
+        'update'  => $prefix . '.update',
+        'destroy' => $prefix . '.destroy',
+    ];
+}

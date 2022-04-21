@@ -23,6 +23,16 @@ class UnitModel extends Model
 
     }
 
+    public function getUnitProperty( $project )
+    {
+        $result = $this->where( 'project_id', $project->id )
+                       ->where( 'status', 'publish' )
+                       ->orderby( 'publish_date', 'DESC' )
+                       ->offset( 0 )->take( 2 )->get();
+
+        return $this->transformContent( $result );
+    }
+
     /**
      * Transform Unit data
      *

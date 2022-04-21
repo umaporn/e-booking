@@ -15,15 +15,16 @@ use Illuminate\Http\Request;
 class LanguageController extends Controller
 {
     /**
-     * Change system language.
+     * change language
      *
-     * @param Request $request      HTTP request object
-     * @param string  $languageCode Language code
+     * @param Request $request
+     * @param string  $languageCode
      *
-     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse HTTP redirect response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function changeLanguage( Request $request, string $languageCode )
     {
+
         $redirectedUrl = Utility::getRedirectedUrl( $languageCode );
 
         $request->session()->put( 'url.intended', $redirectedUrl );
