@@ -23,7 +23,7 @@ class CreateBannerTable extends Migration
             $table->text( 'display_text_thai' );
             $table->string( 'alt_image_text_english', 255 );
             $table->string( 'alt_image_text_thai', 255 );
-            $table->string( 'link_englist', 255 );
+            $table->string( 'link_english', 255 );
             $table->string( 'link_thai', 255 );
             $table->datetime( 'publish_date' );
             $table->string( 'expired_status', 255 );
