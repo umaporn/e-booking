@@ -30668,16 +30668,16 @@ a:hover {
   top: 2%;
   right: 7px;
 }
+.promotion-tag-bottom {
+  width: 10rem;
+  bottom: 0.4rem;
+  left: 7px;
+}
 .promotion-tag-bottom-date {
   background-color: #37a8b8;
   color: #ffffff;
-  padding: 0 0.5rem;
-  bottom: 4%;
-  left: 10px;
 }
 .promotion-tag-bottom-month-year {
   background-color: #ffffff;
-  padding: 0.19rem 0.5rem;
-  bottom: 4%;
-  left: 52px;
+  font-size: 1.125rem;
 }
