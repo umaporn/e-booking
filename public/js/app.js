@@ -40132,7 +40132,7 @@ module.exports = function (list, options) {
   \*********************************************/
 /***/ (function(module) {
 
-/*! UIkit 3.13.5 | https://www.getuikit.com | (c) 2014 - 2022 YOOtheme | MIT License */
+/*! UIkit 3.13.10 | https://www.getuikit.com | (c) 2014 - 2022 YOOtheme | MIT License */
 
 (function (global, factory) {
      true ? module.exports = factory() :
@@ -41147,8 +41147,8 @@ module.exports = function (list, options) {
         const offsetBy = { height: scrollY, width: scrollX };
 
         for (const dir in dirs$1) {
-          for (const i in dirs$1[dir]) {
-            currentOffset[dirs$1[dir][i]] += offsetBy[dir];
+          for (const prop of dirs$1[dir]) {
+            currentOffset[prop] += offsetBy[dir];
           }
         }
       }
@@ -41873,11 +41873,11 @@ module.exports = function (list, options) {
       }
     }
 
-    const stateKey$1 = '_ukPlayer';
+    const stateKey = '_ukPlayer';
     let counter = 0;
     function enableApi(el) {
-      if (el[stateKey$1]) {
-        return el[stateKey$1];
+      if (el[stateKey]) {
+        return el[stateKey];
       }
 
       const youtube = isYoutube(el);
@@ -41886,7 +41886,7 @@ module.exports = function (list, options) {
       const id = ++counter;
       let poller;
 
-      return el[stateKey$1] = new Promise((resolve) => {
+      return el[stateKey] = new Promise((resolve) => {
         youtube &&
         once(el, 'load', () => {
           const listener = () => post(el, { event: 'listening', id });
@@ -42545,7 +42545,7 @@ module.exports = function (list, options) {
         const {
           $options: { computed } } =
         this;
-        const values = { ...this._computed };
+        const values = { ...(initial ? {} : this._computed) };
         this._computed = {};
 
         for (const key in computed) {
@@ -43025,7 +43025,7 @@ module.exports = function (list, options) {
     UIkit.data = '__uikit__';
     UIkit.prefix = 'uk-';
     UIkit.options = {};
-    UIkit.version = '3.13.5';
+    UIkit.version = '3.13.10';
 
     globalAPI(UIkit);
     hooksAPI(UIkit);
@@ -43352,7 +43352,7 @@ module.exports = function (list, options) {
       computed: {
         items: {
           get(_ref, $el) {let { targets } = _ref;
-            return $$(targets, $el);
+            return $$(targets, $el).filter((el) => $(this.content, el));
           },
 
           watch(items, prev) {
@@ -43657,7 +43657,7 @@ module.exports = function (list, options) {
             offset(target)[axis === 'x' ? 'right' : 'bottom'] :
             0;
           }
-          offset$1 = toPx(offset$1) + toPx(getCssVar('position-margin-offset', element));
+          offset$1 = toPx(offset$1) + toPx(getCssVar('position-offset', element));
 
           const { x, y } = positionAt(
           element,
@@ -43714,8 +43714,11 @@ module.exports = function (list, options) {
         this.tracker = new MouseTracker();
       },
 
-      connected() {
+      beforeConnect() {
         this.clsDrop = this.$props.clsDrop || "uk-" + this.$options.name;
+      },
+
+      connected() {
         addClass(this.$el, this.clsDrop);
 
         if (this.toggle && !this.target) {
@@ -43891,7 +43894,7 @@ module.exports = function (list, options) {
               this.hide(false);
             }
           }),
-          on(window, 'resize', () => this.$emit('resize'))])
+          on(window, 'resize', () => this.$emit())])
           {
             once(this.$el, 'hide', handler, { self: true });
           }
@@ -43931,9 +43934,7 @@ module.exports = function (list, options) {
           if (this.isToggled() && !hasClass(this.$el, this.clsEnter)) {
             this.position();
           }
-        },
-
-        events: ['resize'] },
+        } },
 
 
       methods: {
@@ -44012,7 +44013,7 @@ module.exports = function (list, options) {
           const targetOffset = offset(this.target);
           const alignTo = this.boundaryAlign ? boundaryOffset : targetOffset;
 
-          if (this.align === 'justify') {
+          if (this.pos[1] === 'justify') {
             const prop = this.getAxis() === 'y' ? 'width' : 'height';
             css(this.$el, prop, alignTo[prop]);
           } else if (
@@ -44120,7 +44121,7 @@ module.exports = function (list, options) {
 
 
       resizeTargets() {
-        return this.$el.children;
+        return [this.$el, this.$el.children];
       },
 
       connected() {
@@ -44410,6 +44411,8 @@ module.exports = function (list, options) {
     }
 
     var heightMatch = {
+      mixins: [Resize],
+
       args: 'target',
 
       props: {
@@ -44419,8 +44422,7 @@ module.exports = function (list, options) {
 
       data: {
         target: '> *',
-        row: true,
-        forceHeight: true },
+        row: true },
 
 
       computed: {
@@ -44436,7 +44438,7 @@ module.exports = function (list, options) {
 
 
       resizeTargets() {
-        return this.elements;
+        return [this.$el, this.elements];
       },
 
       update: {
@@ -44461,22 +44463,14 @@ module.exports = function (list, options) {
         return { heights: [''], elements };
       }
 
+      css(elements, 'minHeight', '');
       let heights = elements.map(getHeight);
-      let max = Math.max(...heights);
-      const hasMinHeight = elements.some((el) => el.style.minHeight);
-      const hasShrunk = elements.some((el, i) => !el.style.minHeight && heights[i] < max);
+      const max = Math.max(...heights);
 
-      if (hasMinHeight && hasShrunk) {
-        css(elements, 'minHeight', '');
-        heights = elements.map(getHeight);
-        max = Math.max(...heights);
-      }
+      return {
+        heights: elements.map((el, i) => heights[i].toFixed(2) === max.toFixed(2) ? '' : max),
+        elements };
 
-      heights = elements.map((el, i) =>
-      heights[i] === max && toFloat(el.style.minHeight).toFixed(2) !== max.toFixed(2) ? '' : max);
-
-
-      return { heights, elements };
     }
 
     function getHeight(element) {
@@ -44527,11 +44521,13 @@ module.exports = function (list, options) {
           const box = boxModelAdjust(this.$el, 'height', 'content-box');
 
           if (this.expand) {
-            minHeight =
+            minHeight = Math.max(
             height(window) - (
             dimensions$1(document.documentElement).height -
             dimensions$1(this.$el).height) -
-            box || '';
+            box,
+            0);
+
           } else {
             // on mobile devices (iOS and Android) window.innerHeight !== 100vh
             minHeight = 'calc(100vh';
@@ -45017,25 +45013,6 @@ module.exports = function (list, options) {
         }
       },
 
-      update: {
-        write(store) {
-          if (!this.observer || isImg(this.$el)) {
-            return false;
-          }
-
-          const srcset = data(this.$el, 'data-srcset');
-          if (srcset && window.devicePixelRatio !== 1) {
-            const bgSize = css(this.$el, 'backgroundSize');
-            if (bgSize.match(/^(auto\s?)+$/) || toFloat(bgSize) === store.bgSize) {
-              store.bgSize = getSourceSize(srcset, data(this.$el, 'sizes'));
-              css(this.$el, 'backgroundSize', store.bgSize + "px");
-            }
-          }
-        },
-
-        events: ['resize'] },
-
-
       methods: {
         load() {
           if (this._data.image) {
@@ -45123,43 +45100,6 @@ module.exports = function (list, options) {
       }
 
       return sources.filter((source) => !isEmpty(source));
-    }
-
-    const sizesRe = /\s*(.*?)\s*(\w+|calc\(.*?\))\s*(?:,|$)/g;
-    function sizesToPixel(sizes) {
-      let matches;
-
-      sizesRe.lastIndex = 0;
-
-      while (matches = sizesRe.exec(sizes)) {
-        if (!matches[1] || window.matchMedia(matches[1]).matches) {
-          matches = evaluateSize(matches[2]);
-          break;
-        }
-      }
-
-      return matches || '100vw';
-    }
-
-    const sizeRe = /\d+(?:\w+|%)/g;
-    const additionRe = /[+-]?(\d+)/g;
-    function evaluateSize(size) {
-      return startsWith(size, 'calc') ?
-      size.
-      slice(5, -1).
-      replace(sizeRe, (size) => toPx(size)).
-      replace(/ /g, '').
-      match(additionRe).
-      reduce((a, b) => a + +b, 0) :
-      size;
-    }
-
-    const srcSetRe = /\s+\d+w\s*(?:,|$)/g;
-    function getSourceSize(srcset, sizes) {
-      const srcSize = toPx(sizesToPixel(sizes));
-      const descriptors = (srcset.match(srcSetRe) || []).map(toFloat).sort((a, b) => a - b);
-
-      return descriptors.filter((size) => size >= srcSize)[0] || descriptors.pop() || '';
     }
 
     function ensureSrcAttribute(el) {
@@ -45697,8 +45637,6 @@ module.exports = function (list, options) {
         dropbar: false,
         dropbarAnchor: false,
         duration: 200,
-        forceHeight: true,
-        selMinHeight: navItem,
         container: false },
 
 
@@ -46480,7 +46418,6 @@ module.exports = function (list, options) {
       return document.getElementById(decodeURIComponent(el.hash).substring(1));
     }
 
-    const stateKey = '_ukScrollspy';
     var scrollspy = {
       mixins: [Scroll],
 
@@ -46513,9 +46450,13 @@ module.exports = function (list, options) {
             return target ? $$(target, $el) : [$el];
           },
 
-          watch(elements) {
+          watch(elements, prev) {
             if (this.hidden) {
               css(filter$1(elements, ":not(." + this.inViewClass + ")"), 'visibility', 'hidden');
+            }
+
+            if (prev) {
+              this.$reset();
             }
           },
 
@@ -46523,33 +46464,50 @@ module.exports = function (list, options) {
 
 
 
+      connected() {
+        this._data.elements = new Map();
+        this.registerObserver(
+        observeIntersection(
+        this.elements,
+        (records) => {
+          const elements = this._data.elements;
+          for (const { target: el, isIntersecting } of records) {
+            if (!elements.has(el)) {
+              elements.set(el, {
+                cls: data(el, 'uk-scrollspy-class') || this.cls });
+
+            }
+
+            const state = elements.get(el);
+            if (!this.repeat && state.show) {
+              continue;
+            }
+
+            state.show = isIntersecting;
+          }
+
+          this.$emit();
+        },
+        {
+          rootMargin: toPx(this.offsetTop, 'height') - 1 + "px " + (
+          toPx(this.offsetLeft, 'width') - 1) + "px" },
+
+
+        false));
+
+
+      },
+
       disconnected() {
-        for (const el of this.elements) {var _el$stateKey;
-          removeClass(el, this.inViewClass, ((_el$stateKey = el[stateKey]) == null ? void 0 : _el$stateKey.cls) || '');
-          delete el[stateKey];
+        for (const [el, state] of this._data.elements.entries()) {
+          removeClass(el, this.inViewClass, (state == null ? void 0 : state.cls) || '');
         }
       },
 
       update: [
       {
-        read() {
-          for (const el of this.elements) {
-            if (!el[stateKey]) {
-              el[stateKey] = { cls: data(el, 'uk-scrollspy-class') || this.cls };
-            }
-
-            if (!this.repeat && el[stateKey].show) {
-              continue;
-            }
-
-            el[stateKey].show = isInView(el, this.offsetTop, this.offsetLeft);
-          }
-        },
-
         write(data) {
-          for (const el of this.elements) {
-            const state = el[stateKey];
-
+          for (const [el, state] of data.elements.entries()) {
             if (state.show && !state.inview && !state.queued) {
               state.queued = true;
 
@@ -46566,15 +46524,13 @@ module.exports = function (list, options) {
               this.toggle(el, false);
             }
           }
-        },
-
-        events: ['scroll', 'resize'] }],
+        } }],
 
 
 
       methods: {
         toggle(el, inview) {
-          const state = el[stateKey];
+          const state = this._data.elements.get(el);
 
           state.off == null ? void 0 : state.off();
 
@@ -46797,13 +46753,13 @@ module.exports = function (list, options) {
             return false;
           }
 
-          const hide = this.isActive && types.has('resize');
+          const hide = this.active && types.has('resize');
           if (hide) {
             css(this.selTarget, 'transition', '0s');
             this.hide();
           }
 
-          if (!this.isActive) {
+          if (!this.active) {
             height$1 = offset(this.$el).height;
             margin = css(this.$el, 'margin');
           }
@@ -46881,7 +46837,9 @@ module.exports = function (list, options) {
             prevDir,
             scroll,
             prevScroll,
-            offsetParentTop: offset(this.$el.offsetParent).top,
+            offsetParentTop: offset(
+            (this.isFixed ? this.placeholder : this.$el).offsetParent).
+            top,
             overflowScroll: clamp(
             overflowScroll + clamp(scroll, start, end) - clamp(prevScroll, start, end),
             0,
@@ -47325,7 +47283,7 @@ module.exports = function (list, options) {
           }
 
           // Skip if state does not change e.g. hover + focus received
-          if (this._showState && show === (expanded !== this._showState)) {
+          if (this._showState && show && expanded !== this._showState) {
             // Ensure reset if state has changed through click
             if (!show) {
               this._showState = null;
@@ -47357,15 +47315,7 @@ module.exports = function (list, options) {
       {
         name: 'click',
 
-        filter() {
-          return includes(this.mode, 'click');
-        },
-
         handler(e) {
-          if (this._preventClick) {
-            return this._preventClick = null;
-          }
-
           let link;
           if (
           closest(e.target, 'a[href="#"], a[href=""]') ||
@@ -47374,6 +47324,14 @@ module.exports = function (list, options) {
           link.hash && matches(this.target, link.hash)))
           {
             e.preventDefault();
+          }
+
+          if (this._preventClick) {
+            return this._preventClick = null;
+          }
+
+          if (!includes(this.mode, 'click')) {
+            return;
           }
 
           this.toggle();
@@ -48998,7 +48956,10 @@ module.exports = function (list, options) {
 
 
           // Image
-          if (type === 'image' || src.match(/\.(avif|jpe?g|a?png|gif|svg|webp)($|\?)/i)) {
+          if (
+          type === 'image' ||
+          src.match(/\.(avif|jpe?g|jfif|a?png|gif|svg|webp)($|\?)/i))
+          {
             try {
               const { width, height } = await getImage(src, attrs.srcset, attrs.size);
               this.setItem(item, createEl('img', { src, width, height, alt, ...attrs }));
@@ -50207,7 +50168,7 @@ module.exports = function (list, options) {
         selItem: '!li' },
 
 
-      connected() {
+      beforeConnect() {
         this.item = query(this.selItem, this.$el);
       },
 
@@ -51049,6 +51010,8 @@ module.exports = function (list, options) {
 
       methods: {
         async upload(files) {
+          files = toArray(files);
+
           if (!files.length) {
             return;
           }
@@ -51135,7 +51098,6 @@ module.exports = function (list, options) {
     }
 
     function chunk(files, size) {
-      files = toArray(files);
       const chunks = [];
       for (let i = 0; i < files.length; i += size) {
         chunks.push(files.slice(i, i + size));

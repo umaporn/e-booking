@@ -1,5 +1,5 @@
 .online-nav {
-    width: 100vw;
+    width: 100%;
     position: relative;
 
     @include media-breakpoint-up(xl) {
@@ -11,7 +11,7 @@
             position: absolute;
             z-index: 999;
             margin-top: 54px;
-            width: 100vw;
+            width: 100%;
             top: 0;
             left: 0;
         }

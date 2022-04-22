@@ -53,6 +53,10 @@ $colors: (
         color: $color-link;
     }
 
+    &.color-text {
+        color: $color-text-st;
+    }
+
     &.color-white {
         color: white;
     }
