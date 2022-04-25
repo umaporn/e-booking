@@ -13,7 +13,7 @@
                                 <figure class="image my-0">
                                     <img src="images/theme/example-img-banner-01.jpg" alt="example image alt">
                                     <div class="status">
-                                        <p class="new mb-2">New</p>
+                                        <p class="new mb-2">{{ $item->project_status_title }}</p>
                                     </div>
                                     <span class="name">{{ $item->project_name }}</span>
                                 </figure>
@@ -37,13 +37,13 @@
                                 <figure class="image my-0">
                                     <img src="images/theme/example-img-banner-01.jpg" alt="example image alt">
                                     <div class="status">
-                                        <p class="new mb-2">New</p>
-                                        <p class="move mb-0">Ready to move</p>
+                                        <p class="new mb-2">{{ $item->project_status_title }}</p>
+                                        {{--<p class="move mb-0">Ready to move</p>--}}
                                     </div>
                                     <span class="name">{{ $item->project_name }}</span>
                                 </figure>
                                 <section class="detail">
-                                    <p class="property-type">condo</p>
+                                    <p class="property-type">{{ $item->project_type_title }}</p>
                                     <p class="online-content color-link font-bold mb-0">เริ่มต้น {{ $item->price }} ล้านบาท</p>
                                     <h3 class="online-content sub-title my-0">{{ $item->project_name }}</h3>
                                     <p class="online-content sub-text location">

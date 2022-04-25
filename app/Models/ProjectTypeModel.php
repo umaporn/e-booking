@@ -11,6 +11,11 @@ class ProjectTypeModel extends Model
     /** @var string Table name */
     protected $table = 'project_type';
 
+    public function project()
+    {
+        return $this->hasMany('App\Models\ProjectModel', 'project_type');
+    }
+
     /**
      * Get project type list
      *

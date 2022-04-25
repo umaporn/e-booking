@@ -14,8 +14,8 @@
                                     </figure>
                                 </div>
                                 <div class="detail">
-                                    <span class="tag">{{ $item->preview_type }}</span>
-                                    <p class="online-content sub-title mb-0">{{ $item->preview_title }}</p>
+                                    <span class="tag">{!! $item->preview_type !!}</span>
+                                    <p class="online-content sub-title mb-0">{!! $item->preview_title !!}</p>
                                     <span class="online-content sub-text-small">@lang('home.publish')
                                         : {{ $item->publish_date }}</span>
                                 </div>
@@ -37,8 +37,8 @@
                                         </figure>
                                     </div>
                                     <div class="detail">
-                                        <span class="tag">{{ $item->preview_type }}</span>
-                                        <p class="online-content sub-title mb-0">{{ $item->preview_title }}</p>
+                                        <span class="tag">{!! $item->preview_type !!}</span>
+                                        <p class="online-content sub-title mb-0">{!! $item->preview_title !!}</p>
                                         <span class="online-content sub-text-small">@lang('home.publish')
                                             : {{ $item->publish_date }}</span>
                                     </div>

@@ -22,13 +22,13 @@
                                     <figure class="image">
                                         <img src="images/theme/example-img-banner-01.jpg" alt="{{ $item->unit_name }}">
                                         <div class="status">
-                                            <p class="move mb-0">Ready to move</p>
+                                            <p class="move mb-0" style="background-color:{{$item->unitLabel->color}};color:{{$item->unitLabel->font_color}}; ">{{ $item->unit_label_title }}</p>
                                         </div>
                                         <span class="unit-no">{{ $item->unit_no }}</span>
                                     </figure>
                                     <section class="detail">
                                         <div class="type">
-                                            <p class="property-type">condo</p>
+                                            <p class="property-type">{{ $item->project_info->project_type_title }}</p>
                                             <div class="sub-type">
                                                 <p class="bedroom">
                                                     <img src="{{asset( config('images.icons.bed'))}}"

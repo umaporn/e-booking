@@ -48,13 +48,13 @@
                                         <figure class="image">
                                             <img src="images/theme/example-img-banner-02.jpg" alt="example image alt">
                                             <div class="status">
-                                                <p class="move mb-0">Ready to move</p>
+                                                <p class="move mb-0" style="background-color:{{$itemUnit->unitLabel->color}};color:{{$itemUnit->unitLabel->font_color}}; ">{{ $itemUnit->unit_label_title }}</p>
                                             </div>
                                             <span class="unit-no">{{ $itemUnit->unit_no }}</span>
                                         </figure>
                                         <section class="detail">
                                             <div class="type">
-                                                <p class="property-type">condo</p>
+                                                <p class="property-type">{{ $itemProject->project_type_title }}</p>
                                                 <div class="sub-type">
                                                     <p class="bedroom">
                                                         <img src="{{asset( config('images.icons.bed'))}}"

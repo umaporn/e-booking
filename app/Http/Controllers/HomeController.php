@@ -9,7 +9,6 @@ use App\Models\ProjectTypeModel;
 use App\Models\UnitModel;
 use App\Models\BannerModel;
 
-
 /**
  * Class SpaController
  * @package App\Http\Controllers
@@ -52,6 +51,6 @@ class HomeController extends Controller
             $item->setAttribute( 'unit_property', $unitProperty );
         }
 
-        return view( 'home', compact( 'unit', 'project', 'preview', 'propertyList', 'banner', 'projectType','option' ) );
+        return view( 'home', compact( 'unit', 'project', 'preview', 'propertyList', 'banner', 'projectType', 'option' ) );
     }
 }
