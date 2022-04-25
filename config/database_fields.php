@@ -281,7 +281,7 @@ return [
         [
             'collection' => 'banner',
             'field'      => 'expired_status',
-            'special'    => 'json',
+            'special'    => 'csv',
             'interface'  => 'select-multiple-checkbox',
             'options'    => '{"choices":[{"text":"yes","value":"yes"},{"text":"no","value":"no"}]}',
             'readonly'   => 0,
@@ -3968,7 +3968,7 @@ return [
         [
             'collection'      => 'promotion',
             'field'           => 'expired_status',
-            'special'         => 'json',
+            'special'         => 'csv',
             'interface'       => 'select-multiple-checkbox',
             'options'         => '{"choices":[{"text":"yes","value":"yes"},{"text":"no","value":"no"}]}',
             'display'         => null,
