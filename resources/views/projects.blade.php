@@ -3,13 +3,16 @@
 @section('content')
     <section class="content-projects">
         <div class="show-content">
+            <div style="z-index: 980;" class="d-flex justify-content-end" uk-sticky="position: bottom; bottom: ~ .online-footer">
+                <a href="#" uk-totop></a>
+            </div>
             <section class="project-filler" style="background-color: #F5F5F5;">
                 <div class="container uk-margin-medium-top">
                         <div class="col-12 col-xl-10">
                             <form class="project-form search">
                                 <div class="row search-p-mobile py-4 py-xl-0">
                                     <div class="col-12 col-md-4 col-xl pl-md-0 my-2 my-xl-4">
-                                            <select class="uk-select px-3" style="font-size: 16px;border-radius: 20px;border-color: #ffffff;background-position: 95%;">
+                                            <select class="uk-select px-3" style="font-size: 16px;border-radius: 20px;border-color: #ffffff;background-position: 95%;color: #333333;">
                                                 <option value="">Project Name</option>
                                                 <option value="1">Option 01</option>
                                                 <option value="2">Option 02</option>
@@ -18,7 +21,7 @@
                                             </select>
                                     </div>
                                     <div class="col-12 col-md-4 col-xl pl-md-0 my-2 my-xl-4">
-                                        <select class="uk-select px-3" style="font-size: 16px;border-radius: 20px;border-color: #ffffff;background-position: 95%;">
+                                        <select class="uk-select px-3" style="font-size: 16px;border-radius: 20px;border-color: #ffffff;background-position: 95%;color: #333333;">
                                             <option value="">Location / Transport</option>
                                             <option value="1">Option 01</option>
                                             <option value="2">Option 02</option>
@@ -34,11 +37,6 @@
                         </div>
                 </div>
             </section>
-            <div style="z-index: 980;top:20px;" uk-sticky="top: 200;">
-                <a href="#" uk-totop uk-scroll>
-                </a>
-            </div>
-
             <section class="project-list">
                 <div class="container width-xxl uk-margin-large-top uk-margin-large-bottom">
                     <div class="row">
@@ -76,16 +74,14 @@
                 </div>
             </section>
 
-
-            <div style="border: 15px solid #F2F2F2;">
-            </div>
+            <hr class="hr-between">
 
             <section class="project-unit">
                 <div class="container uk-margin-xlarge-bottom uk-margin-large-top">
                     <div class="mb-5">
                         <div class="d-flex justify-content-between align-items-center mb-1">
                             <h2 class="online-content title mb-0">Featured Units</h2>
-                            <a href="#" class="button more-text">All Units</a>
+                            <a href="#" class="d-none d-md-block button more-text hidden-md">All Units</a>
                         </div>
                         <p>The list of properties that reach great popularity</p>
                     </div>
@@ -142,11 +138,11 @@
                             @endfor
                         </ul>
                     </div>
+                    <div class="col-12 uk-text-center d-block d-md-none pt-4">
+                        <a href="#" class="button link">All Unit</a>
+                    </div>
                 </div>
             </section>
-
-            <div class="uk-height-large"></div>
         </div>
-
     </section>
 @endsection

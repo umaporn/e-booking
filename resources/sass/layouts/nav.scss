@@ -218,4 +218,30 @@
             }
         }
     }
+
+    .nav-detail{
+        .svg-white {
+            filter: $color-svg-white;
+        }
+        .nav-link {
+            color: white;
+        }
+        .nav-item{
+            &.active {
+                @include media-breakpoint-up(xl) {
+                    a {
+                        &::before {
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .navbar-collapse {
+            @include media-breakpoint-up(xl) {
+                border-top: 1px solid white;
+            }
+        }
+    }
 }

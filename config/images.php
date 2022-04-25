@@ -39,6 +39,9 @@ return [
             'yt' => 'images/icons/footer/icon-yt.svg',
             'line' => 'images/icons/footer/icon-line.svg',
         ],
+        'building' => 'images/icons/icon-building.svg',
+        'floor' => 'images/icons/icon-floor.svg',
+        'unit' => 'images/icons/icon-unit.svg',
     ],
 
 ];

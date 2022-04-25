@@ -15,7 +15,7 @@
 </head>
 <body>
 @if(url()->current() == route('projects.detail'))
-    @include('layouts.header-home')
+    @include('layouts.header_detail')
 @else
     @include('layouts.header')
 @endif
