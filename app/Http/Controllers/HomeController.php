@@ -52,6 +52,6 @@ class HomeController extends Controller
             $item->setAttribute( 'unit_property', $unitProperty );
         }
 
-        return view( 'home', compact( 'unit', 'project', 'preview', 'propertyList', 'banner', 'projectType' ) );
+        return view( 'home', compact( 'unit', 'project', 'preview', 'propertyList', 'banner', 'projectType','option' ) );
     }
 }

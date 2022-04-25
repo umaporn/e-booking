@@ -15551,7 +15551,7 @@ h3 {
   content: "\f65a";
 }
 
-/*! UIkit 3.13.5 | https://www.getuikit.com | (c) 2014 - 2022 YOOtheme | MIT License */
+/*! UIkit 3.13.10 | https://www.getuikit.com | (c) 2014 - 2022 YOOtheme | MIT License */
 /* ========================================================================
    Component: Base
  ========================================================================== */
@@ -19547,7 +19547,7 @@ select.uk-form-width-xsmall {
   /* 2 */
   position: absolute;
   z-index: 1020;
-  --uk-position-margin-offset: 20px;
+  --uk-position-offset: 20px;
   /* 3 */
   box-sizing: border-box;
   width: 300px;
@@ -19580,7 +19580,7 @@ select.uk-form-width-xsmall {
   /* 2 */
   position: absolute;
   z-index: 1020;
-  --uk-position-margin-offset: 10px;
+  --uk-position-offset: 10px;
   /* 3 */
   box-sizing: border-box;
   min-width: 200px;
@@ -20492,7 +20492,7 @@ select.uk-form-width-xsmall {
   /* 2 */
   position: absolute;
   z-index: 1030;
-  --uk-position-margin-offset: 10px;
+  --uk-position-offset: 10px;
   /* 3 */
   top: 0;
   /* 4 */
@@ -21056,7 +21056,6 @@ select.uk-form-width-xsmall {
 * 1. Center content vertically, e.g. an icon
 * 2. Imitate white space gap when using flexbox
 * 3. Reset link
-* 4. Space is allocated solely based on content dimensions: 0 0 auto
  */
 .uk-nav li > a {
   /* 1 */
@@ -21067,11 +21066,6 @@ select.uk-form-width-xsmall {
        column-gap: 0.25em;
   /* 3*/
   text-decoration: none;
-}
-
-/* 4 */
-.uk-nav li > a > * {
-  flex: none;
 }
 
 /*
@@ -21136,7 +21130,7 @@ ul.uk-nav-sub {
 
 /* Divider
  ========================================================================== */
-.uk-nav > .uk-nav-divider {
+.uk-nav .uk-nav-divider {
   margin: 5px 0;
 }
 
@@ -21500,7 +21494,7 @@ ul.uk-nav-sub {
   /* 2 */
   position: absolute;
   z-index: 1020;
-  --uk-position-margin-offset: 15px;
+  --uk-position-offset: 15px;
   /* 3 */
   box-sizing: border-box;
   width: 200px;
@@ -21567,7 +21561,7 @@ ul.uk-nav-sub {
  */
 .uk-navbar-dropdown-dropbar {
   /* 1 */
-  --uk-position-margin-offset: 0px;
+  --uk-position-offset: 0px;
   /* 2 */
   margin-bottom: 0px;
   padding: 15px;
@@ -29562,6 +29556,9 @@ a:hover {
 .online-content.color-link {
   color: #37a8b8;
 }
+.online-content.color-text {
+  color: #000000;
+}
 .online-content.color-white {
   color: white;
 }
@@ -29860,6 +29857,7 @@ a:hover {
 }
 .card-project-highlight .location img {
   filter: invert(97%) sepia(100%) saturate(11%) hue-rotate(212deg) brightness(104%) contrast(102%);
+  vertical-align: baseline;
 }
 
 .card-project {
@@ -29973,6 +29971,7 @@ a:hover {
 }
 .card-project .box-click .location img {
   filter: invert(81%) sepia(0%) saturate(138%) hue-rotate(153deg) brightness(89%) contrast(90%);
+  vertical-align: baseline;
 }
 
 .card-project-unit {
@@ -30095,6 +30094,9 @@ a:hover {
 .card-project-unit .box-click .type .sub-type {
   display: flex;
 }
+.card-project-unit .box-click .type .sub-type img {
+  vertical-align: baseline;
+}
 .card-project-unit .box-click .sub-title {
   color: #000000;
   max-height: 56px;
@@ -30106,6 +30108,7 @@ a:hover {
 }
 .card-project-unit .box-click .location img {
   filter: invert(81%) sepia(0%) saturate(138%) hue-rotate(153deg) brightness(89%) contrast(90%);
+  vertical-align: baseline;
 }
 .card-project-unit .box-click .booking {
   display: flex;
@@ -30273,7 +30276,7 @@ a:hover {
 }
 
 .online-nav {
-  width: 100vw;
+  width: 100%;
   position: relative;
 }
 @media (min-width: 1200px) {
@@ -30286,7 +30289,7 @@ a:hover {
     position: absolute;
     z-index: 999;
     margin-top: 54px;
-    width: 100vw;
+    width: 100%;
     top: 0;
     left: 0;
   }
@@ -30472,7 +30475,6 @@ a:hover {
 .online-home .home-highlight {
   position: relative;
   overflow-x: hidden;
-  width: 100vw;
 }
 @media (min-width: 1200px) {
   .online-home .home-highlight {
@@ -30481,27 +30483,63 @@ a:hover {
   }
 }
 .online-home .home-slide {
+  height: 500px;
+  overflow: hidden;
+}
+.online-home .slide-box {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100vw;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
 .online-home .slide-dotnav {
   z-index: 99;
   position: absolute;
   bottom: 20px;
-  left: 20px;
+  right: 20px;
 }
 @media (max-width: 1199.98px) {
   .online-home .slide-dotnav {
     left: 50%;
     transform: translateX(-50%);
   }
+  .online-home .slide-dotnav .uk-dotnav {
+    justify-content: center;
+  }
 }
 .online-home .slide-dotnav .uk-dotnav > * > * {
   width: 30px;
-  height: 4px;
+  height: 8px;
   border-radius: 0;
+}
+@media (min-width: 1200px) {
+  .online-home .home-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    padding-top: 7.5rem;
+  }
+}
+@media (max-width: 1199.98px) {
+  .online-home .home-banner-text {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    top: 2.5rem;
+    padding-left: 2.5rem;
+  }
+  .online-home .home-banner-text .header,
+.online-home .home-banner-text .sub-header,
+.online-home .home-banner-text .sub-text,
+.online-home .home-banner-text span {
+    color: white !important;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  }
 }
 .online-home .home-search {
   padding-bottom: 2.5rem;
@@ -30630,16 +30668,16 @@ a:hover {
   top: 2%;
   right: 7px;
 }
+.promotion-tag-bottom {
+  width: 10rem;
+  bottom: 0.4rem;
+  left: 7px;
+}
 .promotion-tag-bottom-date {
   background-color: #37a8b8;
   color: #ffffff;
-  padding: 0 0.5rem;
-  bottom: 4%;
-  left: 10px;
 }
 .promotion-tag-bottom-month-year {
   background-color: #ffffff;
-  padding: 0.19rem 0.5rem;
-  bottom: 4%;
-  left: 52px;
+  font-size: 1.125rem;
 }
