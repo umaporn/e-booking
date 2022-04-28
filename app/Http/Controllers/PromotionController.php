@@ -5,22 +5,34 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
+use App\Models\PromotionModels;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as BaseController;
 
 class PromotionController extends Controller
 {
+    private $promotion;
+
+    public function __construct( PromotionModels $promotionModels )
+    {
+        $this->promotion = $promotionModels;
+    }
+
     /**
      * Show how to promotion page.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View how to promotion page
      */
-    public function index()
+    public function index( Request $request )
     {
-        return view( 'promotion' );
+        $promotion = $this->promotion->getPromotionList( $request );
+
+        if( $request->ajax() ){
+            return response()->json( [
+                                         'data' => view( 'partials.promotion.list', compact( 'promotion' ) )->render(),
+                                     ] );
+        }
+
+        return view( 'promotion', compact( 'promotion' ) );
     }
 
     /**
@@ -28,8 +40,10 @@ class PromotionController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View how to promotion detail page
      */
-    public function detail()
+    public function detail( Request $request )
     {
-        return view( 'promotion_detail' );
+        $single = $this->promotion->getSingle( $request );
+
+        return view( 'promotion_detail', compact( 'single' ) );
     }
 }

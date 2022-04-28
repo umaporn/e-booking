@@ -18,7 +18,7 @@
                                     <span class="name">{{ $item->project_name }}</span>
                                 </figure>
                                 <section class="detail">
-                                    <p class="online-content font-bold mb-0">เริ่มต้น {{ $item->price }} ล้านบาท</p>
+                                    <p class="online-content font-bold mb-0">{{ $item->price }}</p>
                                     <h3 class="online-content sub-title my-0">{{ $item->project_name }}</h3>
                                     <p class="online-content sub-text location">
                                         <img src="{{asset( config('images.icons.location'))}}" alt="">{{ $item->project_location }}

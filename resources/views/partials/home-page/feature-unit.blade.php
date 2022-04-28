@@ -34,7 +34,8 @@
                                                     <img src="{{asset( config('images.icons.bed'))}}"
                                                          alt=""> <b>{{ $item->unit_bedroom }}</b></p>
                                                 <p class="sqm"><img src="{{asset( config('images.icons.sqm'))}}"
-                                                                    alt=""> <b>{{ $item->unit_sqm }}</b>Sq.m.
+                                                                    alt="">
+                                                    <b>{{ $item->unit_sqm }}</b>@lang('home.sqm')
                                                 </p>
                                             </div>
                                         </div>

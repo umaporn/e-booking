@@ -44,20 +44,20 @@
                     <div class="row pl-xl-4 search-p-mobile">
                         <div class="col-6 col-xl">
                             <div class="form-group">
-                                <label for="projectSelect">Project Name</label>
+                                <label for="projectSelect">@lang('home.search.project.title')</label>
                                 <select class="form-control uk-select" id="projectSelect">
-                                    <option>Select Project</option>
+                                    <option>@lang('home.search.project.default')</option>
                                     @foreach($option as $optionProject)
-                                        <option>{{ $optionProject->project_title }}</option>
+                                        <option value="{{ $optionProject->project_title }}">{{ $optionProject->project_title }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="col-6 col-xl">
                             <div class="form-group">
-                                <label for="propertySelect">Property Type</label>
+                                <label for="propertySelect">@lang('home.search.property.title')</label>
                                 <select class="form-control uk-select" id="propertySelect">
-                                    <option>Select Type</option>
+                                    <option>@lang('home.search.property.default')</option>
                                     @foreach($projectType as $itemType)
                                         <option value="{{ $itemType->title }}">{{ $itemType->title }}</option>
                                     @endforeach
@@ -77,18 +77,18 @@
                         </div>
                         <div class="col-6 col-xl">
                             <div class="form-group">
-                                <label for="unitSelect">Unit Type</label>
+                                <label for="unitSelect">@lang('home.search.unit.title')</label>
                                 <select class="form-control uk-select" id="unitSelect">
-                                    <option>Select Unit</option>
+                                    <option>@lang('home.search.unit.default')</option>
                                     <option>Not have DB</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-6 col-xl">
                             <div class="form-group">
-                                <label for="locationSelect">Location</label>
+                                <label for="locationSelect">@lang('home.search.location.title')</label>
                                 <select class="form-control uk-select" id="locationSelect">
-                                    <option>Select Location</option>
+                                    <option>@lang('home.search.location.default')</option>
                                     @foreach($option as $optionLocation)
                                         <option value="{{ $optionLocation->location }}">{{ $optionLocation->location }}</option>
                                     @endforeach
@@ -97,7 +97,7 @@
                         </div>
                         <div class="col-12 col-xl">
                             <div class="search-button">
-                                <button type="submit" class="btn online-content color-white">SEARCH</button>
+                                <button type="submit" class="btn online-content color-white">@lang('home.search_btn')</button>
                             </div>
                         </div>
                     </div>

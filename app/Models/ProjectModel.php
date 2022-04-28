@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Libraries\Utility;
 use App\Models\FileEbook;
+use Illuminate\Http\Request;
+use App\Libraries\Search;
 
 class ProjectModel extends Model
 {
@@ -86,6 +88,14 @@ class ProjectModel extends Model
         }
 
         return $searchOption;
+    }
+
+    public function getList( Request $request )
+    {
+        $builder = $this->with( [ 'projectType', 'ProjectStatus' ] )
+                        ->where( 'status', 'publish' );
+        $data    = Search::search( $builder, 'project', $request );
+        dd( $data );
     }
 
     /**

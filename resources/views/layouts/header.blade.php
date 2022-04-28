@@ -11,13 +11,14 @@
             <div class="collapse navbar-collapse order-2 order-xl-3" id="navbar-header">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('homepage') }}">HOME
+                            <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">PROJECTS</a>
+                        <a class="nav-link" href="{{ route('project.index') }}">PROJECTS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">PROMOTION</a>
+                        <a class="nav-link" href="{{ route('promotion.index') }}">PROMOTION</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">HOW TO BOOK ONLINE</a>

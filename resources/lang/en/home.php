@@ -68,14 +68,33 @@ return [
         'banner_line' => 'The list of properties that reach great popularity',
     ],
     'search'           => [
-        'price' => [
+        'price'    => [
             'title'   => 'Price',
             'default' => 'Select Price',
             'option'  => [ '0 - 4.99 MB', '5 - 9.99 MB', '10+ MB' ],
+        ],
+        'project'  => [
+            'title'   => 'Project Name',
+            'default' => 'Select Project',
+        ],
+        'property' => [
+            'title'   => 'Property Type',
+            'default' => 'Select Type',
+        ],
+        'unit'     => [
+            'title'   => 'Unit Type',
+            'default' => 'Select Unit',
+        ],
+        'location' => [
+            'title'   => 'Location',
+            'default' => 'Select Location',
         ],
     ],
     'book_now'         => 'Book now',
     'publish'          => 'PUBLISHED',
     'view_project'     => 'View Project',
     'all_unit'         => 'All Unit',
+    'search_btn'       => 'SEARCH',
+    'sqm'              => 'Sq.m.',
+    'loadmore'         => 'LOAD MORE',
 ];

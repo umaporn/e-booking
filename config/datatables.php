@@ -23,7 +23,7 @@ namespace config;
 */
 
 return [
-    'default'                        => [
+    'default'   => [
         'limit'          => 10,
         'limits'         => [ 10, 25, 50, 100 ],
         'sortby'         => 'id',
@@ -31,55 +31,19 @@ return [
         'searchFields'   => [ 'title' ],
         'fulltextSearch' => true,
     ],
-    'news'                           => [
+    'project'   => [
         'limit'          => 9,
         'limits'         => [ 9, 18, 24, 32 ],
         'sortby'         => 'id',
         'searchFields'   => [ 'title_english', 'title_thai' ],
         'fulltextSearch' => false,
     ],
-    'forestias_home'                 => [
-        'limit'          => 3,
-        'limits'         => [ 3, 6, 9, 12 ],
-        'sortby'         => 'id',
-        'searchFields'   => [ 'title_english', 'title_thai' ],
-        'fulltextSearch' => false,
-    ],
-    'theaspentree_home'              => [
+    'promotion' => [
         'limit'          => 9,
-        'limits'         => [ 9, 18, 27, 36 ],
+        'limits'         => [ 9, 18, 24, 32 ],
         'sortby'         => 'id',
         'searchFields'   => [ 'title_english', 'title_thai' ],
         'fulltextSearch' => false,
-    ],
-    'theaspetree_release'            => [
-        'limit'          => 3,
-        'limits'         => [ 3, 6, 9, 12 ],
-        'sortby'         => 'id',
-        'searchFields'   => [ 'title_english', 'title_thai' ],
-        'fulltextSearch' => false,
-    ],
-    'forestias_newsclipping'         => [
-        'limit'          => 20,
-        'limits'         => [ 20, 40, 60, 80 ],
-        'sortby'         => 'id',
-        'searchFields'   => [ 'title_english', 'title_thai' ],
-        'fulltextSearch' => false,
-    ],
-    'forestias_newsclipping_release' => [
-        'limit'          => 3,
-        'limits'         => [ 3, 6, 9, 12 ],
-        'sortby'         => 'id',
-        'searchFields'   => [ 'title_english', 'title_thai' ],
-        'fulltextSearch' => false,
-    ],
-    'online_signature_users'         => [
-        'limit'          => 10,
-        'limits'         => [ 10, 25, 50, 100 ],
-        'sortby'         => 'id',
-        'direction'      => 'asc',
-        'searchFields'   => [ 'title' ],
-        'fulltextSearch' => true,
     ],
 
 ];
