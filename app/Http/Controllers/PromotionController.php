@@ -5,14 +5,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PromotionModels;
+use App\Models\PromotionModel;
 use Illuminate\Http\Request;
 
 class PromotionController extends Controller
 {
     private $promotion;
 
-    public function __construct( PromotionModels $promotionModels )
+    public function __construct( PromotionModel $promotionModels )
     {
         $this->promotion = $promotionModels;
     }

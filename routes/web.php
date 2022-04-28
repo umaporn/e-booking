@@ -45,13 +45,15 @@ function globalRoutes()
 
     Route::group( [ 'prefix' => 'project' ], function(){
         Route::get( '', [ ProjectController::class, 'index' ] )->name( 'project.index' );
-        Route::get( '{$name}', [ ProjectController::class, 'detail' ] )->name( 'project.list' );
+        Route::get( '{$name}', [ ProjectController::class, 'detail' ] )->name( 'project.detail' );
     } );
 
     Route::group( [ 'prefix' => 'promotion' ], function(){
         Route::get( '', [ PromotionController::class, 'index' ] )->name( 'promotion.index' );
         Route::get( 'detail/{id}', [ PromotionController::class, 'detail' ] )->name( 'promotion.detail' );
     } );
+
+    Route::get( 'faq', [ QuestionsController::class, 'index' ] )->name( 'faq.index' );
 
 }
 
@@ -69,7 +71,6 @@ function addPrefixResourceRouteName( $prefix )
 }
 
 Route::get( 'how-to-book', [ HowtoBookController::class, 'index' ] );
-Route::get( 'faq', [ QuestionsController::class, 'index' ] );
 
 Route::group( [ 'prefix' => 'theme' ], function(){
     Route::get( 'fullpage', [ ThemeController::class, 'fullpage' ] );

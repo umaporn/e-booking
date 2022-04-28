@@ -8,7 +8,7 @@ use App\Libraries\Search;
 use App\Libraries\Utility;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class PromotionModels extends Model
+class PromotionModel extends Model
 {
     /** @var string Table name */
     protected $table = 'promotion';

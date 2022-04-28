@@ -5,21 +5,33 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as BaseController;
+use App\Models\FaqModel;
 
 class QuestionsController extends Controller
 {
+    private $Faq;
+
+    public function __construct( FaqModel $faqModel )
+    {
+        $this->Faq = $faqModel;
+    }
+
     /**
      * Show how to faq page.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View how to fap page
      */
-    public function index()
+    public function index( Request $request )
     {
-        return view( 'faq' );
+        $faq = $this->Faq->getList( $request );
+        
+        if( $request->ajax() ){
+            return response()->json( [
+                                         'data' => view( 'partials.faq.list', compact( 'faq' ) )->render(),
+                                     ] );
+        }
+
+        return view( 'faq', compact( 'faq' ) );
     }
 }
