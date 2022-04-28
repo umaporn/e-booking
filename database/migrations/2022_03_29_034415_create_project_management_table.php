@@ -24,8 +24,6 @@ class CreateProjectManagementTable extends Migration
             $table->text( 'project_detail_english' );
             $table->text( 'project_detail_thai' );
             $table->string( 'price', 255 );
-            $table->string( 'project_location_english', 255 );
-            $table->string( 'project_location_thai', 255 );
             $table->string( 'project_location_google', 255 );
             $table->string( 'project_status', 255 );
             $table->string( 'project_type', 255 );

@@ -2,6 +2,7 @@
 
 return [
     [
+
         "many_collection"         => "gallery_files",
         "many_field"              => "directus_files_id",
         "one_collection"          => "directus_files",
@@ -189,6 +190,7 @@ return [
         "one_deselect_action"     => "nullify",
     ],
     [
+
         "many_collection"         => "unit",
         "many_field"              => "select_unit_label",
         "one_collection"          => "unit_label",
@@ -199,5 +201,16 @@ return [
         "sort_field"              => null,
         "one_deselect_action"     => "nullify",
     ],
+    [
 
+        "many_collection"         => "project_management",
+        "many_field"              => "project_location",
+        "one_collection"          => "project_location",
+        "one_field"               => null,
+        "one_collection_field"    => null,
+        "one_allowed_collections" => null,
+        "junction_field"          => null,
+        "sort_field"              => null,
+        "one_deselect_action"     => "nullify"
+	]
 ];

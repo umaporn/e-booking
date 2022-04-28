@@ -29,8 +29,8 @@ class CreateProjectLocationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_preview');
-        DB::table( 'directus_fields' )->where( 'collection', 'project_preview' )->delete();
+        Schema::dropIfExists('project_location');
+        DB::table( 'directus_fields' )->where( 'collection', 'project_location' )->delete();
         DB::table( 'directus_relations' )->delete();
     }
 }
