@@ -2,6 +2,7 @@
 @import '~bootstrap';
 @import '~bootstrap-icons/font/bootstrap-icons';
 @import '~uikit';
+@import '~@fancyapps/fancybox/dist/jquery.fancybox.min.css';
 ///////Setting
 @import 'setting/variables';
 @import 'setting/font';
@@ -11,9 +12,11 @@
 @import 'components/form';
 @import 'components/card';
 @import 'components/button';
+@import 'components/fancybox';
 //////Layouts
 @import 'layouts/nav';
 @import 'layouts/homepage';
 @import 'layouts/footer';
 @import 'layouts/faq';
 @import 'layouts/promotion';
+@import 'layouts/project_detail';

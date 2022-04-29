@@ -10,6 +10,10 @@
         &:hover {
             background-color: $color-text-st;
         }
+
+        img {
+            padding-right: $space-box/2;
+        }
     }
 
     &.more-text {

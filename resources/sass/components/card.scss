@@ -204,6 +204,7 @@
 
         img {
             filter: $color-svg-white;
+            vertical-align: baseline;
         }
     }
 }
@@ -335,6 +336,7 @@
 
             img {
                 filter: $color-svg-icon;
+                vertical-align: baseline;
             }
         }
     }
@@ -489,6 +491,10 @@
 
             .sub-type {
                 display: flex;
+
+                img {
+                    vertical-align: baseline;
+                }
             }
         }
 
@@ -504,6 +510,7 @@
 
             img {
                 filter: $color-svg-icon;
+                vertical-align: baseline;
             }
         }
 

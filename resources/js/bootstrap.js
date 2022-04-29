@@ -11,6 +11,7 @@ try{
 	window.$              = window.jQuery = require( 'jquery' );
 	window.SimpleLightbox = require( 'simplelightbox/dist/simple-lightbox.js' );
 	require( 'bootstrap' );
+    require( '@fancyapps/fancybox/dist/jquery.fancybox.js' );
 } catch( e ) {
 
 }
