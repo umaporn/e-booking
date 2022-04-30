@@ -90,28 +90,35 @@
                             margin-top: $space-box/2;
                             margin-bottom: $space-box/2;
                         }
-                    }
 
-                    .text-booking {
-                        display: inline-block;
-                        margin-bottom: 0;
-                        margin-right: $space-box/8;
-                    }
+                        .text-booking {
+                            display: inline-block;
+                            margin-bottom: 0;
+                            margin-right: $space-box/8;
+                        }
 
-                    .price-show {
-                        margin-bottom: $space-box/8;
-                        display: inline-block;
-                    }
+                        .price-show {
+                            margin-bottom: $space-box/8;
+                            display: inline-block;
+                        }
 
-                    .text-price {
-                        margin-right: $space-box/8;
-                        margin-bottom: $space-box/8;
-                        display: inline-block;
-                    }
+                        .text-price {
+                            margin-right: $space-box/8;
+                            margin-bottom: $space-box/8;
+                            display: inline-block;
+                        }
 
-                    .price-booking {
-                        display: inline-block;
-                        margin-bottom: 0;
+                        .price-booking {
+                            display: inline-block;
+                            margin-bottom: 0;
+                        }
+                    }
+                    .box-click {
+                        .button-link {
+                            @media (max-width: 300px) {
+                                padding: $space-box/2
+                            }
+                        }
                     }
                 }
             }
