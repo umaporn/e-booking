@@ -9,7 +9,7 @@
                             <a href="#" class="box-click">
                                 <div class="image-box">
                                     <figure class="online-content image-16by9 mb-1">
-                                        <img src="images/theme/example-img-banner-01.jpg" alt="">
+                                        <img src="{{ $item->preview_thumbnail.'?access_token='.$token }}" alt="{!! $item->preview_title !!}">
                                         <span class="icon"> <img src="{{asset( config('images.icons.play'))}}" alt="play icon"></span>
                                     </figure>
                                 </div>
@@ -32,7 +32,7 @@
                                 <a href="#" class="box-click">
                                     <div class="image-box">
                                         <figure class="online-content image-16by9 mb-0">
-                                            <img src="images/theme/example-img-banner-01.jpg" alt="">
+                                            <img src="{{ $item->preview_thumbnail.'?access_token='.$token }}" alt="{!! $item->preview_title !!}">
                                             <span class="icon"> <img src="{{asset( config('images.icons.play'))}}" alt="play icon"></span>
                                         </figure>
                                     </div>
@@ -48,9 +48,7 @@
                         </div>
                     @endif
                 @endif
-
             @endforeach
-
         </div>
     </div>
 </section>

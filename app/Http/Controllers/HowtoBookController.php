@@ -5,13 +5,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
+use App\Models\HowToBookModel;
 
 class HowtoBookController extends Controller
 {
+    private $howToBook;
+
+    public function __construct( HowToBookModel $howToBookModel )
+    {
+        $this->howToBook = $howToBookModel;
+    }
+
     /**
      * Show how to book page.
      *
@@ -19,6 +23,8 @@ class HowtoBookController extends Controller
      */
     public function index()
     {
-        return view( 'how_to_book' );
+        $howToBook = $this->howToBook->getLast();
+
+        return view( 'how_to_book', compact( 'howToBook' ) );
     }
 }

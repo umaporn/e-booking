@@ -151,4 +151,33 @@ class Utility
         return str_replace( ' ', '_', $slug );
     }
 
+    public static function getAccessToken()
+    {
+        $authUrl  = env( 'BACKEND_URL_AUTH' );
+        $user     = env( 'BACKEND_USER' );
+        $password = env( 'BACKEND_PW' );
+        $curl     = curl_init();
+        curl_setopt_array( $curl, [
+            CURLOPT_URL            => $authUrl,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING       => "",
+            CURLOPT_MAXREDIRS      => 10,
+            CURLOPT_TIMEOUT        => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST  => "POST",
+            CURLOPT_POSTFIELDS     => json_encode( [ 'email' => $user, 'password' => $password ] ),
+            CURLOPT_HTTPHEADER     => [
+                "Content-Type: application/json",
+                "Content-Type: text/plain",
+            ],
+        ] );
+
+        $result   = curl_exec( $curl );
+        $response = json_decode( $result, true );
+        curl_close( $curl );
+
+        return $response;
+    }
+
 }

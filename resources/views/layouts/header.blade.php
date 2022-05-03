@@ -10,22 +10,15 @@
             </button>
             <div class="collapse navbar-collapse order-2 order-xl-3" id="navbar-header">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('homepage') }}">HOME
-                            <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('project.index') }}">PROJECTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('promotion.index') }}">PROMOTION</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">HOW TO BOOK ONLINE</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">FAQ</a>
-                    </li>
+                    {{--<li class="nav-item active">--}}
+                    {{--<a class="nav-link" href="{{ route('homepage') }}">HOME--}}
+                    {{--<span class="sr-only">(current)</span></a>--}}
+                    {{--</li>--}}
+                    @foreach(__('menu') as $menu=>$item)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ $item['link'] }}">{{ $item['title'] }}</a>
+                        </li>
+                    @endforeach
                 </ul>
                 <section class="nav-user">
                     <a href=""><img src="{{asset( config('images.icons.user'))}}" alt="@lang('nav.login-alt')" class="icon">

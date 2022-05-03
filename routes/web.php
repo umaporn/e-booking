@@ -54,6 +54,7 @@ function globalRoutes()
     } );
 
     Route::get( 'faq', [ QuestionsController::class, 'index' ] )->name( 'faq.index' );
+    Route::get( 'how-to-book', [ HowtoBookController::class, 'index' ] )->name( 'howtobook' );
 
 }
 
@@ -69,8 +70,6 @@ function addPrefixResourceRouteName( $prefix )
         'destroy' => $prefix . '.destroy',
     ];
 }
-
-Route::get( 'how-to-book', [ HowtoBookController::class, 'index' ] );
 
 Route::group( [ 'prefix' => 'theme' ], function(){
     Route::get( 'fullpage', [ ThemeController::class, 'fullpage' ] );

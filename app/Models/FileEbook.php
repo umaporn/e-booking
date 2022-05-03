@@ -18,13 +18,12 @@ class FileEbook extends Model
      */
     public static function getFile( $id )
     {
-        if( !$id ){
-            return null;
-        }
 
-        $file     = FileEbook::where( 'id', $id )->get();
-        $filename = $file[0]->filename_disk;
-        $filesUrl = env( 'BACKEND_URL_FILES' ) . $filename;
+        if( $id ){
+            $filesUrl = env( 'BACKEND_URL_FILES' ) . $id;
+        } else {
+            $filesUrl = null;
+        }
 
         return $filesUrl;
     }

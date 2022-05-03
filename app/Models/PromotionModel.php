@@ -40,7 +40,7 @@ class PromotionModel extends Model
             $promotion->setAttribute( 'promotion_detail', Utility::getLanguageFields( 'display_text', $promotion ) );
             $promotion->setAttribute( 'image_title', Utility::getLanguageFields( 'alt_image_text', $promotion ) );
             $promotion->setAttribute( 'url', Utility::getLanguageFields( 'link', $promotion ) );
-            // $list->setAttribute( 'images_desktop', FileEbook::getFile( $list->upload_image ) );
+            $promotion->setAttribute( 'images', FileEbook::getFile( $promotion->upload_image_desktop ) );
         }
 
         return $promotion;
@@ -61,7 +61,10 @@ class PromotionModel extends Model
             $list->setAttribute( 'promotion_detail', Utility::getLanguageFields( 'display_text', $list ) );
             $list->setAttribute( 'image_title', Utility::getLanguageFields( 'alt_image_text', $list ) );
             $list->setAttribute( 'url', Utility::getLanguageFields( 'link', $list ) );
-            // $list->setAttribute( 'images_desktop', FileEbook::getFile( $list->upload_image ) );
+            $list->setAttribute( 'images', FileEbook::getFile( $list->upload_image_desktop ) );
+            $list->setAttribute( 'images_m', FileEbook::getFile( $list->upload_image_mobile ) );
+            $list->setAttribute( 'promotion_exp_date', date( 'd', strtotime( $list->expired_date ) ) );
+            $list->setAttribute( 'promotion_exp_month', date( 'M Y', strtotime( $list->expired_date ) ) );
         }
 
         return $content;

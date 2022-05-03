@@ -114,7 +114,8 @@ class ProjectModel extends Model
             $list->setAttribute( 'slug', Utility::getLanguageFields( 'slug', $list ) );
             $list->setAttribute( 'project_detail', Utility::getLanguageFields( 'project_detail', $list ) );
             $list->setAttribute( 'project_location', Utility::getLanguageFields( 'project_location', $list ) );
-            // $list->setAttribute( 'project_thumbnail', FileEbook::getFile( $list->thumbnail ) );
+            $list->setAttribute( 'project_thumbnail', FileEbook::getFile( $list->thumbnail ) );
+            $list->setAttribute( 'project_logo', FileEbook::getFile( $list->logo ) );
 
             if( isset( $list->ProjectStatus ) ){
                 $list->setAttribute( 'project_status_title', Utility::getLanguageFields( 'name', $list->ProjectStatus ) );

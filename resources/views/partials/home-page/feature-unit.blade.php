@@ -18,9 +18,9 @@
                                         <img src="{{asset( config('images.icons.compare'))}}" alt="compare icon">
                                     </a>
                                 </section>
-                                <a href="#" class="box-click">
+                                <a href="{{ $item->slug }}" class="box-click">
                                     <figure class="image">
-                                        <img src="images/theme/example-img-banner-01.jpg" alt="{{ $item->unit_name }}">
+                                        <img src="{{ $item->images.'?access_token='.$token }}" alt="{{ $item->unit_name }}">
                                         <div class="status">
                                             <p class="move mb-0" style="background-color:{{$item->unitLabel->color}};color:{{$item->unitLabel->font_color}}; ">{{ $item->unit_label_title }}</p>
                                         </div>
@@ -31,10 +31,11 @@
                                             <p class="property-type">{{ $item->project_info->project_type_title }}</p>
                                             <div class="sub-type">
                                                 <p class="bedroom">
-                                                    <img src="{{asset( config('images.icons.bed'))}}"
-                                                         alt=""> <b>{{ $item->unit_bedroom }}</b></p>
-                                                <p class="sqm"><img src="{{asset( config('images.icons.sqm'))}}"
-                                                                    alt="">
+                                                    <img src="{{asset( config('images.icons.bed'))}}">
+                                                    <b>{{ $item->unit_bedroom }}</b>
+                                                </p>
+                                                <p class="sqm">
+                                                    <img src="{{asset( config('images.icons.sqm'))}}">
                                                     <b>{{ $item->unit_sqm }}</b>@lang('home.sqm')
                                                 </p>
                                             </div>
@@ -43,14 +44,15 @@
                                             {{ $item->unit_name }}
                                         </h3>
                                         <p class="online-content sub-text location">
-                                            <img src="{{asset( config('images.icons.location'))}}" alt="">
+                                            <img src="{{asset( config('images.icons.location'))}}">
                                             {{ $item->unit_detail }}
                                         </p>
                                     </section>
                                     <section class="booking">
                                         <div class="price">
                                             <p class="price-booking">@lang('home.feature-unit.booking_price') {{ $item->booking_price }}</p>
-                                            <p class="price-show">{{ $item->total_price_after_discount }}<span>{{ $item->total_price }}</span></p>
+                                            <p class="price-show">{{ $item->total_price_after_discount }}
+                                                <span>{{ $item->total_price }}</span></p>
                                         </div>
                                         <div class="booking-button">@lang('home.book_now')</div>
                                     </section>

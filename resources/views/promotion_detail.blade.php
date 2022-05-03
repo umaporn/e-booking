@@ -7,7 +7,7 @@
                 <h1 class="online-content title">{!! $single->promotion_title !!}</h1>
                 <div class="uk-margin-medium-top uk-margin-medium-bottom">
                     <figure>
-                        <img class="img-fluid" src="{{ asset('images/promotion/whizdom_experience_box@2x.png') }}">
+                        <img class="img-fluid" src="{{ $single->images.'?access_token='.$token }}" alt="{{ $single->image_title }}">
                     </figure>
                 </div>
                 <article class="container width-xxl">

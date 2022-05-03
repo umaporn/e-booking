@@ -20,11 +20,12 @@
                                                 </article>
                                             </div>
                                         </div>
+                                        alt
                                     </div>
                                     <div class="row slide-box">
                                         <div class="offset-xl-7 col-xl-5 overflow-hidden">
                                             <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center-left">
-                                                <img src="images/theme/example-home-highlight-01.jpg" alt="" uk-cover>
+                                                <img src="{{ $itemBanner->images }}?access_token={{ $token }}" alt="{{ $itemBanner->alt }}" uk-cover>
                                             </div>
                                         </div>
                                     </div>
@@ -34,7 +35,7 @@
                     @endforeach
                 </ul>
                 <div class="slide-dotnav">
-                    <ul class="uk-slideshow-nav uk-dotnav "></ul>
+                    <ul class="uk-slideshow-nav uk-dotnav"></ul>
                 </div>
             </div>
         </section>

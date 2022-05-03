@@ -22,4 +22,5 @@ return [
     'feature-unit'     => [
         'booking_price' => 'จอง',
     ],
+    'start'            => 'เริ่มต้น',
 ];

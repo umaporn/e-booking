@@ -67,7 +67,7 @@ return [
         'header_line' => 'FEATURED PROPERTY',
         'banner_line' => 'The list of properties that reach great popularity',
     ],
-    'search'           => [
+    'search'       => [
         'price'    => [
             'title'   => 'Price',
             'default' => 'Select Price',
@@ -90,11 +90,12 @@ return [
             'default' => 'Select Location',
         ],
     ],
-    'book_now'         => 'Book now',
-    'publish'          => 'PUBLISHED',
-    'view_project'     => 'View Project',
-    'all_unit'         => 'All Unit',
-    'search_btn'       => 'SEARCH',
-    'sqm'              => 'Sq.m.',
-    'loadmore'         => 'LOAD MORE',
+    'book_now'     => 'Book now',
+    'publish'      => 'PUBLISHED',
+    'view_project' => 'View Project',
+    'all_unit'     => 'All Unit',
+    'search_btn'   => 'SEARCH',
+    'sqm'          => 'Sq.m.',
+    'loadmore'     => 'LOAD MORE',
+    'start'        => 'เริ่มต้น',
 ];
