@@ -4,21 +4,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Promotion Language Lines
+    | faq Language Lines
     |--------------------------------------------------------------------------
     */
     'page_link' => [
-        'index' => 'Promotion',
+        'index' => 'Faq',
     ],
 
     'page_title' => [
-        'index' => 'Promotion page',
+        'index' => 'Faq',
     ],
 
     'page_description' => [
-        'index' => 'EBooking Promotion page',
+        'index' => 'MQDC operates on the principle ‘For All Well-Being’. It means we strive to provide the best life not only for humankind but for all living beings.',
     ],
 
-    'lasted' => 'LATEST PROMOTIONS',
-    'new'    => 'NEW',
 ];

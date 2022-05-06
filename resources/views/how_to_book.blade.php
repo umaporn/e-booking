@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+@section('page-title', __('howtobook.page_title.index'))
+@section('page-description', __('howtobook.page_description.index'))
 @section('content')
     <section class="content-how-to-book">
         <div class="show-content uk-margin-large-top uk-margin-xlarge-bottom">

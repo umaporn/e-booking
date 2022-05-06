@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('page-title', __('promotion.page_title.index'))
+@section('page-description', __('promotion.page_description.index'))
+
 @section('content')
     <section class="content-promotion">
         <div class="show-content">

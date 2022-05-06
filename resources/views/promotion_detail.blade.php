@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('page-title', $single->promotion_title.' '.__( 'promotion.page_title.index'))
+@section('page-description',  $single->promotion_title.' '.__('promotion.page_description.index'))
+
 @section('content')
     <section class="content-how-to-book">
         <div class="show-content uk-margin-large-top uk-margin-xlarge-bottom">

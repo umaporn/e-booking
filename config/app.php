@@ -15,6 +15,8 @@ return [
 
     'name' => 'Magnolia Quality Development Corporation Limited',
 
+    'site_name' => 'ebooking',
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
