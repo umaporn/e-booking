@@ -26,7 +26,6 @@ class DatabaseSeeder extends Seeder
                          BuildingLayoutFieldsSeeder::class,
                          FloorLayoutFieldsSeeder::class,
                          UnitLayoutFieldsSeeder::class,
-                         ProjectManagementFieldsSeeder::class,
                          ProjectStatusFieldsSeeder::class,
                          ProjectTypeFieldsSeeder::class,
                          PromotionFieldsSeeder::class,
@@ -37,6 +36,7 @@ class DatabaseSeeder extends Seeder
                          ProjectPreviewFieldsSeeder::class,
                          ProjectLocationFieldsSeeder::class,
                          RelationFieldsSeeder::class,
+                         ProjectManagementFieldsSeeder::class,
                      ] );
 
     }
