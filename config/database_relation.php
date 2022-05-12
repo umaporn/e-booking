@@ -2,22 +2,21 @@
 
 return [
     [
-
         "many_collection"         => "gallery_files",
         "many_field"              => "directus_files_id",
         "one_collection"          => "directus_files",
         "one_field"               => null,
         "one_collection_field"    => null,
         "one_allowed_collections" => null,
-        "junction_field"          => "gallery_id",
+        "junction_field"          => "gallery_gallery_id",
         "sort_field"              => null,
         "one_deselect_action"     => "nullify",
     ],
     [
         "many_collection"         => "gallery_files",
-        "many_field"              => "gallery_id",
+        "many_field"              => "gallery_gallery_id",
         "one_collection"          => "gallery",
-        "one_field"               => null,
+        "one_field"               => 'images',
         "one_collection_field"    => null,
         "one_allowed_collections" => null,
         "junction_field"          => "directus_files_id",
@@ -212,5 +211,6 @@ return [
         "junction_field"          => null,
         "sort_field"              => null,
         "one_deselect_action"     => "nullify"
-	]
+    ],
+
 ];

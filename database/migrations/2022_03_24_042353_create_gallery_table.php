@@ -14,10 +14,9 @@ class CreateGalleryTable extends Migration
     public function up()
     {
         Schema::create('gallery', function (Blueprint $table) {
-            $table->increments( 'id' );
+            $table->increments( 'gallery_id' );
             $table->string( 'name_english', 255 );
             $table->string( 'name_thai', 255 );
-            $table->integer( 'gallery_image' );
             $table->string( 'status', 255 );
         });
     }

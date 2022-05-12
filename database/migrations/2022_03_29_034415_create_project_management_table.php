@@ -13,7 +13,7 @@ class CreateProjectManagementTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_management', function (Blueprint $table) {
+        Schema::create( 'project_management', function( Blueprint $table ){
             $table->increments( 'id' );
             $table->string( 'project_name_english', 255 );
             $table->string( 'project_name_thai', 255 );
@@ -25,6 +25,7 @@ class CreateProjectManagementTable extends Migration
             $table->text( 'project_detail_thai' );
             $table->string( 'price', 255 );
             $table->string( 'project_location_google', 255 );
+            $table->string( 'project_location', 255 );
             $table->string( 'project_status', 255 );
             $table->string( 'project_type', 255 );
             $table->string( 'total_building_english', 255 );
@@ -61,7 +62,7 @@ class CreateProjectManagementTable extends Migration
             $table->string( 'status', 255 );
             $table->timestamp( 'updated_at' )->nullable();
             $table->timestamp( 'created_at' )->useCurrent();
-        });
+        } );
     }
 
     /**
@@ -71,7 +72,7 @@ class CreateProjectManagementTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_management');
+        Schema::dropIfExists( 'project_management' );
         DB::table( 'directus_fields' )->where( 'collection', 'project_management' )->delete();
         DB::table( 'directus_relations' )->delete();
     }

@@ -7,7 +7,7 @@
 */
 
 return [
-    'banner'             => [
+    'banner'           => [
         [
             'collection'      => 'banner',
             'field'           => 'id',
@@ -281,8 +281,8 @@ return [
         [
             'collection' => 'banner',
             'field'      => 'expired_status',
-            'special'    => 'csv',
-            'interface'  => 'select-multiple-checkbox',
+            'special'    => null,
+            'interface'  => 'select-radio',
             'options'    => '{"choices":[{"text":"yes","value":"yes"},{"text":"no","value":"no"}]}',
             'readonly'   => 0,
             'hidden'     => 0,
@@ -1335,7 +1335,7 @@ return [
             'group'           => null,
         ],
     ],
-    'faq'                => [
+    'faq'              => [
         [
             'collection'      => 'faq',
             'field'           => 'id',
@@ -1532,7 +1532,7 @@ return [
             'translations'    => null,
             'note'            => null,
             'conditions'      => null,
-            'required'        => 1,
+            'required'        => 0,
             'group'           => null,
         ],
         [
@@ -1554,12 +1554,12 @@ return [
             'group'           => null,
         ],
     ],
-    'gallery'            => [
+    'gallery'          => [
         [
             'collection'      => 'gallery',
-            'field'           => 'id',
+            'field'           => 'gallery_id',
             'special'         => null,
-            'interface'       => null,
+            'interface'       => 'input',
             'options'         => null,
             'display'         => null,
             'display_options' => null,
@@ -1576,7 +1576,7 @@ return [
         [ 'collection'      => 'gallery',
           'field'           => 'name_english',
           'special'         => null,
-          'interface'       => null,
+          'interface'       => 'input',
           'options'         => null,
           'display'         => null,
           'display_options' => null,
@@ -1594,7 +1594,7 @@ return [
             'collection'      => 'gallery',
             'field'           => 'name_thai',
             'special'         => null,
-            'interface'       => null,
+            'interface'       => 'input',
             'options'         => null,
             'display'         => null,
             'display_options' => null,
@@ -1628,24 +1628,25 @@ return [
         ],
         [
             'collection'      => 'gallery',
-            'field'           => 'gallery_image',
-            'special'         => 'file',
-            'interface'       => 'file-image',
+            'field'           => 'images',
+            'special'         => 'files',
+            'interface'       => 'files',
             'options'         => null,
             'display'         => null,
             'display_options' => null,
             'readonly'        => 0,
             'hidden'          => 0,
-            'sort'            => 4,
-            'width'           => 'full',
+            'sort'            => 3,
+            'width'           => 'half',
             'translations'    => null,
             'note'            => null,
             'conditions'      => null,
             'required'        => 0,
             'group'           => null,
         ],
+
     ],
-    'how_to_booking'     => [
+    'how_to_booking'   => [
         [
 
             'collection'      => 'how_to_booking',
@@ -5255,7 +5256,7 @@ return [
             'group'           => null,
         ],
     ],
-    'project_location'   => [
+    'project_location' => [
         [
             "collection"      => "project_location",
             "field"           => "id",
@@ -5340,6 +5341,62 @@ return [
             "hidden"          => 0,
             "sort"            => null,
             "width"           => "half",
+            "translations"    => null,
+            "note"            => null,
+            "conditions"      => null,
+            "required"        => 0,
+            "group"           => null,
+        ],
+    ],
+    'gallery_files'    => [
+        [
+            "collection"      => "gallery_files",
+            "field"           => "id",
+            "special"         => null,
+            "interface"       => null,
+            "options"         => null,
+            "display"         => null,
+            "display_options" => null,
+            "readonly"        => 0,
+            "hidden"          => 1,
+            "sort"            => null,
+            "width"           => "half",
+            "translations"    => null,
+            "note"            => null,
+            "conditions"      => null,
+            "required"        => 0,
+            "group"           => null,
+        ],
+        [
+            "collection"      => "gallery_files",
+            "field"           => "gallery_gallery_id",
+            "special"         => null,
+            "interface"       => null,
+            "options"         => null,
+            "display"         => null,
+            "display_options" => null,
+            "readonly"        => 0,
+            "hidden"          => 1,
+            "sort"            => null,
+            "width"           => "full",
+            "translations"    => null,
+            "note"            => null,
+            "conditions"      => null,
+            "required"        => 0,
+            "group"           => null,
+        ],
+        [
+            "collection"      => "gallery_files",
+            "field"           => "directus_files_id",
+            "special"         => null,
+            "interface"       => null,
+            "options"         => null,
+            "display"         => null,
+            "display_options" => null,
+            "readonly"        => 0,
+            "hidden"          => 1,
+            "sort"            => null,
+            "width"           => "full",
             "translations"    => null,
             "note"            => null,
             "conditions"      => null,
