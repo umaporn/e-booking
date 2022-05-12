@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-xl nav-detail">
             <a class="navbar-brand order-3 order-xl-1" href="#">
                 <figure class="svg-white d-none d-lg-block">
-                <img src="{{asset( config('images.logos.mqdc-all'))}}" alt="@lang('nav.logo-alt')">
+                    <img src="{{asset( config('images.logos.mqdc-all'))}}" alt="@lang('nav.logo-alt')">
                 </figure>
                 <figure class="d-block d-lg-none">
                     <img src="{{asset( config('images.logos.mqdc'))}}" alt="@lang('nav.logo-alt')">

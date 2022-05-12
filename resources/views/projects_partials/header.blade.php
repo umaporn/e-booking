@@ -36,7 +36,7 @@
             </a>
         </div>
     </div>
-    @include('projects.gallery')
+    @include('projects_partials.gallery')
 </section>
 
 <section class="header-icon-play uk-visible@s">

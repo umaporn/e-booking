@@ -3,14 +3,14 @@
 @section('content')
     <section class="project-detail">
         <section class="card-project-unit container-fluid position-absolute px-0">
-            @include('projects.card_project_unit')
+            @include('projects_partials.card_project_unit')
         </section>
         <section class="header-project container-fluid position-relative">
-            @include('projects.header')
+            @include('projects_partials.header')
         </section>
         <section class="header-menu-detail">
             <div class="container-fluid">
-                @include('projects.menu')
+                @include('projects_partials.menu')
             </div>
         </section>
         <section class="project-property" id="property">
@@ -102,7 +102,7 @@
         <hr class="hr-between">
 
         <section class="project-layout" id="layout">
-            @include('projects.project_layout')
+            @include('projects_partials.project_layout')
         </section>
         <section class="project-tour" id="tour">
             <div class="container-fluid">
@@ -115,7 +115,7 @@
         </section>
 
         <section class="project-unit" id="unit">
-            @include('projects.project_unit')
+            @include('projects_partials.project_unit')
         </section>
 
         <hr class="hr-between">
@@ -169,13 +169,13 @@
         </section>
 
         <section class="project-preview">
-            @include('projects.project_preview')
+            @include('projects_partials.project_preview')
         </section>
 
         <hr class="hr-between">
 
         <section class="related-preview">
-            @include('projects.related_project')
+            @include('projects_partials.related_project')
         </section>
 
     </section>
