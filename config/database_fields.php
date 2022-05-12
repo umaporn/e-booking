@@ -4085,7 +4085,7 @@ return [
           'group'           => null,
         ],
         [ 'collection'      => 'unit',
-          'field'           => 'project',
+          'field'           => 'project_id',
           'special'         => 'm2o',
           'interface'       => 'select-dropdown-m2o',
           'options'         => '{"template":"{{project_name_english}}"}',

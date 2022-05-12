@@ -168,7 +168,7 @@ return [
     ],
     [
         "many_collection"         => "unit",
-        "many_field"              => "project",
+        "many_field"              => "project_id",
         "one_collection"          => "project_management",
         "one_field"               => null,
         "one_collection_field"    => null,
@@ -189,7 +189,6 @@ return [
         "one_deselect_action"     => "nullify",
     ],
     [
-
         "many_collection"         => "unit",
         "many_field"              => "select_unit_label",
         "one_collection"          => "unit_label",
@@ -201,7 +200,6 @@ return [
         "one_deselect_action"     => "nullify",
     ],
     [
-
         "many_collection"         => "project_management",
         "many_field"              => "project_location",
         "one_collection"          => "project_location",
