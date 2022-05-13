@@ -1,0 +1,221 @@
+.project-detail {
+
+    .card-project-unit {
+        .card-project-detail {
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+            z-index: 1030;
+
+            .card-project {
+                .detail {
+                    background-color: white;
+                    display: block;
+                    overflow: hidden;
+                    position: relative;
+                    padding: $space-box/2 $space-box;
+
+                    .text-booking {
+                        color: $color-text-st;
+                        @include font-size(18px);
+                    }
+
+                    .price-booking {
+                        @include font-size(26px);
+                        font-family: $font-bold;
+                        color: $color-link;
+
+                        &::before {
+                            content: "฿";
+                            display: inline-block;
+                            margin-right: $space-box/8;
+                        }
+                    }
+
+                    .text-price {
+                        @include font-size(18px);
+                        color: $color-text-th;
+                    }
+
+                    .price-show {
+                        color: $color-text-st;
+                        @include font-size(18px);
+                        font-family: $font-bold;
+
+                        &::before {
+                            content: "฿";
+                            display: inline-block;
+                            margin-right: $space-box/10;
+                        }
+                    }
+                }
+
+                .box-click {
+                    .button-link {
+                        font-family: $font-bold;
+                        padding: $space-box/2 $space-box;
+                        border-radius: 0;
+                        background-color: $color-link;
+                        color: #fff;
+                        text-align: center;
+                        align-items: center;
+                        height: 100%;
+                    }
+                }
+
+                @include media-breakpoint-up(xl) {
+                    .detail {
+                        .text-booking,
+                        .price-show,
+                        .text-price {
+                            @include font-size(24px);
+                        }
+
+                        .price-booking {
+                            @include font-size(40px);
+                        }
+                    }
+                    .box-click {
+                        .button-link {
+                            @include font-size(24px);
+                        }
+                    }
+                }
+
+                @include media-breakpoint-down(sm) {
+                    .detail {
+                        padding: $space-box/2;
+
+                        hr {
+                            margin-top: $space-box/2;
+                            margin-bottom: $space-box/2;
+                        }
+
+                        .text-booking {
+                            display: inline-block;
+                            margin-bottom: 0;
+                            margin-right: $space-box/8;
+                            @media (max-width: 320px) {
+                                @include font-size(16px);
+                            }
+                        }
+
+                        .price-show {
+                            margin-bottom: $space-box/8;
+                            display: inline-block;
+                            @media (max-width: 320px) {
+                                @include font-size(16px);
+                            }
+                        }
+
+                        .text-price {
+                            margin-right: $space-box/8;
+                            margin-bottom: $space-box/8;
+                            display: inline-block;
+                            @media (max-width: 320px) {
+                                @include font-size(16px);
+                            }
+                        }
+
+                        .price-booking {
+                            display: inline-block;
+                            margin-bottom: 0;
+                            @media (max-width: 320px) {
+                                @include font-size(20px);
+                            }
+                        }
+                    }
+                    .box-click {
+                        .button-link {
+                            @media (max-width: 300px) {
+                                padding: $space-box/2
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .header-button-viewmore {
+        .button-viewmore {
+            border: 1px solid white;
+            color: white;
+            background-color: transparent;
+
+            svg,
+            img {
+                margin-right: $space-box/2;
+            }
+
+        }
+    }
+
+    .header-icon-play {
+        span {
+            filter: invert(97%) sepia(100%) saturate(11%) hue-rotate(212deg) brightness(104%) contrast(102%);
+        }
+    }
+
+    .gallery-project {
+        display: none;
+    }
+
+    .header-menu-detail {
+        background-color: $color-bg-2;
+    }
+
+    .title-project-center {
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+        align-items: center;
+        @include media-breakpoint-down(sm) {
+            display: block;
+        }
+    }
+
+    .project-property {
+        .image-logo img {
+            width: 10rem;
+        }
+    }
+
+    .table-unit-type {
+        display: block;
+        overflow-y: scroll;
+
+        tbody {
+            white-space: nowrap;
+        }
+    }
+
+    .project-layout {
+        .border-article-project-layout {
+            border: 1px solid #DDDDDD;
+        }
+
+        .uk-tab:before {
+            border: 0;
+        }
+
+        .uk-tab > * > a {
+            color: $color-text-st;
+        }
+
+        .uk-tab > .uk-active > a {
+            border-color: $color-text-st;
+        }
+
+    }
+
+    .project-map iframe {
+        height: 65vh !important;
+        width: 100%;
+    }
+
+    .project-nearby {
+        background-color: $color-bg-2;
+    }
+
+}

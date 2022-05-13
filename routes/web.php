@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HowtoBookController;
+use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\QuestionsController;
 use Illuminate\Support\Facades\Route;
@@ -38,4 +39,9 @@ Route::group( [ 'prefix' => 'promotion' ], function(){
 
 Route::group( [ 'prefix' => 'theme' ], function(){
     Route::get( 'fullpage', [ ThemeController::class, 'fullpage' ] );
+} );
+
+Route::group( [ 'prefix' => 'projects' ], function(){
+    Route::get( '', [ ProjectsController::class, 'index' ] )->name( 'projects.index' );
+    Route::get( 'detail', [ ProjectsController::class, 'detail' ] )->name( 'projects.detail' );
 } );
