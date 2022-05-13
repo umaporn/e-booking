@@ -47,9 +47,9 @@
                             <div class="form-group">
                                 <label for="projectSelect">@lang('home.search.project.title')</label>
                                 <select class="form-control uk-select" id="projectSelect">
-                                    <option>@lang('home.search.project.default')</option>
-                                    @foreach($option as $optionProject)
-                                        <option value="{{ $optionProject->project_title }}">{{ $optionProject->project_title }}</option>
+                                    <option value="all">@lang('home.search.project.default')</option>
+                                    @foreach($option['project'] as $optionProject)
+                                        <option value="{{ $optionProject }}">{{ $optionProject }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -58,7 +58,7 @@
                             <div class="form-group">
                                 <label for="propertySelect">@lang('home.search.property.title')</label>
                                 <select class="form-control uk-select" id="propertySelect">
-                                    <option>@lang('home.search.property.default')</option>
+                                    <option value="all">@lang('home.search.property.default')</option>
                                     @foreach($projectType as $itemType)
                                         <option value="{{ $itemType->title }}">{{ $itemType->title }}</option>
                                     @endforeach
@@ -69,7 +69,7 @@
                             <div class="form-group">
                                 <label for="priceSelect">@lang('home.search.price.title')</label>
                                 <select class="form-control uk-select" id="priceSelect">
-                                    <option>@lang('home.search.price.default')</option>
+                                    <option value="all">@lang('home.search.price.default')</option>
                                     @foreach(__('home.search.price.option') as $itemPrice )
                                         <option value="{{ $itemPrice  }}">{{ $itemPrice  }}</option>
                                     @endforeach
@@ -80,8 +80,10 @@
                             <div class="form-group">
                                 <label for="unitSelect">@lang('home.search.unit.title')</label>
                                 <select class="form-control uk-select" id="unitSelect">
-                                    <option>@lang('home.search.unit.default')</option>
-                                    <option>Not have DB</option>
+                                    <option value="all">@lang('home.search.unit.default')</option>
+                                    @foreach($option['unitType'] as $optionUnit)
+                                        <option value="{{ $optionUnit['Unit_type_name_English'] }}">{{ $optionUnit['Unit_type_name_English'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -89,9 +91,9 @@
                             <div class="form-group">
                                 <label for="locationSelect">@lang('home.search.location.title')</label>
                                 <select class="form-control uk-select" id="locationSelect">
-                                    <option>@lang('home.search.location.default')</option>
-                                    @foreach($option as $optionLocation)
-                                        <option value="{{ $optionLocation->location }}">{{ $optionLocation->location }}</option>
+                                    <option value="all">@lang('home.search.location.default')</option>
+                                    @foreach($option['location'] as $optionLocation)
+                                        <option value="{{ $optionLocation }}">{{ $optionLocation }}</option>
                                     @endforeach
                                 </select>
                             </div>

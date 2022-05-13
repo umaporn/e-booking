@@ -23,9 +23,14 @@ class ProjectModel extends Model
         return $this->belongsTo( 'App\Models\ProjectStatusModel', 'project_status' );
     }
 
+    public function projectLocation()
+    {
+        return $this->belongsTo( 'App\Models\ProjectLocationModel', 'project_location' );
+    }
+
     public function getUpdate( $limit = 5 )
     {
-        $result = $this->with( [ 'projectType', 'ProjectStatus' ] )
+        $result = $this->with( [ 'projectType', 'projectStatus', 'projectLocation' ] )
                        ->where( 'status', '!=', '' )
                        ->orderBy( 'created_at', 'DESC' )
                        ->offset( 0 )->take( $limit )
@@ -43,13 +48,14 @@ class ProjectModel extends Model
      */
     public static function getProjectInfo( $project_id )
     {
-        $projectInfo = ProjectModel::with( [ 'projectType', 'ProjectStatus' ] )
+        $projectInfo = ProjectModel::with( [ 'projectType', 'ProjectStatus', 'projectLocation' ] )
                                    ->where( 'id', $project_id )
                                    ->where( 'status', 'publish' )
                                    ->first();
         if( $projectInfo ){
             $projectInfo->setAttribute( 'project_type_title', Utility::getLanguageFields( 'name', $projectInfo->projectType ) );
             $projectInfo->setAttribute( 'project_status_title', Utility::getLanguageFields( 'name', $projectInfo->ProjectStatus ) );
+            $projectInfo->setAttribute( 'project_location_title', Utility::getLanguageFields( 'location_name', $projectInfo->projectLocation ) );
         }
 
         return $projectInfo;
@@ -63,7 +69,7 @@ class ProjectModel extends Model
      */
     public function project_property()
     {
-        $result = $this->with( [ 'projectType', 'ProjectStatus' ] )
+        $result = $this->with( [ 'projectType', 'ProjectStatus', 'projectLocation' ] )
                        ->where( 'status', 'publish' )
                        ->where( 'feature_property', 'yes' )
                        ->orderby( 'publish_date', 'DESC' )
@@ -73,26 +79,58 @@ class ProjectModel extends Model
     }
 
     /**
-     * Get project type and location for search
+     * Get option for search
      *
-     * @return mixed
+     * Location list
+     * project name list
+     * Unit info list
+     *
+     * @return array
      */
     public function getSearchOption()
     {
-        $searchOption = $this->where( 'status', 'publish' )
-                             ->get( [ 'project_location_english', 'project_location_thai', 'project_name_english', 'project_name_thai' ] );
+        $result = $this->with( [ 'projectLocation' ] )
+                       ->where( 'status', 'publish' )
+                       ->get();
 
-        foreach( $searchOption as $list ){
-            $list->setAttribute( 'project_title', Utility::getLanguageFields( 'project_name', $list ) );
-            $list->setAttribute( 'location', Utility::getLanguageFields( 'project_location', $list ) );
+        //Array key | project id
+        $option['location'] = [];
+        $option['project']  = [];
+        $option['unitType'] = [];
+
+        foreach( $result as $list ){
+
+            //get publish project
+            $option['project'][ $list->id ] = Utility::getLanguageFields( 'project_name', $list );
+
+            //get location uesed
+            if( $list->projectLocation ){
+                if( array_key_exists( $list->projectLocation->id, $option['location'] ) == false ){
+                    $option['location'][ $list->projectLocation->id ] = Utility::getLanguageFields( 'location_name', $list->projectLocation );
+                }
+            }
+
+            //get Unit type [en]
+            if( $list->project_unit_info ){
+
+                $unit = json_decode( $list->project_unit_info, true );
+                foreach( $unit as $itemUnit ){
+                    $option['unitType'][ $list->id ] = $itemUnit;
+                }
+            }
         }
 
-        return $searchOption;
+        return $option;
     }
 
+    /**
+     * Get project page
+     *
+     * @param Request $request
+     */
     public function getList( Request $request )
     {
-        $builder = $this->with( [ 'projectType', 'ProjectStatus' ] )
+        $builder = $this->with( [ 'projectType', 'ProjectStatus', 'projectLocation' ] )
                         ->where( 'status', 'publish' );
         $data    = Search::search( $builder, 'project', $request );
         dd( $data );
@@ -113,7 +151,7 @@ class ProjectModel extends Model
             $list->setAttribute( 'project_name', Utility::getLanguageFields( 'project_name', $list ) );
             $list->setAttribute( 'slug', Utility::getLanguageFields( 'slug', $list ) );
             $list->setAttribute( 'project_detail', Utility::getLanguageFields( 'project_detail', $list ) );
-            $list->setAttribute( 'project_location', Utility::getLanguageFields( 'project_location', $list ) );
+            $list->setAttribute( 'project_location', '' );
             $list->setAttribute( 'project_thumbnail', FileEbook::getFile( $list->thumbnail ) );
             $list->setAttribute( 'project_logo', FileEbook::getFile( $list->logo ) );
 
@@ -123,6 +161,10 @@ class ProjectModel extends Model
 
             if( isset( $list->projectType ) ){
                 $list->setAttribute( 'project_type_title', Utility::getLanguageFields( 'name', $list->projectType ) );
+            }
+
+            if( isset( $list->projectLocation ) ){
+                $list->setAttribute( 'project_location_title', Utility::getLanguageFields( 'location_name', $list->projectLocation ) );
             }
         }
 

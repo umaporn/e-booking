@@ -23,7 +23,7 @@
                         <section class="detail">
                             <a href="{{ $itemProject->slug }}" target="_blank" class="box">
                                 <h2 class="online-content sub-header color-white mb-0">{{ $itemProject->project_name }}</h2>
-                                <p class="online-content color-white mb-2">The Forestias Condominiums</p>
+                                <p class="online-content color-white mb-2">{!! $itemProject->project_detail !!}</p>
                                 <button class="btn button link">@lang('home.view_project')</button>
                             </a>
                         </section>
@@ -61,14 +61,14 @@
                                                                      alt=""> <b>{{ $itemUnit->unit_bedroom }}</b></p>
                                                             <p class="sqm">
                                                                 <img src="{{asset( config('images.icons.sqm'))}}"
-                                                                     alt=""> <b>{{ $itemUnit->unit_sqm }}</b>Sq.m.
+                                                                     alt=""> <b>{{ $itemUnit->unit_sqm }}</b>
                                                             </p>
                                                         </div>
                                                     </div>
                                                     <h3 class="online-content sub-title my-0">{{ $itemUnit->unit_name }}</h3>
                                                     <p class="online-content sub-text location">
                                                         <img src="{{asset( config('images.icons.location'))}}">
-                                                        {{ $itemUnit->unit_detail }}
+                                                        {{ $itemProject->project_location_title }}
                                                     </p>
                                                 </section>
                                                 <section class="booking">

@@ -36,7 +36,7 @@
                                                 </p>
                                                 <p class="sqm">
                                                     <img src="{{asset( config('images.icons.sqm'))}}">
-                                                    <b>{{ $item->unit_sqm }}</b>@lang('home.sqm')
+                                                    <b>{{ $item->unit_sqm }}</b>
                                                 </p>
                                             </div>
                                         </div>
@@ -45,7 +45,7 @@
                                         </h3>
                                         <p class="online-content sub-text location">
                                             <img src="{{asset( config('images.icons.location'))}}">
-                                            {{ $item->unit_detail }}
+                                            {!!  $item->project_info->project_location_title !!}
                                         </p>
                                     </section>
                                     <section class="booking">

@@ -47,7 +47,7 @@
                                     </p>
                                     <h3 class="online-content sub-title my-0">{{ $item->project_name }}</h3>
                                     <p class="online-content sub-text location">
-                                        <img src="{{asset( config('images.icons.location'))}}">{{ $item->project_location }}
+                                        <img src="{{asset( config('images.icons.location'))}}">{{ $item->project_location_title }}
                                     </p>
                                 </section>
                                 <div class="button link d-block text-center">@lang('home.feature-project.button.view_unit')</div>

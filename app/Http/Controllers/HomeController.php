@@ -46,7 +46,7 @@ class HomeController extends Controller
         $projectType = $this->ProjectType->getTypeList();
         $preview     = $this->Preview->getUpdate();
         $project     = $this->Project->getUpdate();
-        $option      = $this->Project->getSearchOption();
+        $option      = $this->searchOption();
         $unit        = $this->Unit->getUpdate();
 
         $propertyList = $this->Project->project_property();
@@ -55,7 +55,15 @@ class HomeController extends Controller
             $item->setAttribute( 'unit_property', $unitProperty );
         }
 
+        // dd($option);
         return view( 'home', compact( 'unit', 'project', 'preview', 'propertyList', 'banner', 'projectType', 'option', 'token' ) );
+    }
+
+    public function searchOption()
+    {
+        $option = $this->Project->getSearchOption();
+
+        return $option;
     }
 
 }
