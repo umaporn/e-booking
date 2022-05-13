@@ -28,9 +28,9 @@ Route::post( 'contact', [ ContactController::class, 'store' ] ); */
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ThemeController;
 
-Route::get( '', [ HomeController::class, 'index' ] );
-Route::get( 'how-to-book', [ HowtoBookController::class, 'index' ] );
-Route::get( 'faq', [ QuestionsController::class, 'index' ] );
+Route::get( '', [ HomeController::class, 'index' ] )->name( 'home.index' );
+Route::get( 'how-to-book', [ HowtoBookController::class, 'index' ] )->name( 'how-to-book.index' );
+Route::get( 'faq', [ QuestionsController::class, 'index' ] )->name( 'faq.index' );
 
 Route::group( [ 'prefix' => 'promotion' ], function(){
     Route::get( '', [ PromotionController::class, 'index' ] )->name( 'promotion.index' );
