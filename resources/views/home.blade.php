@@ -42,6 +42,7 @@
         <section class="home-search-1">
             <div class="container online-content content-padding">
                 <form class="online-form search">
+                    <input type="hidden" name="csrf-token" content="{{ csrf_token() }}">
                     <div class="row pl-xl-4 search-p-mobile">
                         <div class="col-6 col-xl">
                             <div class="form-group">

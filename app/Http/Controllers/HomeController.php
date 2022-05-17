@@ -46,7 +46,7 @@ class HomeController extends Controller
         $projectType = $this->ProjectType->getTypeList();
         $preview     = $this->Preview->getUpdate();
         $project     = $this->Project->getUpdate();
-        $option      = $this->searchOption();
+        $option      = $this->Project->getSearchOption();
         $unit        = $this->Unit->getUpdate();
 
         $propertyList = $this->Project->project_property();
@@ -63,7 +63,7 @@ class HomeController extends Controller
     {
         $option = $this->Project->getSearchOption();
 
-        return $option;
+        return json_encode($option);
     }
 
 }

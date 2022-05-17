@@ -56,6 +56,8 @@ function globalRoutes()
     Route::get( 'faq', [ QuestionsController::class, 'index' ] )->name( 'faq.index' );
     Route::get( 'how-to-book', [ HowtoBookController::class, 'index' ] )->name( 'howtobook' );
 
+    Route::post( 'search', [ HomeController::class, 'searchOption' ] )->name( 'searchOption' );
+
 }
 
 function addPrefixResourceRouteName( $prefix )

@@ -12,5 +12,5 @@ $( document )
 		Confirmation.initialize();
 		Form.initialize();
 		PasswordToggle.initialize();
-
+		SearchBox.initialize();
 	} );
