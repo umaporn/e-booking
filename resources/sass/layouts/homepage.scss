@@ -6,9 +6,9 @@
         @include media-breakpoint-up(xl) {
             background: rgb(239, 247, 248);
             background: linear-gradient(
-                50deg,
-                rgba(239, 247, 248, 1) 0%,
-                rgba(247, 247, 247, 1) 40%
+                    50deg,
+                    rgba(239, 247, 248, 1) 0%,
+                    rgba(247, 247, 247, 1) 40%
             );
         }
     }
@@ -71,7 +71,7 @@
                 .header,
                 .sub-header,
                 .sub-text,
-                span{
+                span {
                     color: white !important;
                     text-shadow: $text-shadow;
                 }

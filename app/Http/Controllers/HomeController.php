@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\PreviewModel;
 use App\Models\ProjectModel;
 use App\Models\ProjectTypeModel;
 use App\Models\UnitModel;
 use App\Models\BannerModel;
 use App\Libraries\Utility;
+
 
 /**
  * Class SpaController
@@ -33,11 +33,7 @@ class HomeController extends Controller
         $this->access_token = Utility::getAccessToken();
     }
 
-    public function index()
-    {
 
-        return view( 'home' );
-    }
 
     public function homepage()
     {

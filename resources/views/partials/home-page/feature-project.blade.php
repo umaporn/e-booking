@@ -2,7 +2,7 @@
     <div class="container online-content content-padding pt-0">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="online-content title mb-0">@lang('home.feature-project.header_line')</h2>
-            <a href="{{ route('project.index') }}" class="button more-text">@lang('home.feature-project.button.all_project')</a>
+            <a href="{{ route('projects.index') }}" class="button more-text">@lang('home.feature-project.button.all_project')</a>
         </div>
         <div class="row">
             @foreach($project as $key=>$item)

@@ -13,7 +13,7 @@ return [
     ],
     'project'   => [
         'title' => 'PROJECTS',
-        'link'  => route( 'project.index' ),
+        'link'  => route( 'projects.index' ),
     ],
     'promotion' => [
         'title' => 'PROMOTION',

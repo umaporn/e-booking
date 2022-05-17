@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
  * Class SpaController
  * @package App\Http\Controllers
  */
-class ProjectController extends Controller
+class ProjectsController extends Controller
 {
 
     private $Project;
@@ -25,11 +25,23 @@ class ProjectController extends Controller
         $this->Project       = $projectModel;
         $this->ProjectType   = $projectTypeModel;
         $this->ProjectStatus = $ProjectStatus;
+
     }
 
     public function index( Request $request )
     {
         $projectList = $this->Project->getList( $request );
+        return view( 'projects' );
+    }
+
+    /**
+     * Show how to project detail page.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View how to project detail page
+     */
+    public function detail()
+    {
+        return view( 'project_detail' );
     }
 
 }

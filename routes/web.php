@@ -11,13 +11,13 @@
 |
 */
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HowtoBookController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\QuestionsController;
 use App\Http\Controllers\LanguageController;
-use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectsController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ThemeController;
 use App\Libraries\Utility;
 
@@ -39,13 +39,12 @@ foreach( config( 'app.language_codes' ) as $languageCode ){
 
 function globalRoutes()
 {
-
     Route::get( 'language/{languageCode}', [ LanguageController::class, 'changeLanguage' ] )->name( 'language.change' );
     Route::get( '/', [ HomeController::class, 'homepage' ] )->name( 'homepage' );
 
-    Route::group( [ 'prefix' => 'project' ], function(){
-        Route::get( '', [ ProjectController::class, 'index' ] )->name( 'project.index' );
-        Route::get( '{$name}', [ ProjectController::class, 'detail' ] )->name( 'project.detail' );
+    Route::group( [ 'prefix' => 'projects' ], function(){
+        Route::get( '', [ ProjectsController::class, 'index' ] )->name( 'projects.index' );
+        Route::get( 'detail', [ ProjectsController::class, 'detail' ] )->name( 'projects.detail' );
     } );
 
     Route::group( [ 'prefix' => 'promotion' ], function(){
@@ -76,4 +75,7 @@ function addPrefixResourceRouteName( $prefix )
 Route::group( [ 'prefix' => 'theme' ], function(){
     Route::get( 'fullpage', [ ThemeController::class, 'fullpage' ] );
 } );
+
+
+
 
