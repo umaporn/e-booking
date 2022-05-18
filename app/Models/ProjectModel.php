@@ -28,12 +28,38 @@ class ProjectModel extends Model
         return $this->belongsTo( 'App\Models\ProjectLocationModel', 'project_location' );
     }
 
+    /**
+     * Get Last update
+     *
+     * @param int $limit
+     *
+     * @return mixed
+     */
     public function getUpdate( $limit = 5 )
     {
         $result = $this->with( [ 'projectType', 'projectStatus', 'projectLocation' ] )
                        ->where( 'status', '!=', '' )
                        ->orderBy( 'created_at', 'DESC' )
                        ->offset( 0 )->take( $limit )
+                       ->get();
+
+        return $this->transformContent( $result );
+    }
+
+    /**
+     * Get Relate project
+     *
+     * @param $project
+     *
+     * @return mixed
+     */
+    public function getRelate( $project )
+    {
+        $result = $this->with( [ 'projectType', 'projectStatus', 'projectLocation' ] )
+                       ->where( 'id', '!=', $project->id )
+                       ->where( 'status', '!=', '' )
+                       ->orderBy( 'created_at', 'DESC' )
+                       ->offset( 0 )->take( 3 )
                        ->get();
 
         return $this->transformContent( $result );
@@ -56,6 +82,39 @@ class ProjectModel extends Model
             $projectInfo->setAttribute( 'project_type_title', Utility::getLanguageFields( 'name', $projectInfo->projectType ) );
             $projectInfo->setAttribute( 'project_status_title', Utility::getLanguageFields( 'name', $projectInfo->ProjectStatus ) );
             $projectInfo->setAttribute( 'project_location_title', Utility::getLanguageFields( 'location_name', $projectInfo->projectLocation ) );
+        }
+
+        return $projectInfo;
+
+    }
+
+    public function getProjectDetail( $slug )
+    {
+        $projectInfo = ProjectModel::with( [ 'projectType', 'ProjectStatus', 'projectLocation' ] )
+                                   ->selectRaw('*,360_video_link as video_link')
+                                   ->where( 'status', 'publish' )
+                                   ->where( 'slug_english', $slug )
+                                   ->orWhere( 'slug_thai', $slug )->first();
+         
+        if( $projectInfo ){
+            $projectInfo->setAttribute( 'project_name', Utility::getLanguageFields( 'project_name', $projectInfo ) );
+            $projectInfo->setAttribute( 'slug', Utility::getLanguageFields( 'slug', $projectInfo ) );
+            $projectInfo->setAttribute( 'project_detail', Utility::getLanguageFields( 'project_detail', $projectInfo ) );
+            $projectInfo->setAttribute( 'building_number', Utility::getLanguageFields( 'total_building', $projectInfo ) );
+            $projectInfo->setAttribute( 'floor_number', Utility::getLanguageFields( 'total_floor', $projectInfo ) );
+            $projectInfo->setAttribute( 'unit_number', Utility::getLanguageFields( 'total_unit', $projectInfo ) );
+            $projectInfo->setAttribute( 'project_area', Utility::getLanguageFields( 'total_project_area', $projectInfo ) );
+
+            $projectInfo->setAttribute( 'facility', Utility::getLanguageFields( 'facility_detail', $projectInfo ) );
+            $projectInfo->setAttribute( 'nearby', Utility::getLanguageFields( 'nearby_detail', $projectInfo ) );
+
+            $projectInfo->setAttribute( 'project_thumbnail', FileEbook::getFile( $projectInfo->thumbnail ) );
+            $projectInfo->setAttribute( 'project_logo', FileEbook::getFile( $projectInfo->logo ) );
+
+            $projectInfo->setAttribute( 'project_type_title', Utility::getLanguageFields( 'name', $projectInfo->projectType ) );
+            $projectInfo->setAttribute( 'project_status_title', Utility::getLanguageFields( 'name', $projectInfo->ProjectStatus ) );
+            $projectInfo->setAttribute( 'project_location_title', Utility::getLanguageFields( 'location_name', $projectInfo->projectLocation ) );
+
         }
 
         return $projectInfo;
@@ -124,16 +183,19 @@ class ProjectModel extends Model
     }
 
     /**
-     * Get project page
+     * Get project list
      *
      * @param Request $request
+     *
+     * @return mixed
      */
     public function getList( Request $request )
     {
         $builder = $this->with( [ 'projectType', 'ProjectStatus', 'projectLocation' ] )
                         ->where( 'status', 'publish' );
         $data    = Search::search( $builder, 'project', $request );
-        dd( $data );
+
+        return $this->transformContent( $data );
     }
 
     /**

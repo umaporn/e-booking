@@ -3,14 +3,14 @@
 @section('content')
     <section class="project-detail">
         <section class="card-project-unit container-fluid position-absolute px-0">
-            @include('projects_partials.card_project_unit')
+            @include('partials.projects.card_project_unit')
         </section>
         <section class="header-project container-fluid position-relative">
-            @include('projects_partials.header')
+            @include('partials.projects.header')
         </section>
         <section class="header-menu-detail">
             <div class="container-fluid">
-                @include('projects_partials.menu')
+                @include('partials.projects.menu')
             </div>
         </section>
         <section class="project-property" id="property">
@@ -18,81 +18,84 @@
                 <div class="uk-width-3-4@m">
                     <section class="image-logo pb-4">
                         <figure class="figure uk-flex uk-flex-center uk-flex-left@s">
-                            <img src="{{asset( config('images.logos.mulberry-grove'))}}" alt="@lang('nav.logo-alt')">
+                            <img src="{{ $project->project_logo.'?access_token='.$token }}" alt="@lang('nav.logo-alt')">
                         </figure>
                     </section>
                     <section class="property-detail">
                         <article class="info-project">
-                            <h1 class="article-title name-project">MULBERRY GROVE THE FORESTIAS CONDOMINIUMS</h1>
+                            <h1 class="article-title name-project">{{ $project->project_name }}</h1>
                             <div class="property-detail d-block d-sm-flex">
                                 <p class="property-floor pr-0 pr-sm-5">
-                                    <img src="{{asset( config('images.icons.floor'))}}" alt=""> จำนวนชั้น 8
+                                    <img src="{{asset( config('images.icons.floor'))}}" alt="">
+                                    จำนวนชั้น {{ $project->floor_number }}
                                 </p>
                                 <p class="property-building pr-0 pr-sm-5">
-                                    <img src="{{asset( config('images.icons.building'))}}" alt=""> 1 Building
+                                    <img src="{{asset( config('images.icons.building'))}}" alt=""> {{ $project->building_number }}
+                                    Building
                                 </p>
                                 <p class="property-unit pr-0 pr-sm-5">
-                                    <img src="{{asset( config('images.icons.unit'))}}" alt=""> 287 units
+                                    <img src="{{asset( config('images.icons.unit'))}}" alt=""> {{ $project->unit_number }}
+                                    units
                                 </p>
                             </div>
                         </article>
                         <article class="article-project-detail">
-                            <h2 class="article-title title-detail">PROJECT DETAIL</h2>
-                            <p class="text-detail">The 6 Low-Rise Residences Of Mulberry Grove Condominiums Offer
-                                                   Sustainable Intergeneration Luxury Amid The Enchanting Green Spaces
-                                                   And Upscale Amenities Of The Forestias. Timeless Thai Design Inspires
-                                                   Residences That Connect You With Family, Nature, And A Warm
-                                                   Community. A Careful Blend Of Private And Shared Spaces Elevates Your
-                                                   Quality Of Life In A Magical Airy Setting, Abounding In Light And
-                                                   Space.​
+                            <h2 class="article-title title-detail">@lang('projects.title.project_detail')</h2>
+                            <p class="text-detail">
+                                {!! $project->project_detail !!}
                             </p>
                         </article>
                         <article class="project-location">
-                            <h2 class="article-title title-location">PROJECT LOCATION</h2>
-                            <p class="text-location">Khlong Toei, Bangkok Near BTS Ekkamai</p>
+                            <h2 class="article-title title-location">@lang('projects.title.project_location')</h2>
+                            <p class="text-location">{{ $project->project_location_title }}</p>
                         </article>
                         <article class="project-area">
-                            <h2 class="article-title title-area">PROJECT AREA</h2>
-                            <p class="text-area">5 - 3 - 75 Rais</p>
+                            <h2 class="article-title title-area">@lang('projects.title.project_area')</h2>
+                            <p class="text-area">{{ $project->project_area }} Rais</p>
                         </article>
                         <article class="project-unit-type">
-                            <h2 class="article-title title-unit-type">UNIT TYPE</h2>
+                            <h2 class="article-title title-unit-type">@lang('projects.title.unit_type')</h2>
                             <div class="detail-unit-type d-block d-sm-flex">
                                 <table class="uk-table uk-table-divider table-unit-type">
                                     <tbody class="uk-margin uk-margin-auto">
-                                    @for($i = 1; $i <= 4; $i++)
+                                    @foreach(json_decode($project->project_unit_info,true) as $unitType)
                                         <tr class="row-unit-type">
                                             <td class="unit-type pl-0">
                                                 <p>
-                                                    <img src="{{asset( config('images.icons.bed'))}}" alt=""> {{ $i }}
+                                                    <img src="{{asset( config('images.icons.bed'))}}" alt=""> {{ $unitType['Bedroom'] }}
                                                     Badroom
                                                 </p>
                                             </td>
-                                            @for($y = 0; $y < 2 ; $y++)
-                                                <td class="unit-detail uk-grid-column-medium">
-                                                    <p>
-                                                        <img src="{{asset( config('images.icons.bed'))}}" alt=""> {{ $i }}
-                                                        99.98 - 100.23 Sq.m.
-                                                    </p>
-                                                </td>
-                                            @endfor
+                                            <td class="unit-detail uk-grid-column-medium">
+                                                <p>
+                                                    <img src="{{asset( config('images.icons.bed'))}}" alt=""> {{ $unitType['Bedroom'] }}
+                                                    Bathroom
+                                                </p>
+                                            </td>
+                                            <td class="unit-detail uk-grid-column-medium">
+                                                <p>
+                                                    <img src="{{asset( config('images.icons.sqm'))}}"> {{ $unitType['Bedroom'] }}
+                                                    {{ $unitType['Area'] }} Sq.m.
+                                                </p>
+                                            </td>
                                         </tr>
-                                    @endfor
+                                    @endforeach
+
                                     </tbody>
                                 </table>
                             </div>
                         </article>
                         <article class="project-building">
-                            <h2 class="article-title title-building">NUMBER OF BUILDING</h2>
-                            <p class="text-building">1 Building</p>
+                            <h2 class="article-title title-building">@lang('projects.title.building')</h2>
+                            <p class="text-building">{{ $project->building_number }} Building</p>
                         </article>
                         <article class="total-unit">
-                            <h2 class="article-title title-unit">TOTAL UNIT</h2>
-                            <p class="text-unit">Residential 287 units, Commercial 2 units</p>
+                            <h2 class="article-title title-unit">@lang('projects.title.unit_number')</h2>
+                            <p class="text-unit">{{ $project->unit_number }}</p>
                         </article>
                         <article class="project-status">
-                            <h2 class="article-title title-status">PROJECT STATUS</h2>
-                            <p class="text-status">Ready to move in</p>
+                            <h2 class="article-title title-status">@lang('projects.title.project_status')</h2>
+                            <p class="text-status">{{ $project->project_status_title }}</p>
                         </article>
                     </section>
                 </div>
@@ -102,80 +105,62 @@
         <hr class="hr-between">
 
         <section class="project-layout" id="layout">
-            @include('projects_partials.project_layout')
+            @include('partials.projects.project_layout')
         </section>
         <section class="project-tour" id="tour">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://my.matterport.com/show/?m=3xbeEuM4Y4W" allowfullscreen></iframe>
-                    </div>
+                    @if($project->video_link != '')
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="{{ $project->video_link }}" allowfullscreen></iframe>
+                        </div>
+                    @endif
                 </div>
             </div>
         </section>
 
         <section class="project-unit" id="unit">
-            @include('projects_partials.project_unit')
+            @include('partials.projects.project_unit')
         </section>
 
         <hr class="hr-between">
 
         <section class="project-facility" id="facility">
             <div class="container online-content content-padding">
-                <h2 class="article-title title-project-facility">FACILITIES</h2>
+                <h2 class="article-title title-project-facility">@lang('projects.title.facitity')</h2>
                 <article class="facility-indoor">
-                    <h3>INDOOR</h3>
-                    <div class="row uk-list uk-list-disc ml-0">
-                        @for($i = 1 ; $i < 7 ; $i++)
-                            <div class="col-md-4 mt-2">List item {{ $i }}</div>
-                        @endfor
-                    </div>
-                </article>
-                <article class="facility-outdoor">
-                    <h3>OUTDOOR</h3>
-                    <div class="row uk-list uk-list-disc ml-0">
-                        @for($i = 1 ; $i < 16 ; $i++)
-                            <div class="col-md-4 mt-2">List item {{ $i }}</div>
-                        @endfor
-                    </div>
+                    {!! $project->facility !!}
                 </article>
             </div>
         </section>
 
         <section class="project-nearby" id="nearby">
             <div class="container online-content content-padding">
-                <h2 class="article-title title-project-nearby">NEARBY</h2>
+                <h2 class="article-title title-project-nearby">@lang('projects.title.near_by')</h2>
                 <div class="uk-child-width-1-3@s" uk-grid="masonry: true">
-                    @for( $i =1 ; $i <= 5 ; $i++)
-                        <article class="item-nearby">
-                            <h3>INDOOR {{ $i }}</h3>
-                            <ul class="uk-list uk-list-disc">
-                                <li>List item 1</li>
-                                <li>List item 2</li>
-                                <li>List item 3</li>
-                            </ul>
-                        </article>
-                    @endfor
+                    {!! $project->nearby !!}
                 </div>
             </div>
         </section>
 
         <section class="project-map">
             <div class="container-fluid">
-                <div class="row">
-                    <iframe src="https://snazzymaps.com/embed/227963" class="map-iframe"></iframe>
-                </div>
+                @if( $project->project_location_google != '')
+                    <div class="row">
+                        <iframe src="{{  $project->project_location_google }}" class="map-iframe"></iframe>
+                    </div>
+                @endif
             </div>
         </section>
 
         <section class="project-preview">
-            @include('projects_partials.project_preview')
+            @include('partials.projects.project_preview')
         </section>
 
         <hr class="hr-between">
 
         <section class="related-preview">
-            @include('projects_partials.related_project')
+            @include('partials.projects.related_project')
         </section>
 
     </section>

@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\FileEbook;
 use App\Libraries\Utility;
+use App\Libraries\Search;
 use App\Models\ProjectModel;
+use Illuminate\Http\Request;
 
 class UnitModel extends Model
 {
@@ -17,6 +19,13 @@ class UnitModel extends Model
         return $this->belongsTo( 'App\Models\UnitLabelModel', 'select_unit_label' );
     }
 
+    /**
+     * Get last update
+     *
+     * @param int $limit
+     *
+     * @return mixed
+     */
     public function getUpdate( $limit = 4 )
     {
         $result = $this->with( [ 'unitLabel' ] )
@@ -30,6 +39,13 @@ class UnitModel extends Model
 
     }
 
+    /**
+     * Get Unit property
+     *
+     * @param $project
+     *
+     * @return mixed
+     */
     public function getUnitProperty( $project )
     {
         $result = $this->with( [ 'unitLabel' ] )
@@ -39,6 +55,23 @@ class UnitModel extends Model
                        ->offset( 0 )->take( 2 )->get();
 
         return $this->transformContent( $result );
+    }
+
+    /**
+     * Get Unit list
+     *
+     * @param     $project
+     * @param int $limit
+     */
+    public function getUnitList( Request $request, $project, $limit = 5 )
+    {
+        $builder = $this->with( [ 'unitLabel' ] )
+                        ->where( 'project_id', $project->id )
+                        ->where( 'status', 'publish' );
+        $data    = Search::search( $builder, 'unit', $request, [], $limit );
+
+        return $this->transformContent( $data );
+
     }
 
     /**

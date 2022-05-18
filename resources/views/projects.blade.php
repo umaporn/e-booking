@@ -13,7 +13,7 @@
                             <div class="row search-p-mobile py-4 py-xl-0">
                                 <div class="col-12 col-md-4 col-xl pl-md-0 my-2 my-xl-4">
                                     <select class="uk-select px-3" style="font-size: 16px;border-radius: 20px;border-color: #ffffff;background-position: 95%;color: #333333;">
-                                        <option value="">Project Name</option>
+                                        <option value="">@lang('projects.option.project-title')</option>
                                         <option value="1">Option 01</option>
                                         <option value="2">Option 02</option>
                                         <option value="3">Option 03</option>
@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="col-12 col-md-4 col-xl pl-md-0 my-2 my-xl-4">
                                     <select class="uk-select px-3" style="font-size: 16px;border-radius: 20px;border-color: #ffffff;background-position: 95%;color: #333333;">
-                                        <option value="">Location / Transport</option>
+                                        <option value="">@lang('projects.option.location-title')</option>
                                         <option value="1">Option 01</option>
                                         <option value="2">Option 02</option>
                                         <option value="3">Option 03</option>
@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="col-12 col-md-4 col-xl pl-md-0 my-2 my-xl-4 d-table">
                                     <label class="d-table-cell align-middle px-3"><input class="uk-checkbox" type="checkbox" style="border-color: #333333;font-size: 14px;">
-                                        READY TO MOVE</label>
+                                        @lang('projects.option.status-title')</label>
                                 </div>
                             </div>
                         </form>
@@ -41,37 +41,36 @@
             <section class="project-list">
                 <div class="container width-xxl uk-margin-large-top uk-margin-large-bottom">
                     <div class="row">
-                        @for($i = 0 ; $i < 6 ; $i++)
+                        @foreach($projectList as $project)
                             <div class="col-md-4 mb-4 uk-margin-medium-bottom">
                                 <article class="card-project">
-                                    <a href="#" class="box-click">
+                                    <a href="{{ route('projects.detail',['slug'=>$project->slug]) }}" class="box-click">
                                         <figure class="logo">
-                                            <img src="images/theme/example-project.svg" alt="example logo alt">
+                                            <img src="{{ $project->project_logo.'?access_token='.$token }}" alt="{{ $project->project_name }}">
                                         </figure>
                                         <figure class="image my-0">
-                                            <img src="images/theme/example-img-banner-01.jpg" alt="example image alt">
+                                            <img src="{{ $project->project_thumbnail.'?access_token='.$token }}" alt="{{ $project->project_name }}">
                                             <div class="status">
                                                 <p class="new mb-2">New</p>
-                                                <p class="move mb-0">Ready to move</p>
+                                                <p class="move mb-0" style="background-color:{{ $project->ProjectStatus->color}};color:{{$project->ProjectStatus->font_color}}; ">{{ $project->project_status_title }}</p>
                                             </div>
-                                            <span class="name">Whizdom The Forestias</span>
+                                            <span class="name">{{ $project->project_name }}</span>
                                         </figure>
                                         <section class="detail">
-                                            <p class="property-type">condo</p>
-                                            <p class="online-content color-link font-bold mb-0">เริ่มต้น 3.99 ล้านบาท
+                                            <p class="property-type">{{ $project->project_type_title }}</p>
+                                            <p class="online-content color-link font-bold mb-0">@lang('home.start') {{ $project->price }}
                                             </p>
-                                            <h3 class="online-content sub-title my-0">Mulberry Grove The Forestias
-                                                                                      Condominiums</h3>
+                                            <h3 class="online-content sub-title my-0">{{ $project->project_name }}</h3>
                                             <p class="online-content sub-text location">
-                                                <img src="http://e-booking.local/images/icons/icon-location.svg" alt="">
-                                                Khlong Toei, Bangkok Near BTS Ekkamai
+                                                <img src="{{asset( config('images.icons.location'))}}" alt="location">
+                                                {{ $project->project_location_title }}
                                             </p>
                                         </section>
-                                        <div class="button link d-block text-center">UNIT IN PROJECT</div>
+                                        <div class="button link d-block text-center" role="button">@lang('home.feature-project.button.view_unit')</div>
                                     </a>
                                 </article>
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
 
                 </div>
@@ -83,14 +82,14 @@
                 <div class="container uk-margin-xlarge-bottom uk-margin-large-top">
                     <div class="mb-5">
                         <div class="d-flex justify-content-between align-items-center mb-1">
-                            <h2 class="online-content title mb-0">Featured Units</h2>
+                            <h2 class="online-content title mb-0">@lang('projects.title.unit')</h2>
                             <a href="#" class="d-none d-md-block button more-text hidden-md">All Units</a>
                         </div>
-                        <p>The list of properties that reach great popularity</p>
+                        <p>@lang('projects.unit_banner')</p>
                     </div>
                     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
                         <ul class="uk-slider-items uk-grid uk-grid-small">
-                            @for($i = 0; $i < 4 ; $i++ )
+                            @foreach($unit as $item)
                                 <li class="uk-width-4-5 uk-width-1-4@s">
                                     <article class="card-project-unit">
                                         <section class="icons">
@@ -101,48 +100,47 @@
                                                 <img src="{{asset( config('images.icons.compare'))}}" alt="compare icon">
                                             </a>
                                         </section>
-                                        <a href="#" class="box-click">
+                                        <a href="{{ $item->slug }}" class="box-click">
                                             <figure class="image">
-                                                <img src="images/theme/example-img-banner-01.jpg" alt="example image alt">
+                                                <img src="{{ $item->images.'?access_token='.$token }}" alt="{{ $item->unit_name }}">
                                                 <div class="status">
-                                                    <p class="move mb-0">Ready to move</p>
+                                                    <p class="move mb-0" style="background-color:{{$item->unitLabel->color}};color:{{$item->unitLabel->font_color}}; ">{{ $item->unit_label_title }}</p>
                                                 </div>
-                                                <span class="unit-no">103A01</span>
+                                                <span class="unit-no">{{ $item->unit_no }}</span>
                                             </figure>
                                             <section class="detail">
                                                 <div class="type">
-                                                    <p class="property-type">condo</p>
+                                                    <p class="property-type">{{ $item->project_info->project_type_title }}</p>
                                                     <div class="sub-type">
                                                         <p class="bedroom">
                                                             <img src="{{asset( config('images.icons.bed'))}}"
-                                                                 alt=""> <b>1</b></p>
+                                                                 alt=""><b>{{ $item->unit_bedroom }}</b></p>
                                                         <p class="sqm"><img src="{{asset( config('images.icons.sqm'))}}"
-                                                                            alt=""> <b>33.60</b>Sq.m.
+                                                                            alt=""> <b>{{ $item->unit_sqm }}</b>
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <h3 class="online-content sub-title my-0">Mulberry Grove The Forestias
-                                                                                          Condominiums</h3>
+                                                <h3 class="online-content sub-title my-0">{{ $item->unit_name }}</h3>
                                                 <p class="online-content sub-text location">
-                                                    <img src="{{asset( config('images.icons.location'))}}" alt="">
-                                                    Khlong Toei, Bangkok Near BTS Ekkamai
+                                                    <img src="{{asset( config('images.icons.location'))}}">
+                                                    {!!  $item->project_info->project_location_title !!}
                                                 </p>
                                             </section>
                                             <section class="booking">
                                                 <div class="price">
-                                                    <p class="price-booking">จอง 10,000</p>
-                                                    <p class="price-show">14,721,000 <span>15,721,000</span></p>
+                                                    <p class="price-booking">@lang('home.feature-unit.booking_price') {{ $item->booking_price }}</p>
+                                                    <p class="price-show">{{ $item->total_price_after_discount }}<span>{{ $item->total_price }}</span></p>
                                                 </div>
-                                                <div class="booking-button">Book now</div>
+                                                <div class="booking-button">@lang('home.book_now')</div>
                                             </section>
                                         </a>
                                     </article>
                                 </li>
-                            @endfor
+                           @endforeach
                         </ul>
                     </div>
                     <div class="col-12 uk-text-center d-block d-md-none pt-4">
-                        <a href="#" class="button link">All Unit</a>
+                        <a href="#" class="button link">@lang('projects.btm.unit_lower')</a>
                     </div>
                 </div>
             </section>

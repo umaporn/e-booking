@@ -44,7 +44,7 @@ function globalRoutes()
 
     Route::group( [ 'prefix' => 'projects' ], function(){
         Route::get( '', [ ProjectsController::class, 'index' ] )->name( 'projects.index' );
-        Route::get( 'detail', [ ProjectsController::class, 'detail' ] )->name( 'projects.detail' );
+        Route::get( 'detail/{slug?}', [ ProjectsController::class, 'detail' ] )->name( 'projects.detail' );
     } );
 
     Route::group( [ 'prefix' => 'promotion' ], function(){

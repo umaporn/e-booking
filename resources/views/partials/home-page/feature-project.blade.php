@@ -37,7 +37,8 @@
                                 <figure class="image my-0">
                                     <img src="{{ $item->project_thumbnail.'?access_token='.$token }}" alt="{{ $item->project_name }}">
                                     <div class="status">
-                                        <p class="new mb-2">{{ $item->project_status_title }}</p>
+                                        <p class="new mb-2">NEW</p>
+                                        <p class="move mb-0" style="background-color:{{ $item->ProjectStatus->color}};color:{{$item->ProjectStatus->font_color}}; ">{{ $item->project_status_title }}</p>
                                     </div>
                                     <span class="name">{{ $item->project_name }}</span>
                                 </figure>
