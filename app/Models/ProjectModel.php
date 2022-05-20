@@ -28,6 +28,11 @@ class ProjectModel extends Model
         return $this->belongsTo( 'App\Models\ProjectLocationModel', 'project_location' );
     }
 
+    public function building()
+    {
+        return $this->belongsTo( 'App\Models\BuildingModel', 'building_layout_id' );
+    }
+
     /**
      * Get Last update
      *
@@ -90,12 +95,12 @@ class ProjectModel extends Model
 
     public function getProjectDetail( $slug )
     {
-        $projectInfo = ProjectModel::with( [ 'projectType', 'ProjectStatus', 'projectLocation' ] )
-                                   ->selectRaw('*,360_video_link as video_link')
+        $projectInfo = ProjectModel::with( [ 'projectType', 'ProjectStatus', 'projectLocation', 'building' ] )
+                                   ->selectRaw( '*,360_video_link as video_link' )
                                    ->where( 'status', 'publish' )
                                    ->where( 'slug_english', $slug )
                                    ->orWhere( 'slug_thai', $slug )->first();
-         
+
         if( $projectInfo ){
             $projectInfo->setAttribute( 'project_name', Utility::getLanguageFields( 'project_name', $projectInfo ) );
             $projectInfo->setAttribute( 'slug', Utility::getLanguageFields( 'slug', $projectInfo ) );
@@ -114,6 +119,11 @@ class ProjectModel extends Model
             $projectInfo->setAttribute( 'project_type_title', Utility::getLanguageFields( 'name', $projectInfo->projectType ) );
             $projectInfo->setAttribute( 'project_status_title', Utility::getLanguageFields( 'name', $projectInfo->ProjectStatus ) );
             $projectInfo->setAttribute( 'project_location_title', Utility::getLanguageFields( 'location_name', $projectInfo->projectLocation ) );
+
+            if( isset( $projectInfo->building ) ){
+                $projectInfo->building->setAttribute( 'title', Utility::getLanguageFields( 'building_layout_name', $projectInfo->building ) );
+                $projectInfo->building->setAttribute( 'image', FileEbook::getFile( $projectInfo->building_layout_image ) );
+            }
 
         }
 
@@ -228,6 +238,7 @@ class ProjectModel extends Model
             if( isset( $list->projectLocation ) ){
                 $list->setAttribute( 'project_location_title', Utility::getLanguageFields( 'location_name', $list->projectLocation ) );
             }
+
         }
 
         return $content;

@@ -19,6 +19,11 @@ class UnitModel extends Model
         return $this->belongsTo( 'App\Models\UnitLabelModel', 'select_unit_label' );
     }
 
+    public function project()
+    {
+        return $this->belongsTo( 'App\Models\projectModel', 'unit_layout_id' );
+    }
+
     /**
      * Get last update
      *

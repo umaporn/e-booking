@@ -7,6 +7,7 @@ use App\Models\ProjectStatusModel;
 use App\Models\ProjectTypeModel;
 use App\Models\PreviewModel;
 use App\Models\UnitModel;
+use App\Models\FloorModel;
 use Illuminate\Http\Request;
 use App\Libraries\Utility;
 
@@ -23,8 +24,9 @@ class ProjectsController extends Controller
     private $Preview;
     private $Unit;
     private $access_token;
+    private $Floor;
 
-    public function __construct( ProjectModel $projectModel, ProjectTypeModel $projectTypeModel, ProjectStatusModel $ProjectStatus, UnitModel $unitModel, PreviewModel $previewModel )
+    public function __construct( ProjectModel $projectModel, ProjectTypeModel $projectTypeModel, ProjectStatusModel $ProjectStatus, UnitModel $unitModel, PreviewModel $previewModel, FloorModel $floorModel )
     {
 
         $this->Project       = $projectModel;
@@ -32,6 +34,7 @@ class ProjectsController extends Controller
         $this->ProjectStatus = $ProjectStatus;
         $this->Unit          = $unitModel;
         $this->Preview       = $previewModel;
+        $this->Floor         = $floorModel;
         $this->access_token  = Utility::getAccessToken();
 
     }
@@ -56,8 +59,10 @@ class ProjectsController extends Controller
         $unitList = $this->Unit->getUnitList( $request, $project );
         $preview  = $this->Preview->getUpdate();
         $relate   = $this->Project->getRelate( $project );
+        $layouts  = $this->Floor->getFloor( $project );
 
-        return view( 'project_detail', compact( 'token', 'project', 'unitList', 'preview', 'relate' ) );
+        // dd([$project,$layouts]);
+        return view( 'project_detail', compact( 'token', 'project', 'unitList', 'preview', 'relate', 'layouts' ) );
     }
 
 }

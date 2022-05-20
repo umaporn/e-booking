@@ -15,5 +15,6 @@ $( document )
 		Form.initialize();
 		PasswordToggle.initialize();
 		SearchBox.initialize();
+		Gallery.initialize();
 	} );
 

@@ -33,8 +33,11 @@ class HomeController extends Controller
         $this->access_token = Utility::getAccessToken();
     }
 
-
-
+    /**
+     * Home page display
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function homepage()
     {
         $token       = isset( $this->access_token['data']['access_token'] ) ? $this->access_token['data']['access_token'] : '';
@@ -51,10 +54,14 @@ class HomeController extends Controller
             $item->setAttribute( 'unit_property', $unitProperty );
         }
 
-        // dd($option);
         return view( 'home', compact( 'unit', 'project', 'preview', 'propertyList', 'banner', 'projectType', 'option', 'token' ) );
     }
 
+    /**
+     * Get Search option home page
+     *
+     * @return false|string
+     */
     public function searchOption()
     {
         $option = $this->Project->getSearchOption();

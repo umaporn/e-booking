@@ -14,7 +14,7 @@ return [
     ],
 
     'unit_banner' => 'The list of properties that reach great popularity',
-    'title'       => [
+    'title'   => [
         'unit'             => 'Featured Units',
         'unit_type'        => 'UNIT TYPE',
         'unit_all'         => 'UNIT IN PROJECT',
@@ -28,22 +28,35 @@ return [
         'near_by'          => 'NEARBY',
         'relate'           => 'RELATED PROJECTS',
     ],
-    'card'        => [
+    'card'    => [
         'booking' => 'ราคาจอง',
         'price'   => 'ช่วงราคา',
 
     ],
-    'btn'         => [
-        'all_unit'    => 'UNIT IN PROJECT',
-        'unit'        => 'ALL UNIT',
-        'unit_lower'  => 'All Unit',
-        'view_more'   => 'VIEW MORE',
-        'all_preview' => 'View More',
-        'all_project' => 'All PROJECT',
+    'btn'     => [
+        'all_unit'      => 'UNIT IN PROJECT',
+        'unit'          => 'ALL UNIT',
+        'unit_lower'    => 'All Unit',
+        'view_more'     => 'VIEW MORE',
+        'all_preview'   => 'View More',
+        'all_project'   => 'All PROJECT',
+        'download_plan' => 'Download Plan',
 
     ],
-    'preview'     => [
+    'preview' => [
         'head' => 'PROJECT PREVIEW',
+    ],
+    'layout'  => [
+        'head_title'    => 'PROJECT LAYOUT',
+        'project_title' => 'PROJECT LAYOUT',
+        'unit_title'    => 'UNIT LAYOUT',
+        'option'        => [
+            'building'      => 'Building',
+            'building_unit' => 'Building Unit',
+            'floor'         => 'Floor',
+            'floor_unit'    => 'Floor Unit',
+
+        ],
     ],
 
 ];

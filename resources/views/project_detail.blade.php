@@ -107,6 +107,7 @@
         <section class="project-layout" id="layout">
             @include('partials.projects.project_layout')
         </section>
+
         <section class="project-tour" id="tour">
             <div class="container-fluid">
                 <div class="row">
