@@ -56,6 +56,7 @@ function globalRoutes()
     Route::get( 'how-to-book', [ HowtoBookController::class, 'index' ] )->name( 'howtobook' );
 
     Route::post( 'search', [ HomeController::class, 'searchOption' ] )->name( 'searchOption' );
+    Route::get( '/{project}/{type}/{location}/{unit}/{price}', [ HomeController::class, 'search' ] )->name( 'search.index' );
 
 }
 

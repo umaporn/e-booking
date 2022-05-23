@@ -14,4 +14,17 @@ class ProjectLocationModel extends Model
         return $this->hasMany( 'App\Models\ProjectModel', 'project_location' );
     }
 
+    /**
+     * Get id for search box
+     *
+     * @param string $location
+     *
+     * @return mixed
+     */
+    public static function getLocationId( string $location )
+    {
+        return ProjectLocationModel::where( 'location_name_english', $location )
+                                   ->orWhere( 'location_name_thai', $location )->first();
+    }
+
 }

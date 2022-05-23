@@ -8,7 +8,7 @@ use App\Models\ProjectTypeModel;
 use App\Models\UnitModel;
 use App\Models\BannerModel;
 use App\Libraries\Utility;
-
+use Illuminate\Http\Request;
 
 /**
  * Class SpaController
@@ -57,16 +57,20 @@ class HomeController extends Controller
         return view( 'home', compact( 'unit', 'project', 'preview', 'propertyList', 'banner', 'projectType', 'option', 'token' ) );
     }
 
+    public function search( $project, $type, $location, $unit, $price )
+    {
+        dd( [ $project, $type, $location, $unit, $price ] );
+    }
     /**
      * Get Search option home page
      *
      * @return false|string
      */
-    public function searchOption()
+    public function searchOption( Request $request )
     {
-        $option = $this->Project->getSearchOption();
+        $option = $this->Project->getSearchOption( $request->project, $request->type, $request->unit, $request->location );
 
-        return json_encode($option);
+        return json_encode( $option, true );
     }
 
 }

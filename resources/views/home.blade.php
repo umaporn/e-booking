@@ -50,7 +50,7 @@
                                 <select class="form-control uk-select" id="projectSelect">
                                     <option value="all">@lang('home.search.project.default')</option>
                                     @foreach($option['project'] as $optionProject)
-                                        <option value="{{ $optionProject }}">{{ $optionProject }}</option>
+                                        <option value="{{ $optionProject['slug'] }}">{{ $optionProject['title'] }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -101,7 +101,7 @@
                         </div>
                         <div class="col-12 col-xl">
                             <div class="search-button">
-                                <button type="submit" class="btn online-content color-white">@lang('home.search_btn')</button>
+                                <button type="button" class="btn online-content color-white">@lang('home.search_btn')</button>
                             </div>
                         </div>
                     </div>

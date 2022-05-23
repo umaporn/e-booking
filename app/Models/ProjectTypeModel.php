@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Libraries\Utility;
-use App\Models\FileEbook;
 
 class ProjectTypeModel extends Model
 {
@@ -13,7 +12,7 @@ class ProjectTypeModel extends Model
 
     public function project()
     {
-        return $this->hasMany('App\Models\ProjectModel', 'project_type');
+        return $this->hasMany( 'App\Models\ProjectModel', 'project_type' );
     }
 
     /**
@@ -39,9 +38,21 @@ class ProjectTypeModel extends Model
     {
         foreach( $content as $list ){
             $list->setAttribute( 'title', Utility::getLanguageFields( 'name', $list ) );
-            // $list->setAttribute( 'images', FileEbook::getFile( $list->icon ) );
         }
 
         return $content;
+    }
+
+    /**
+     * Get id for search box
+     *
+     * @param string $type
+     *
+     * @return mixed
+     */
+    public static function getTypeId( string $type )
+    {
+        return ProjectTypeModel::where( 'name_english', $type )
+                               ->orWhere( 'name_thai', $type )->first( 'id' );
     }
 }

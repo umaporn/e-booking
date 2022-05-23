@@ -156,35 +156,54 @@ class ProjectModel extends Model
      *
      * @return array
      */
-    public function getSearchOption()
+    public function getSearchOption( $project = null, $type = null, $unit = null, $location = null )
     {
-        $result = $this->with( [ 'projectLocation' ] )
-                       ->where( 'status', 'publish' )
-                       ->get();
+        $option['location']    = [];
+        $option['project']     = [];
+        $option['unitType']    = [];
+        $option['projectType'] = [];
 
-        //Array key | project id
-        $option['location'] = [];
-        $option['project']  = [];
-        $option['unitType'] = [];
+        $builder = $this->join( 'project_type', 'project_management.project_type', '=', 'project_type.id' )
+                        ->join( 'project_location', 'project_management.project_location', '=', 'project_location.id' );
 
-        foreach( $result as $list ){
+        if( $type != null && $type != 'all' ){
+            $getTypeId = ProjectTypeModel::getTypeId( $type );
+            $builder->where( 'project_type', $getTypeId->id );
+        }
 
+        if( $location != null && $location != 'all' ){
+            $getLocationId = ProjectLocationModel::getLocationId( $location );
+            $builder->where( 'project_location', $getLocationId->id );
+        }
+
+        if( $project != null && $project != 'all' ){
+            $builder->where( 'slug_english', $project )
+                    ->orWhere( 'slug_english', $project );
+        }
+
+        $result = $builder->get();
+
+        foreach( $result as $key => $list ){
             //get publish project
-            $option['project'][ $list->id ] = Utility::getLanguageFields( 'project_name', $list );
-
+            $option['project'][ $key ]['title'] = Utility::getLanguageFields( 'project_name', $list );
+            $option['project'][ $key ]['slug']  = Utility::getLanguageFields( 'slug', $list );
             //get location uesed
-            if( $list->projectLocation ){
-                if( array_key_exists( $list->projectLocation->id, $option['location'] ) == false ){
-                    $option['location'][ $list->projectLocation->id ] = Utility::getLanguageFields( 'location_name', $list->projectLocation );
+            if( $list->project_location ){
+                if( array_key_exists( $list->project_location, $option['location'] ) == false ){
+                    $option['location'][ $list->project_location ] = Utility::getLanguageFields( 'location_name', $list );
                 }
             }
-
             //get Unit type [en]
             if( $list->project_unit_info ){
-
                 $unit = json_decode( $list->project_unit_info, true );
                 foreach( $unit as $itemUnit ){
                     $option['unitType'][ $list->id ] = $itemUnit;
+                }
+            }
+            //Project type
+            if( $list->project_type ){
+                if( array_key_exists( $list->project_type, $option['projectType'] ) == false ){
+                    $option['projectType'][ $list->project_type ] = Utility::getLanguageFields( 'name', $list );
                 }
             }
         }
