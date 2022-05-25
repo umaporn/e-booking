@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+@section('page-title', __('projects.page_title.index'))
+@section('page-description', __('projects.page_description.index'))
 @section('content')
     <section class="content-projects">
         <div class="show-content">
@@ -10,27 +11,26 @@
                 <div class="container uk-margin-medium-top">
                     <div class="col-12 col-xl-10">
                         <form class="project-form search">
+                            <input type="hidden" name="csrf-token" content="{{ csrf_token() }}">
                             <div class="row search-p-mobile py-4 py-xl-0">
                                 <div class="col-12 col-md-4 col-xl pl-md-0 my-2 my-xl-4">
-                                    <select class="uk-select px-3" style="font-size: 16px;border-radius: 20px;border-color: #ffffff;background-position: 95%;color: #333333;">
-                                        <option value="">@lang('projects.option.project-title')</option>
-                                        <option value="1">Option 01</option>
-                                        <option value="2">Option 02</option>
-                                        <option value="3">Option 03</option>
-                                        <option value="4">Option 04</option>
+                                    <select id="project" class="uk-select px-3" style="font-size: 16px;border-radius: 20px;border-color: #ffffff;background-position: 95%;color: #333333;">
+                                        <option value="all">@lang('projects.option.project-title')</option>
+                                        @foreach($search['project'] as $itemProject)
+                                            <option value="{{ $itemProject['slug'] }}">{{ $itemProject['title'] }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-12 col-md-4 col-xl pl-md-0 my-2 my-xl-4">
-                                    <select class="uk-select px-3" style="font-size: 16px;border-radius: 20px;border-color: #ffffff;background-position: 95%;color: #333333;">
-                                        <option value="">@lang('projects.option.location-title')</option>
-                                        <option value="1">Option 01</option>
-                                        <option value="2">Option 02</option>
-                                        <option value="3">Option 03</option>
-                                        <option value="4">Option 04</option>
+                                    <select id="location" class="uk-select px-3" style="font-size: 16px;border-radius: 20px;border-color: #ffffff;background-position: 95%;color: #333333;">
+                                        <option value="all">@lang('projects.option.location-title')</option>
+                                        @foreach($search['location'] as $itemLocation)
+                                            <option value="{{$itemLocation }}">{{ $itemLocation }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-12 col-md-4 col-xl pl-md-0 my-2 my-xl-4 d-table">
-                                    <label class="d-table-cell align-middle px-3"><input class="uk-checkbox" type="checkbox" style="border-color: #333333;font-size: 14px;">
+                                    <label class="d-table-cell align-middle px-3"><input id="project_status" name="project_status" class="uk-checkbox" type="checkbox" style="border-color: #333333;font-size: 14px;">
                                         @lang('projects.option.status-title')</label>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
             </section>
             <section class="project-list">
                 <div class="container width-xxl uk-margin-large-top uk-margin-large-bottom">
-                    <div class="row">
+                    <div class="row" id="projects-list-box">
                         @foreach($projectList as $project)
                             <div class="col-md-4 mb-4 uk-margin-medium-bottom">
                                 <article class="card-project">
@@ -72,6 +72,11 @@
                             </div>
                         @endforeach
                     </div>
+                    @if($projectList->lastPage() > $projectList->currentPage())
+                        <div class="col-12 load-more">
+                            <a id="project-load" data-url="{{ route('projects.filter')}}" class="button link">@lang('home.loadmore')</a>
+                        </div>
+                    @endif
 
                 </div>
             </section>
@@ -129,14 +134,15 @@
                                             <section class="booking">
                                                 <div class="price">
                                                     <p class="price-booking">@lang('home.feature-unit.booking_price') {{ $item->booking_price }}</p>
-                                                    <p class="price-show">{{ $item->total_price_after_discount }}<span>{{ $item->total_price }}</span></p>
+                                                    <p class="price-show">{{ $item->total_price_after_discount }}
+                                                        <span>{{ $item->total_price }}</span></p>
                                                 </div>
                                                 <div class="booking-button">@lang('home.book_now')</div>
                                             </section>
                                         </a>
                                     </article>
                                 </li>
-                           @endforeach
+                            @endforeach
                         </ul>
                     </div>
                     <div class="col-12 uk-text-center d-block d-md-none pt-4">

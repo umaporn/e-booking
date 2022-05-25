@@ -115,6 +115,7 @@ class ProjectModel extends Model
 
             $projectInfo->setAttribute( 'project_thumbnail', FileEbook::getFile( $projectInfo->thumbnail ) );
             $projectInfo->setAttribute( 'project_logo', FileEbook::getFile( $projectInfo->logo ) );
+            $projectInfo->setAttribute( 'gallery_files', GalleryModel::images( $projectInfo->project_gallery ) );
 
             $projectInfo->setAttribute( 'project_type_title', Utility::getLanguageFields( 'name', $projectInfo->projectType ) );
             $projectInfo->setAttribute( 'project_status_title', Utility::getLanguageFields( 'name', $projectInfo->ProjectStatus ) );
@@ -222,7 +223,44 @@ class ProjectModel extends Model
     {
         $builder = $this->with( [ 'projectType', 'ProjectStatus', 'projectLocation' ] )
                         ->where( 'status', 'publish' );
-        $data    = Search::search( $builder, 'project', $request );
+        $data    = Search::search( $builder, 'project', $request, [], 1 );
+
+        return $this->transformContent( $data );
+    }
+
+    /**
+     * Get filter data project
+     *
+     * @param Request $request
+     *
+     * @return mixed
+     */
+    public function getProjectFilter( Request $request )
+    {
+        $project       = $request->project;
+        $location      = $request->location;
+        $projectStatus = $request->projectStatus;
+
+        $builder = $this->with( [ 'projectType', 'ProjectStatus', 'projectLocation' ] )
+                        ->where( 'status', 'publish' );
+
+        if( $project != 'all' ){
+            $builder->where( 'slug_english', $project )
+                    ->orWhere( 'slug_english', $project );
+        }
+
+        if( $location != 'all' ){
+            $getLocationId = ProjectLocationModel::getLocationId( $location );
+            $builder->where( 'project_location', $getLocationId->id );
+        }
+
+        if( $projectStatus == '1' ){
+            $strStatus        = 'Ready  to move';
+            $getProjectStatus = ProjectStatusModel::getStatusID( $strStatus );
+            $builder->where( 'project_status', $getProjectStatus->id );
+        }
+
+        $data = Search::search( $builder, 'project', $request, [], 1 );
 
         return $this->transformContent( $data );
     }

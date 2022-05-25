@@ -1,21 +1,15 @@
 <section class="header-image position-relative">
     <div class="row">
         <div class="uk-grid-collapse uk-child-width-1-3@s" uk-grid>
-            <div>
-                <a href="{{ asset('images/theme/example-home-highlight-02.jpg') }}" data-fancybox="gallery" data-caption="test gallery 1">
-                    <img src="{{ asset('images/theme/example-home-highlight-01.jpg') }}" alt="">
-                </a>
-            </div>
-            <div class="uk-light uk-visible@s">
-                <a href="{{ asset('images/theme/example-home-highlight-02.jpg') }}" data-fancybox="gallery" data-caption="test gallery 2">
-                    <img src="{{ asset('images/theme/example-home-highlight-02.jpg') }}" alt="">
-                </a>
-            </div>
-            <div class="uk-light uk-visible@s position-relative">
-                <a href="{{ asset('images/theme/example-home-highlight-01.jpg') }}" data-fancybox="gallery" data-caption="test gallery 3">
-                    <img src="{{ asset('images/theme/example-home-highlight-01.jpg') }}" alt="">
-                </a>
-            </div>
+            @foreach($project->gallery_files as $key =>$image )
+                @if($key < 3)
+                    <div>
+                        <a href="{{ $image.'?access_token='.$token }}" data-fancybox="gallery" data-caption="test gallery 1">
+                            <img src="{{ $image.'?access_token='.$token }}" alt="">
+                        </a>
+                    </div>
+                @endif
+            @endforeach
         </div>
     </div>
 </section>

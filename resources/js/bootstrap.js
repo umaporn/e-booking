@@ -16,5 +16,6 @@ $( document )
 		PasswordToggle.initialize();
 		SearchBox.initialize();
 		Gallery.initialize();
+		ProjectFilter.initialize();
 	} );
 

@@ -45,6 +45,7 @@ function globalRoutes()
     Route::group( [ 'prefix' => 'projects' ], function(){
         Route::get( '', [ ProjectsController::class, 'index' ] )->name( 'projects.index' );
         Route::get( 'detail/{slug?}', [ ProjectsController::class, 'detail' ] )->name( 'projects.detail' );
+        Route::get( 'filter', [ ProjectsController::class, 'project_filter' ] )->name( 'projects.filter' );
     } );
 
     Route::group( [ 'prefix' => 'promotion' ], function(){
@@ -56,6 +57,7 @@ function globalRoutes()
     Route::get( 'how-to-book', [ HowtoBookController::class, 'index' ] )->name( 'howtobook' );
 
     Route::post( 'search', [ HomeController::class, 'searchOption' ] )->name( 'searchOption' );
+
     Route::get( '/{project}/{type}/{location}/{unit}/{price}', [ HomeController::class, 'search' ] )->name( 'search.index' );
 
 }

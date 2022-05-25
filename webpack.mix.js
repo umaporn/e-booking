@@ -23,6 +23,7 @@ mix.js( 'resources/js/app.js', 'public/js' )
 	           'resources/js/libs/PasswordToggle.js',
 	           'resources/js/libs/SearchBox.js',
 	           'resources/js/libs/Gallery.js',
+	           'resources/js/libs/Filter.js',
 	           'resources/js/bootstrap.js',
            ], 'public/js/all.js' )
    .version();

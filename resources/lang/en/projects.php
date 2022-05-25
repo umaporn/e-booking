@@ -7,6 +7,18 @@ return [
     | Home Page Language Lines
     |--------------------------------------------------------------------------
     */
+    'page_link' => [
+        'index' => 'project',
+    ],
+
+    'page_title' => [
+        'index' => 'Project page',
+    ],
+
+    'page_description' => [
+        'index' => 'EBooking Project page',
+    ],
+
     'option' => [
         'project-title'  => 'Project Name',
         'location-title' => 'Location / Transport',

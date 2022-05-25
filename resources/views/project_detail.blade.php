@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+@section('page-title', $project->project_name.' '.__( 'promotion.page_title.index'))
+@section('page-description',  $project->project_name.' '.__('promotion.page_description.index'))
 @section('content')
     <section class="project-detail">
         <section class="card-project-unit container-fluid position-absolute px-0">
