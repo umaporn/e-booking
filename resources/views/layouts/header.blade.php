@@ -27,8 +27,13 @@
                 </section>
             </div>
             <section class="nav-lang order-4 order-xl-4">
-                <a href="">TH</a>
-                <a href="" class="active">EN</a>
+                @foreach( config('app.language_codes') as $languageCode )
+                    <a href="{{ route( 'language.change', [ 'languageCode' => $languageCode ] ) }}"
+                       class="{{ ( config('app.locale') === $languageCode ) ? 'active' : ''  }}"
+                    >
+                        @lang( 'language.' . $languageCode )
+                    </a>
+                @endforeach
             </section>
         </nav>
     </div>

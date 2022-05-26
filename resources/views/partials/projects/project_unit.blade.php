@@ -10,14 +10,14 @@
             @foreach($unitList as $unit)
                 <li class="uk-width-4-5 uk-width-1-4@s">
                     <article class="card-project-unit">
-                        <section class="icons">
-                            <a href="#" class="icon icon-fav">
-                                <img src="{{asset( config('images.icons.favorite'))}}" alt="favorite icon">
-                            </a>
-                            <a href="#" class="icon icon-compare">
-                                <img src="{{asset( config('images.icons.compare'))}}" alt="compare icon">
-                            </a>
-                        </section>
+                        {{--<section class="icons">--}}
+                        {{--<a href="#" class="icon icon-fav">--}}
+                        {{--<img src="{{asset( config('images.icons.favorite'))}}" alt="favorite icon">--}}
+                        {{--</a>--}}
+                        {{--<a href="#" class="icon icon-compare">--}}
+                        {{--<img src="{{asset( config('images.icons.compare'))}}" alt="compare icon">--}}
+                        {{--</a>--}}
+                        {{--</section>--}}
                         <a href="{{ $unit->slug }}" class="box-click">
                             <figure class="image">
                                 <img src="{{ $unit->images.'?access_token='.$token }}" alt="{{ $unit->unit_name }}">

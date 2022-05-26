@@ -223,7 +223,7 @@ class ProjectModel extends Model
     {
         $builder = $this->with( [ 'projectType', 'ProjectStatus', 'projectLocation' ] )
                         ->where( 'status', 'publish' );
-        $data    = Search::search( $builder, 'project', $request, [], 1 );
+        $data    = Search::search( $builder, 'project', $request, [], 3 );
 
         return $this->transformContent( $data );
     }
@@ -260,7 +260,7 @@ class ProjectModel extends Model
             $builder->where( 'project_status', $getProjectStatus->id );
         }
 
-        $data = Search::search( $builder, 'project', $request, [], 1 );
+        $data = Search::search( $builder, 'project', $request, [], 3 );
 
         return $this->transformContent( $data );
     }

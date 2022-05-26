@@ -15,21 +15,11 @@
             </button>
             <div class="collapse navbar-collapse order-2 order-xl-3" id="navbar-header">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">PROJECTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">PROMOTION</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">HOW TO BOOK ONLINE</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">FAQ</a>
-                    </li>
+                    @foreach(__('menu') as $menu=>$item)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ $item['link'] }}">{{ $item['title'] }}</a>
+                        </li>
+                    @endforeach
                 </ul>
                 <section class="nav-user">
                     <a href=""><img src="{{asset( config('images.icons.user'))}}" alt="@lang('nav.login-alt')" class="icon">
@@ -38,8 +28,13 @@
                 </section>
             </div>
             <section class="nav-lang order-4 order-xl-4">
-                <a href="">TH</a>
-                <a href="" class="active">EN</a>
+                @foreach( config('app.language_codes') as $languageCode )
+                    <a href="{{ route( 'language.change', [ 'languageCode' => $languageCode ] ) }}"
+                       class="{{ ( config('app.locale') === $languageCode ) ? 'active' : ''  }}"
+                    >
+                        @lang( 'language.' . $languageCode )
+                    </a>
+                @endforeach
             </section>
         </nav>
     </div>

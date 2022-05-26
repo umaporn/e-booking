@@ -4,10 +4,10 @@
             <article class="card-project d-flex d-sm-block">
                 <section class="detail col-8 col-sm-12">
                     <p class="text-booking">@lang('projects.card.booking')</p>
-                    <p class="price-booking">10,000</p>
+                    <p class="price-booking">{{ $unitList[0]->booking_price }}</p>
                     <hr>
                     <p class="text-price">@lang('projects.card.price')</p>
-                    <p class="price-show">5.99 - 15.45 ล้านบาท</p>
+                    <p class="price-show">{{ $project->price }}</p>
                 </section>
                 <a href="#" class="box-click">
                     <div class="button-link d-flex d-sm-block">@lang('projects.btn.all_unit')</div>

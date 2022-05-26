@@ -56,7 +56,7 @@
                         padding: $space-box/2 $space-box;
                         border-radius: 0;
                         background-color: $color-link;
-                        color: #fff;
+                        color: #FFFFFF;
                         text-align: center;
                         align-items: center;
                         height: 100%;
@@ -132,6 +132,7 @@
                             }
                         }
                     }
+
                 }
             }
         }
@@ -216,6 +217,21 @@
 
     .project-nearby {
         background-color: $color-bg-2;
+    }
+
+}
+
+.modal-content {
+    border-radius: 0px !important;
+}
+
+.modal-body {
+    padding: 2px 2px !important;
+}
+
+.project-image {
+    @include media-breakpoint-down(md) {
+        display: none !important;
     }
 
 }

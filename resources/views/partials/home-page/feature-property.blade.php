@@ -36,14 +36,14 @@
                                 @foreach($itemProject->unit_property as $itemUnit)
                                     <li class="uk-width-4-5 uk-width-1-2@s">
                                         <article class="card-project-unit">
-                                            <section class="icons">
-                                                <a href="#" class="icon icon-fav">
-                                                    <img src="{{asset( config('images.icons.favorite'))}}" alt="favorite icon">
-                                                </a>
-                                                <a href="#" class="icon icon-compare">
-                                                    <img src="{{asset( config('images.icons.compare'))}}" alt="compare icon">
-                                                </a>
-                                            </section>
+                                            {{--<section class="icons">--}}
+                                            {{--<a href="#" class="icon icon-fav">--}}
+                                            {{--<img src="{{asset( config('images.icons.favorite'))}}" alt="favorite icon">--}}
+                                            {{--</a>--}}
+                                            {{--<a href="#" class="icon icon-compare">--}}
+                                            {{--<img src="{{asset( config('images.icons.compare'))}}" alt="compare icon">--}}
+                                            {{--</a>--}}
+                                            {{--</section>--}}
                                             <a href="{{ $itemUnit->slug }}" class="box-click">
                                                 <figure class="image">
                                                     <img src="{{ $itemUnit->images.'?access_token='.$token }}" alt="{{ $itemUnit->unit_label_title }}">
