@@ -1,0 +1,16 @@
+.project-filler {
+    background-color: $color-bg-4;
+
+    select {
+        @include font-size(16px);
+        border-radius: 20px;
+        border-color: $color-border-1;
+        background-position: 95%;
+        color: $color-text-1;
+    }
+
+    .check-box {
+        border-color: $color-border-2;
+        @include font-size(14px);
+    }
+}

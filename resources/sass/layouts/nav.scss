@@ -226,6 +226,9 @@
 
         .nav-link {
             color: white;
+            @include media-breakpoint-down(sm) {
+                color: $color-text-1;
+            }
         }
 
         .nav-item {

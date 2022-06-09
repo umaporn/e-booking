@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 </head>
 <body>
-@if(url()->current() == route('projects.detail'))
+@if(url()->current() == route('projects.detail') || url()->current() == route('unit.detail'))
     @include('layouts.header_detail')
 @else
     @include('layouts.header')

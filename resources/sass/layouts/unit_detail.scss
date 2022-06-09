@@ -1,0 +1,568 @@
+.unit-detail {
+    .header-unit {
+        .header-image {
+            img {
+                max-height: 100%;
+                object-fit: cover;
+                min-height: 100%;
+            }
+        }
+
+        .header-button-viewmore {
+            .button-viewmore {
+                border: 1px solid white;
+                color: white;
+                background-color: transparent;
+
+                svg,
+                img {
+                    margin-right: $space-box/2;
+                }
+
+            }
+        }
+
+        .gallery-unit {
+            display: none;
+        }
+    }
+
+    .header-menu-detail {
+        background-color: $color-bg-2;
+    }
+
+    .card-unit {
+        .card-unit-booking {
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+            z-index: 1030;
+
+            .card-booking {
+                box-shadow: $box-shadow-small;
+                position: relative;
+
+                .detail-card {
+                    background-color: white;
+                    display: block;
+                    overflow: hidden;
+                    position: relative;
+                    padding: 0;
+
+                    .detail-price-booking {
+                        background-color: $color-bg-6;
+                        color: white;
+                        padding: $space-box $space-box;
+
+
+                        .text-booking {
+                            @include font-size(18px);
+                            margin-bottom: 0;
+                        }
+
+                        .price-booking {
+                            @include font-size(28px);
+                            font-family: $font-bold;
+                            margin-bottom: 0;
+
+                            &::before {
+                                content: "฿";
+                                display: inline-block;
+                                margin-right: $space-box/8;
+                            }
+                        }
+                    }
+
+                    .content-card {
+                        padding: $space-box/2 $space-box;
+
+                        p {
+                            margin-bottom: 0;
+                        }
+
+                        .content-price {
+                            margin-bottom: $space-box/2;
+
+                            .text-price {
+                                @include font-size(18px);
+                                color: $color-text-th;
+                                display: inline-block;
+                                margin-bottom: 0;
+                                padding-right: $space-box/4;
+                            }
+
+                            .price-show {
+                                color: $color-text-st;
+                                @include font-size(18px);
+                                font-family: $font-bold;
+                                display: inline-block;
+                                margin-bottom: 0;
+                                padding-right: $space-box/4;
+
+                                &::before {
+                                    content: "฿";
+                                    display: inline-block;
+                                    margin-right: $space-box/10;
+                                }
+                            }
+
+                            .price-span {
+                                text-decoration: line-through;
+                                color: $color-line;
+                                display: inline-block;
+                                margin-bottom: 0;
+                            }
+                        }
+
+                        .content-price-sqm {
+                            @include font-size(18px);
+                            color: $color-text-th;
+                            margin-bottom: $space-box/2;
+
+                            .price-sqm {
+                                padding-left: $space-box/2;
+
+                                &::before {
+                                    content: "฿";
+                                    display: inline-block;
+                                    margin-right: $space-box/10;
+                                }
+                            }
+                        }
+
+                        .content-check-booking {
+                            margin-bottom: $space-box/2;
+                            display: inline-flex;
+
+                            .uk-checkbox {
+                                margin-top: $space-box/8;
+                            }
+
+                            .text-check-booking {
+                                display: inline-table;
+                                padding-left: $space-box/2;
+
+                                .item-1 {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+
+                        .icons {
+                            margin-bottom: $space-box/4;
+                            @include font-size(12px);
+
+                            .icon-item {
+                                .icon-act {
+                                    background-color: $color-bg-2;
+                                    border-radius: $border-radius-round;
+                                    width: 32px;
+                                    height: 32px;
+                                    display: inline-flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    margin-bottom: $space-box/4;
+
+                                    img {
+                                        filter: $color-svg-icon;
+                                    }
+
+                                    &.icon-fav {
+                                        &:hover,
+                                        &.active {
+                                            img {
+                                                filter: $color-svg-fav;
+                                            }
+                                        }
+                                    }
+
+                                    &.icon-compare,
+                                    &.icon-share {
+                                        &:hover,
+                                        &.active {
+                                            background-color: $color-link;
+
+                                            img {
+                                                filter: $color-svg-white;
+                                            }
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                .card-box-click {
+                    .box-click {
+                        .button-link {
+                            font-family: $font-bold;
+                            padding: $space-box/2 $space-box;
+                            border-radius: 0;
+                            background-color: $color-link;
+                            color: white;
+                            text-align: center;
+                            align-items: center;
+                            justify-content: center;
+                            height: 50%;
+
+                            &.dark {
+                                background-color: $color-bg-7;
+                            }
+                        }
+                    }
+                }
+
+                @include media-breakpoint-up(xl) {
+                    .detail-card {
+                        .text-booking,
+                        .price-show,
+                        .text-price {
+                            @include font-size(24px);
+                        }
+
+                        .price-booking {
+                            @include font-size(40px);
+                        }
+
+                        .icons {
+                            .icon-item {
+                                @include font-size(16px);
+                            }
+                        }
+                    }
+                }
+
+
+                @include media-breakpoint-down(sm) {
+                    .detail-card {
+                        padding: $space-box/2;
+
+                        .detail-price-booking {
+                            background-color: white;
+                            border-bottom: 1px solid $color-border-4;
+                            padding: $space-box/3 0;
+
+                            .text-booking {
+                                color: $color-text-st;
+                                display: inline-block;
+                                margin-bottom: 0;
+                                margin-right: $space-box/8;
+                                @include font-size(20px);
+                            }
+
+                            .price-booking {
+                                display: inline-block;
+                                margin-bottom: 0;
+                                color: $color-link;
+                                @include font-size(22px);
+                            }
+                        }
+
+                        .content-card {
+                            padding: $space-box/3 0 0;
+
+                            .content-price {
+                                margin-bottom: $space-box/3;
+
+                                .text-price,
+                                .price-show,
+                                .price-span {
+                                    padding-right: $space-box/8;
+                                }
+                            }
+
+                            .content-price-sqm {
+                                margin-bottom: $space-box/3;
+
+                                .price-sqm {
+                                    padding-left: $space-box/4;
+                                }
+
+                            }
+
+                            .content-check-booking {
+                                margin-bottom: $space-box/3;
+
+                                .uk-checkbox {
+                                    margin-top: 0.05rem;
+                                }
+
+                                .text-check-booking {
+                                    padding-left: $space-box/4;
+                                }
+
+                            }
+
+                            .icons {
+                                margin-bottom: $space-box/3;
+
+                                .icon-item {
+                                    @include font-size(14px);
+                                }
+                            }
+                        }
+                    }
+                    .card-box-click {
+                        width: 100%;
+
+                    }
+                }
+
+                @include media-breakpoint-down(xs) {
+                    .detail-card {
+                        padding: $space-box/2;
+
+                        .detail-price-booking {
+                            padding: $space-box/3 0;
+
+                            .text-booking {
+                                margin-right: $space-box/8;
+                                @include font-size(16px);
+                                @media (max-width: 320px) {
+                                    @include font-size(14px);
+                                }
+                            }
+
+                            .price-booking {
+                                @include font-size(20px);
+                            }
+                        }
+
+                        .content-card {
+                            padding: $space-box/3 0 0;
+
+                            .content-price {
+                                margin-bottom: $space-box/3;
+
+                                .text-price,
+                                .price-show,
+                                .price-span {
+                                    @include font-size(14px);
+                                    padding-right: $space-box/8;
+                                    @media (max-width: 320px) {
+                                        @include font-size(11px);
+                                    }
+                                }
+                            }
+
+                            .content-price-sqm {
+                                @include font-size(14px);
+                                margin-bottom: $space-box/3;
+
+                                .price-sqm {
+                                    padding-left: $space-box/4;
+                                }
+
+                                @media (max-width: 320px) {
+                                    @include font-size(11px);
+                                    .price-sqm {
+                                        padding-left: $space-box/2;
+                                    }
+                                }
+                            }
+
+                            .content-check-booking {
+                                @include font-size(14px);
+                                margin-bottom: $space-box/3;
+
+                                .uk-checkbox {
+                                    margin-top: 0.05rem;
+                                }
+
+                                .text-check-booking {
+                                    padding-left: $space-box/4;
+                                }
+
+                                @media (max-width: 320px) {
+                                    @include font-size(11px);
+                                    .uk-checkbox {
+                                        margin-top: 0;
+                                    }
+                                }
+                            }
+
+                            .icons {
+                                margin-bottom: $space-box/3;
+
+                                .icon-item {
+                                    @include font-size(14px);
+                                    @media (max-width: 320px) {
+                                        @include font-size(11px);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .card-box-click {
+                        @include font-size(13px);
+                        width: 100%;
+
+                        .box-click {
+                            .button-link {
+                                @media (max-width: 300px) {
+                                    padding: $space-box/2;
+                                    @include font-size(11px);
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+
+            }
+        }
+    }
+
+    .title-unit-center {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+    .property {
+        .column-property {
+            display: inline-flex;
+
+            .item-property {
+                img {
+                    height: 23px;
+                    width: auto;
+                    padding-right: $space-box/2;
+
+                }
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            .column-property {
+                margin-left: 0;
+
+                .item-property {
+                    display: inline-flex;
+                    padding-left: 0;
+                    @include font-size(14px);
+
+                    img {
+                        padding-right: $space-box/4;
+                    }
+                }
+            }
+        }
+    }
+
+    .floor-plan {
+        .border-floor-plan {
+            border: 1px solid #DDDDDD;
+
+            .img-floor-plan {
+                display: flex;
+                justify-content: center;
+                align-content: center;
+
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .uk-tab:before {
+            border: 0;
+        }
+
+        .uk-tab > * > a {
+            color: $color-text-st;
+        }
+
+        .uk-tab > .uk-active > a {
+            border-color: $color-text-st;
+        }
+
+    }
+
+    .payment {
+        .detail-payment {
+            background-color: $color-bg-5;
+            color: white;
+
+            .article-title {
+                color: white;
+            }
+
+            .uk-column-divider {
+                column-rule: 1px solid $color-border-3;
+                @include media-breakpoint-down(sm) {
+                    padding-left: $space-box*2;
+                    padding-right: $space-box*2;
+                }
+            }
+
+            .column-payment {
+                @include media-breakpoint-down(sm) {
+                    border-right: 0px;
+                    border-bottom: 1px solid $color-border-3;
+                    padding-top: $space-box;
+                    padding-bottom: $space-box;
+                }
+
+                .price {
+                    margin-top: $space-box;
+                    font-weight: bold;
+                    color: white;
+
+                    &::before {
+                        content: "฿";
+                        display: inline-block;
+                        margin-right: 0.125rem;
+                    }
+
+                    @include media-breakpoint-between(md, lg) {
+                        @include font-size(20px);
+                    }
+
+                }
+
+                &.last-column-payment {
+                    border: 0px;
+                }
+
+            }
+        }
+    }
+
+    .related-unit {
+        .card-project-unit {
+            @include media-breakpoint-only(lg) {
+                .booking {
+                    .price-booking {
+                        @include font-size(22px);
+                    }
+                }
+            }
+            @include media-breakpoint-only(md) {
+                .detail {
+                    .sub-title {
+                        @include font-size(18px);
+                    }
+                }
+                .booking {
+                    display: block;
+
+                    .price-booking {
+                        @include font-size(20px);
+                    }
+
+                    .booking-button {
+                        padding: $space-box/2 $space-box;
+                    }
+
+                }
+            }
+        }
+    }
+
+}
