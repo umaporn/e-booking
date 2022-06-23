@@ -2,17 +2,17 @@
     <div class="row">
         <div class="uk-grid-collapse uk-child-width-1-3@s" uk-grid>
             <div>
-                <a href="{{ asset('images/theme/example-home-highlight-02.jpg') }}" data-fancybox="gallery" data-caption="test gallery 1">
+                <a class="image-bg" href="{{ asset('images/theme/example-home-highlight-02.jpg') }}" data-fancybox="gallery" data-caption="test gallery 1">
                     <img src="{{ asset('images/theme/example-home-highlight-01.jpg') }}" alt="">
                 </a>
             </div>
             <div class="uk-light uk-visible@s">
-                <a href="{{ asset('images/theme/example-home-highlight-02.jpg') }}" data-fancybox="gallery" data-caption="test gallery 2">
+                <a class="image-bg" href="{{ asset('images/theme/example-home-highlight-02.jpg') }}" data-fancybox="gallery" data-caption="test gallery 2">
                     <img src="{{ asset('images/theme/example-home-highlight-02.jpg') }}" alt="">
                 </a>
             </div>
             <div class="uk-light uk-visible@s position-relative">
-                <a href="{{ asset('images/theme/example-home-highlight-01.jpg') }}" data-fancybox="gallery" data-caption="test gallery 3">
+                <a class="image-bg" href="{{ asset('images/theme/example-home-highlight-01.jpg') }}" data-fancybox="gallery" data-caption="test gallery 3">
                     <img src="{{ asset('images/theme/example-home-highlight-01.jpg') }}" alt="">
                 </a>
             </div>
@@ -44,7 +44,7 @@
         <div class="col-md-4 float-right">
             <div class="uk-text-center">
                 <span>
-                    <a data-fancybox href="https://vimeo.com/191947042?color=f00">
+                    <a class="img-icon-play" data-fancybox href="https://vimeo.com/191947042?color=f00">
                         <img src="{{asset( config('images.icons.play'))}}" alt="play icon">
                     </a>
                 </span>

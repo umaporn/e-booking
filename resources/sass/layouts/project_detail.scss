@@ -137,11 +137,35 @@
         }
     }
 
+    .header-project {
+        .header-image {
+            .image-bg {
+                display: block;
+                overflow: hidden;
+
+                img {
+                    object-fit: cover;
+                    transition: $transition;
+                }
+
+                &:hover {
+                    img {
+                        transform: scale(1.1, 1.1);
+                    }
+                }
+            }
+        }
+    }
+
     .header-button-viewmore {
         .button-viewmore {
             border: 1px solid white;
             color: white;
             background-color: transparent;
+
+            &:hover {
+                background-color: $color-bg-6;
+            }
 
             svg,
             img {
@@ -154,6 +178,14 @@
     .header-icon-play {
         span {
             filter: invert(97%) sepia(100%) saturate(11%) hue-rotate(212deg) brightness(104%) contrast(102%);
+
+            .img-icon-play {
+                &:hover {
+                    img {
+                        filter: invert(48%) sepia(73%) saturate(401%) hue-rotate(139deg) brightness(106%) contrast(85%);
+                    }
+                }
+            }
         }
     }
 
