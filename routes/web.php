@@ -1,5 +1,15 @@
 <?php
 
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\HowtoBookController;
+use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\QuestionsController;
+use App\Http\Controllers\UnitController;
+use Illuminate\Support\Facades\Route;
+
+>>>>>>> b61c4bfd605646d7badaab6cf3cd4f88b033d9f5
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,6 +89,18 @@ Route::group( [ 'prefix' => 'theme' ], function(){
     Route::get( 'fullpage', [ ThemeController::class, 'fullpage' ] );
 } );
 
+<<<<<<< HEAD
 
 
 
+=======
+Route::group( [ 'prefix' => 'projects' ], function(){
+    Route::get( '', [ ProjectsController::class, 'index' ] )->name( 'projects.index' );
+    Route::get( 'detail', [ ProjectsController::class, 'detail' ] )->name( 'projects.detail' );
+} );
+
+Route::group( [ 'prefix' => 'unit' ], function(){
+    Route::get( '', [ UnitController::class, 'index' ] )->name( 'unit.index' );
+    Route::get( 'detail', [ UnitController::class, 'detail' ] )->name( 'unit.detail' );
+} );
+>>>>>>> b61c4bfd605646d7badaab6cf3cd4f88b033d9f5

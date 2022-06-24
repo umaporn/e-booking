@@ -4,16 +4,21 @@
 @section('content')
     <section class="content-projects">
         <div class="show-content">
-            <div style="z-index: 980;" class="d-flex justify-content-end" uk-sticky="position: bottom; bottom: ~ .online-footer">
-                <a href="#" uk-totop></a>
-            </div>
-            <section class="project-filler" style="background-color: #F5F5F5;">
-                <div class="container uk-margin-medium-top">
+            <section class="online-scroll-top">
+                <div class="container-fluid position-absolute">
+                    <div class="d-flex justify-content-end btn-toppage" uk-sticky="position: bottom; bottom: ~ .online-footer">
+                        <a href="#" uk-totop></a>
+                    </div>
+                </div>
+            </section>
+            <section class="project-filler">
+                <div class="container content-m-top">
                     <div class="col-12 col-xl-10">
                         <form class="project-form search">
                             <input type="hidden" name="csrf-token" content="{{ csrf_token() }}">
                             <div class="row search-p-mobile py-4 py-xl-0">
                                 <div class="col-12 col-md-4 col-xl pl-md-0 my-2 my-xl-4">
+<<<<<<< HEAD
                                     <select id="project" class="uk-select px-3" style="font-size: 16px;border-radius: 20px;border-color: #ffffff;background-position: 95%;color: #333333;">
                                         <option value="all">@lang('projects.option.project-title')</option>
                                         @foreach($search['project'] as $itemProject)
@@ -32,6 +37,28 @@
                                 <div class="col-12 col-md-4 col-xl pl-md-0 my-2 my-xl-4 d-table">
                                     <label class="d-table-cell align-middle px-3"><input id="project_status" name="project_status" class="uk-checkbox" type="checkbox" style="border-color: #333333;font-size: 14px;">
                                         @lang('projects.option.status-title')</label>
+=======
+                                    <select class="uk-select px-3">
+                                        <option value="">Project Name</option>
+                                        <option value="1">Option 01</option>
+                                        <option value="2">Option 02</option>
+                                        <option value="3">Option 03</option>
+                                        <option value="4">Option 04</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-4 col-xl pl-md-0 my-2 my-xl-4">
+                                    <select class="uk-select px-3">
+                                        <option value="">Location / Transport</option>
+                                        <option value="1">Option 01</option>
+                                        <option value="2">Option 02</option>
+                                        <option value="3">Option 03</option>
+                                        <option value="4">Option 04</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-4 col-xl pl-md-0 my-2 my-xl-4 d-table">
+                                    <label class="d-table-cell align-middle px-3"><input class="uk-checkbox check-box" type="checkbox">
+                                        READY TO MOVE</label>
+>>>>>>> b61c4bfd605646d7badaab6cf3cd4f88b033d9f5
                                 </div>
                             </div>
                         </form>

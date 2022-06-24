@@ -14,7 +14,7 @@
                 </a>
             </article>
         </div>
-        <div class="col-12 d-flex justify-content-end">
+        <div class="col-12 d-flex justify-content-end btn-toppage">
             <a href="#" uk-totop></a>
         </div>
     </div>

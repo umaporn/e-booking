@@ -5,13 +5,13 @@
 return [
 
     'logos' => [
-        'mqdc' => 'images/logos/logo-mqdc.svg',
-        'mqdc-all' => 'images/logos/logo-mqdc-all.svg',
+        'mqdc'           => 'images/logos/logo-mqdc.svg',
+        'mqdc-all'       => 'images/logos/logo-mqdc-all.svg',
         'mulberry-grove' => 'images/logos/logo-mulberrygrove.svg',
     ],
 
     'icons' => [
-        'user'       =>  'images/icons/icon-uesr.svg',
+        'user'       => 'images/icons/icon-uesr.svg',
         'bed'        => 'images/icons/icon-bed.svg',
         'compare'    => 'images/icons/icon-compare.svg',
         'favorite'   => 'images/icons/icon-favorite.svg',
@@ -34,16 +34,20 @@ return [
             'good-3' => 'images/icons/icon-good-3.svg',
             'good-4' => 'images/icons/icon-good-4.svg',
         ],
-        'social'     =>  [
-            'fb' => 'images/icons/footer/icon-fb.svg',
-            'tw' => 'images/icons/footer/icon-twitter.svg',
-            'ig' => 'images/icons/footer/icon-ig.svg',
-            'yt' => 'images/icons/footer/icon-yt.svg',
+        'social'     => [
+            'fb'   => 'images/icons/footer/icon-fb.svg',
+            'tw'   => 'images/icons/footer/icon-twitter.svg',
+            'ig'   => 'images/icons/footer/icon-ig.svg',
+            'yt'   => 'images/icons/footer/icon-yt.svg',
             'line' => 'images/icons/footer/icon-line.svg',
         ],
         'building'   => 'images/icons/icon-building.svg',
         'floor'      => 'images/icons/icon-floor.svg',
         'unit'       => 'images/icons/icon-unit.svg',
+        'filter'     => 'images/icons/icon-filter.svg',
+        'bathroom'   => 'images/icons/icon-bathroom.svg',
+        'direction'  => 'images/icons/icon-direction.svg',
+        'share'      => 'images/icons/icon-share.svg,',
     ],
 
 ];
