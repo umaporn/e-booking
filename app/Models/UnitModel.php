@@ -80,6 +80,24 @@ class UnitModel extends Model
     }
 
     /**
+     * Get Unit list ,Unit list page
+     *
+     * @param Request $request
+     * @param int     $limit
+     *
+     * @return mixed
+     */
+    public function getList( Request $request, $limit = 5 )
+    {
+        $builder = $this->with( [ 'unitLabel' ] )
+                        ->where( 'status', 'publish' );
+        $data    = Search::search( $builder, 'unit', $request, [], $limit );
+
+        return $this->transformContent( $data );
+
+    }
+
+    /**
      * Transform Unit data
      *
      * @param $content

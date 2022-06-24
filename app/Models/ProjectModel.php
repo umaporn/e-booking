@@ -84,6 +84,7 @@ class ProjectModel extends Model
                                    ->where( 'status', 'publish' )
                                    ->first();
         if( $projectInfo ){
+            $projectInfo->setAttribute( 'project_title', Utility::getLanguageFields( 'project_name', $projectInfo ) );
             $projectInfo->setAttribute( 'project_type_title', Utility::getLanguageFields( 'name', $projectInfo->projectType ) );
             $projectInfo->setAttribute( 'project_status_title', Utility::getLanguageFields( 'name', $projectInfo->ProjectStatus ) );
             $projectInfo->setAttribute( 'project_location_title', Utility::getLanguageFields( 'location_name', $projectInfo->projectLocation ) );
