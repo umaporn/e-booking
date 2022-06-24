@@ -54,4 +54,5 @@ $( document )
 		Confirmation.initialize();
 		Form.initialize();
 		PasswordToggle.initialize();
+        CardBooking.initialize();
 	} );
