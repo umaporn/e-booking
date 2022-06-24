@@ -11,7 +11,7 @@ const CardBooking = (function(){
      */
     function initialize(){
         console.log( 'hello' );
-    };
+    }
 
     return {
         initialize: initialize,

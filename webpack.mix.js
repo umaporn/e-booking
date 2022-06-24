@@ -15,12 +15,12 @@ mix.js( 'resources/js/app.js', 'public/js' )
    .sass('resources/sass/app.scss', 'public/css')
    .vue()
    .babel( [
-               'resources/js/libs/Confirmation.js',
-               'resources/js/libs/Form.js',
-               'resources/js/libs/Search.js',
-               'resources/js/libs/Utility.js',
-               'resources/js/libs/PasswordToggle.js',
-               'resources/js/bootstrap.js',
-               'resources/js/libs/CardBooking.js',
+	           'resources/js/libs/Confirmation.js',
+	           'resources/js/libs/Form.js',
+	           'resources/js/libs/Search.js',
+	           'resources/js/libs/Utility.js',
+	           'resources/js/libs/PasswordToggle.js',
+	           'resources/js/libs/CardBooking.js',
+	           'resources/js/bootstrap.js',
            ], 'public/js/all.js' )
    .version();
