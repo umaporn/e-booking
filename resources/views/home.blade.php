@@ -108,9 +108,7 @@
                 </form>
             </div>
         </section>
-
         @include('partials.home-page.feature-property')
-
         <section class="home-benefits">
             <div class="container online-content content-padding">
                 <div class="row">

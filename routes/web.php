@@ -1,15 +1,4 @@
 <?php
-
-<<<<<<< HEAD
-=======
-use App\Http\Controllers\HowtoBookController;
-use App\Http\Controllers\ProjectsController;
-use App\Http\Controllers\PromotionController;
-use App\Http\Controllers\QuestionsController;
-use App\Http\Controllers\UnitController;
-use Illuminate\Support\Facades\Route;
-
->>>>>>> b61c4bfd605646d7badaab6cf3cd4f88b033d9f5
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,9 +16,12 @@ use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\QuestionsController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThemeController;
 use App\Libraries\Utility;
+
+
 
 foreach( config( 'app.language_codes' ) as $languageCode ){
 
@@ -63,6 +55,11 @@ function globalRoutes()
         Route::get( 'detail/{id}', [ PromotionController::class, 'detail' ] )->name( 'promotion.detail' );
     } );
 
+    Route::group( [ 'prefix' => 'unit' ], function(){
+        Route::get( '', [ UnitController::class, 'index' ] )->name( 'unit.index' );
+        Route::get( 'detail', [ UnitController::class, 'detail' ] )->name( 'unit.detail' );
+    } );
+
     Route::get( 'faq', [ QuestionsController::class, 'index' ] )->name( 'faq.index' );
     Route::get( 'how-to-book', [ HowtoBookController::class, 'index' ] )->name( 'howtobook' );
 
@@ -89,18 +86,11 @@ Route::group( [ 'prefix' => 'theme' ], function(){
     Route::get( 'fullpage', [ ThemeController::class, 'fullpage' ] );
 } );
 
-<<<<<<< HEAD
 
 
 
-=======
-Route::group( [ 'prefix' => 'projects' ], function(){
-    Route::get( '', [ ProjectsController::class, 'index' ] )->name( 'projects.index' );
-    Route::get( 'detail', [ ProjectsController::class, 'detail' ] )->name( 'projects.detail' );
-} );
 
-Route::group( [ 'prefix' => 'unit' ], function(){
-    Route::get( '', [ UnitController::class, 'index' ] )->name( 'unit.index' );
-    Route::get( 'detail', [ UnitController::class, 'detail' ] )->name( 'unit.detail' );
-} );
->>>>>>> b61c4bfd605646d7badaab6cf3cd4f88b033d9f5
+
+
+
+
