@@ -2,7 +2,7 @@
     <div class="row">
         <nav class="navbar navbar-expand nav-detail">
             <div class="collapse navbar-collapse">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto" uk-scrollspy-nav="closest: li; scroll: true;cls:uk-active;offset:0;">
                     <li class="nav-item active">
                         <a class="nav-link" href="#property">Unit Detail</a>
                     </li>

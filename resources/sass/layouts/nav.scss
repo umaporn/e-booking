@@ -265,6 +265,12 @@
         }
 
         .nav-item {
+            &.uk-active {
+                a {
+                    color: $color-link;
+                }
+            }
+
             @include media-breakpoint-up(xl) {
                 padding-left: $space-box/4 * 3;
                 padding-right: $space-box/4 * 3;

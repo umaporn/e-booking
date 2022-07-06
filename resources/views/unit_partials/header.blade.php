@@ -2,17 +2,17 @@
     <div class="row">
         <div class="uk-grid-collapse uk-child-width-1-3@s" uk-grid>
             <div>
-                <a href="{{ asset('images/unit/condo-interiors-1@2x.png') }}" data-fancybox="gallery" data-caption="test gallery 1">
+                <a class="image-bg" href="{{ asset('images/unit/condo-interiors-1@2x.png') }}" data-fancybox="gallery" data-caption="test gallery 1">
                     <img src="{{ asset('images/unit/condo-interiors-1@2x.png') }}" alt="">
                 </a>
             </div>
             <div class="uk-light uk-visible@s">
-                <a href="{{ asset('images/unit/condo-interiors-3@2x.png') }}" data-fancybox="gallery" data-caption="test gallery 2">
+                <a class="image-bg" href="{{ asset('images/unit/condo-interiors-3@2x.png') }}" data-fancybox="gallery" data-caption="test gallery 2">
                     <img src="{{ asset('images/unit/condo-interiors-3@2x.png') }}" alt="">
                 </a>
             </div>
             <div class="uk-light uk-visible@s position-relative">
-                <a href="{{ asset('images/unit/condo-interiors-2@2x.png') }}" data-fancybox="gallery" data-caption="test gallery 3">
+                <a class="image-bg" href="{{ asset('images/unit/condo-interiors-2@2x.png') }}" data-fancybox="gallery" data-caption="test gallery 3">
                     <img src="{{ asset('images/unit/condo-interiors-2@2x.png') }}" alt="">
                 </a>
             </div>
