@@ -2,18 +2,18 @@
     <div class="row">
         <div class="uk-grid-collapse uk-child-width-1-3@s" uk-grid>
             <div>
-                <a class="image-bg" href="{{ asset('images/unit/condo-interiors-1@2x.png') }}" data-fancybox="gallery" data-caption="test gallery 1">
-                    <img src="{{ asset('images/unit/condo-interiors-1@2x.png') }}" alt="">
+                <a class="image-bg" href="{{ asset('images/theme/example-home-highlight-02.jpg') }}" data-fancybox="gallery" data-caption="test gallery 1">
+                    <img src="{{ asset('images/theme/example-home-highlight-01.jpg') }}" alt="">
                 </a>
             </div>
             <div class="uk-light uk-visible@s">
-                <a class="image-bg" href="{{ asset('images/unit/condo-interiors-3@2x.png') }}" data-fancybox="gallery" data-caption="test gallery 2">
-                    <img src="{{ asset('images/unit/condo-interiors-3@2x.png') }}" alt="">
+                <a class="image-bg" href="{{ asset('images/theme/example-home-highlight-02.jpg') }}" data-fancybox="gallery" data-caption="test gallery 2">
+                    <img src="{{ asset('images/theme/example-home-highlight-02.jpg') }}" alt="">
                 </a>
             </div>
             <div class="uk-light uk-visible@s position-relative">
-                <a class="image-bg" href="{{ asset('images/unit/condo-interiors-2@2x.png') }}" data-fancybox="gallery" data-caption="test gallery 3">
-                    <img src="{{ asset('images/unit/condo-interiors-2@2x.png') }}" alt="">
+                <a class="image-bg" href="{{ asset('images/theme/example-home-highlight-01.jpg') }}" data-fancybox="gallery" data-caption="test gallery 3">
+                    <img src="{{ asset('images/theme/example-home-highlight-01.jpg') }}" alt="">
                 </a>
             </div>
         </div>
@@ -36,5 +36,19 @@
             </a>
         </div>
     </div>
-    @include('unit_partials.gallery')
+    @include('projects_partials.gallery')
+</section>
+
+<section class="header-icon-play uk-visible@s">
+    <div class="uk-position-center w-100">
+        <div class="col-md-4 float-right">
+            <div class="uk-text-center">
+                <span>
+                    <a class="img-icon-play" data-fancybox href="https://vimeo.com/191947042?color=f00">
+                        <img src="{{asset( config('images.icons.play'))}}" alt="play icon">
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
 </section>

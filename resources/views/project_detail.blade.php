@@ -9,7 +9,7 @@
         <section class="header-project container-fluid position-relative">
             @include('partials.projects.header')
         </section>
-        <section class="header-menu-detail">
+        <section class="header-menu-detail" uk-sticky="start: #property">
             <div class="container-fluid">
                 @include('partials.projects.menu')
             </div>

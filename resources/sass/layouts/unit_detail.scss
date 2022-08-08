@@ -1,10 +1,22 @@
 .unit-detail {
     .header-unit {
         .header-image {
-            img {
-                max-height: 100%;
-                object-fit: cover;
-                min-height: 100%;
+            .image-bg {
+                display: block;
+                overflow: hidden;
+
+                img {
+                    max-height: 100%;
+                    object-fit: cover;
+                    min-height: 100%;
+                    transition: $transition;
+                }
+
+                &:hover {
+                    img {
+                        transform: scale(1.1, 1.1);
+                    }
+                }
             }
         }
 
@@ -13,6 +25,11 @@
                 border: 1px solid white;
                 color: white;
                 background-color: transparent;
+
+                &:hover {
+                    border-color: $color-border-5;
+                    background-color: $color-bg-6;
+                }
 
                 svg,
                 img {
@@ -42,6 +59,30 @@
                 box-shadow: $box-shadow-small;
                 position: relative;
 
+                .hide-detail-booking {
+                    background-color: white;
+                    padding: $space-box/2 $space-box;
+                    display: none;
+
+                    &:hover {
+                        .text-booking,
+                        img {
+                            transform: scale(1.1, 1.1);
+                            filter: $color-svg-blur;
+                        }
+                    }
+
+                    .text-booking {
+                        color: $color-text-st;
+                        @include font-size(18px);
+                        margin: 0;
+                    }
+
+                    img {
+                        width: 10%;
+                    }
+                }
+
                 .detail-card {
                     background-color: white;
                     display: block;
@@ -58,6 +99,21 @@
                         .text-booking {
                             @include font-size(18px);
                             margin-bottom: 0;
+                        }
+
+
+                        .btn-icon-down {
+                            display: none;
+                            width: 10%;
+                            filter: $color-svg-white;
+
+                            &:hover {
+                                filter: $color-svg-black;
+
+                                img {
+                                    transform: scale(1.1, 1.1);
+                                }
+                            }
                         }
 
                         .price-booking {
@@ -211,10 +267,25 @@
                                 background-color: $color-bg-7;
                             }
                         }
+
+                        &:hover {
+                            .button-link {
+                                color: $color-text-st;
+
+                                &.dark {
+                                    color: $color-link;
+                                }
+                            }
+                        }
                     }
                 }
 
                 @include media-breakpoint-up(xl) {
+                    .hide-detail-booking {
+                        .text-booking {
+                            @include font-size(24px);
+                        }
+                    }
                     .detail-card {
                         .text-booking,
                         .price-show,

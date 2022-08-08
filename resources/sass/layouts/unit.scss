@@ -61,6 +61,16 @@
             img {
                 margin-left: $space-box*2;
             }
+
+            &:hover {
+                background-color: $color-bg-6;
+                border-color: white;
+                color: white;
+
+                img {
+                    filter: $color-svg-white;
+                }
+            }
         }
 
     }
