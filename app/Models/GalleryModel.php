@@ -32,4 +32,27 @@ class GalleryModel extends Model
         return $imagesList;
     }
 
+    /**
+     * Gallery image and files info
+     *
+     * @param $gallery
+     *
+     * @return array|null
+     */
+    public static function gallery( $gallery )
+    {
+        $imagesList = null;
+        if( $gallery != null ){
+            $images = GalleryModel::where( 'gallery_gallery_id', $gallery )->orderby( 'id', 'desc' )->get();
+
+            if( $images != null ){
+                foreach( $images as $item ){
+                    $imagesList[] = FileEbook::getFileInfo( $item['directus_files_id'] );
+                }
+            }
+        }
+
+        return $imagesList;
+    }
+
 }

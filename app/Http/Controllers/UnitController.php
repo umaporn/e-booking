@@ -44,12 +44,26 @@ class UnitController extends Controller
     }
 
     /**
-     * Show how to unit detail page.
+     * Unit detail page
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View how to unit detail page
+     * @param Request $request
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function detail()
+    public function detail( $id, $slug )
     {
-        return view( 'unit_detail' );
+        if( !isset( $id ) ){
+            dd( '404' );
+        }
+
+        $token   = isset( $this->access_token['data']['access_token'] ) ? $this->access_token['data']['access_token'] : '';
+        $unit    = $this->Unit->getUnitInfo( $id );
+        $project = $this->Project->getUpdate( 3 );
+        $relate  = $this->Unit->getUnitRelate( $id, $unit[0]->project_info, 4 );
+
+        // dd( $unit );
+
+        return view( 'unit_detail', compact( 'token', 'unit', 'project', 'relate' ) );
+
     }
 }

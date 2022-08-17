@@ -109,7 +109,7 @@
                                                 {{--<img src="{{asset( config('images.icons.compare'))}}" alt="compare icon">--}}
                                             {{--</a>--}}
                                         {{--</section>--}}
-                                        <a href="#" class="box-click">
+                                        <a href="{{  route('unit.detail',['id'=>$item->id,'slug'=>$item->slug]) }}" class="box-click">
                                             <figure class="image">
                                                 <img src="{{ $item->images.'?access_token='.$token }}" alt="{{ $item->unit_name }}">
                                                 <div class="status">

@@ -50,12 +50,12 @@ $.ajaxSetup( {
 $( document )
 	.ready( function(){
 		/** Initialize all JavaScript modules. */
-		// Menu.initialize();
+		//Menu.initialize();
 		LoadMore.initialize();
 		Search.initialize();
-		Confirmation.initialize();
-		Form.initialize();
-		PasswordToggle.initialize();
+		//Confirmation.initialize();
+		//Form.initialize();
+		//PasswordToggle.initialize();
 		SearchBox.initialize();
 		Gallery.initialize();
 		ProjectFilter.initialize();

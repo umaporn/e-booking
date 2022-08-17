@@ -47,7 +47,7 @@ return [
         'filter'            => 'images/icons/icon-filter.svg',
         'bathroom'          => 'images/icons/icon-bathroom.svg',
         'direction'         => 'images/icons/icon-direction.svg',
-        'share'             => 'images/icons/icon-share.svg,',
+        'share'             => 'images/icons/icon-share.svg',
         'arrow_double_down' => 'images/icons/icon-arrow-double-down.svg',
         'arrow_double_up'   => 'images/icons/icon-arrow-double-up.svg',
     ],

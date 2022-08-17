@@ -22,7 +22,6 @@ use App\Http\Controllers\ThemeController;
 use App\Libraries\Utility;
 
 
-
 foreach( config( 'app.language_codes' ) as $languageCode ){
 
     $routePrefix = '';
@@ -57,7 +56,7 @@ function globalRoutes()
 
     Route::group( [ 'prefix' => 'unit' ], function(){
         Route::get( '', [ UnitController::class, 'index' ] )->name( 'unit.index' );
-        Route::get( 'detail', [ UnitController::class, 'detail' ] )->name( 'unit.detail' );
+        Route::get( 'detail/{id?}/{slug?}', [ UnitController::class, 'detail' ] )->name( 'unit.detail' );
     } );
 
     Route::get( 'faq', [ QuestionsController::class, 'index' ] )->name( 'faq.index' );

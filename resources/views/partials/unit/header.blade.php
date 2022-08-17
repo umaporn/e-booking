@@ -1,21 +1,17 @@
 <section class="header-image position-relative">
     <div class="row">
         <div class="uk-grid-collapse uk-child-width-1-3@s" uk-grid>
-            <div>
-                <a class="image-bg" href="{{ asset('images/unit/condo-interiors-1@2x.png') }}" data-fancybox="gallery" data-caption="test gallery 1">
-                    <img src="{{ asset('images/unit/condo-interiors-1@2x.png') }}" alt="">
-                </a>
-            </div>
-            <div class="uk-light uk-visible@s">
-                <a class="image-bg" href="{{ asset('images/unit/condo-interiors-3@2x.png') }}" data-fancybox="gallery" data-caption="test gallery 2">
-                    <img src="{{ asset('images/unit/condo-interiors-3@2x.png') }}" alt="">
-                </a>
-            </div>
-            <div class="uk-light uk-visible@s position-relative">
-                <a class="image-bg" href="{{ asset('images/unit/condo-interiors-2@2x.png') }}" data-fancybox="gallery" data-caption="test gallery 3">
-                    <img src="{{ asset('images/unit/condo-interiors-2@2x.png') }}" alt="">
-                </a>
-            </div>
+            @if($unit[0]->gallery_files )
+                @foreach($unit[0]->gallery_files as $key=>$gallery)
+                    @if($key < 3)
+                        <div class="uk-light uk-visible@s position-relative">
+                            <a class="image-bg" href="{{$gallery['file_url'].'?access_token='.$token}}" data-fancybox="gallery" data-caption="{{ $gallery['title'] }}">
+                                <img src="{{$gallery['file_url'].'?access_token='.$token}}" alt="{{ $gallery['title'] }}">
+                            </a>
+                        </div>
+                    @endif
+                @endforeach
+            @endif
         </div>
     </div>
 </section>
@@ -36,5 +32,5 @@
             </a>
         </div>
     </div>
-    @include('unit_partials.gallery')
+    @include('partials.unit.gallery')
 </section>

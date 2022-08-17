@@ -65,8 +65,10 @@ class UnitModel extends Model
     /**
      * Get Unit list
      *
-     * @param     $project
-     * @param int $limit
+     * @param object $project
+     * @param int    $limit
+     *
+     * @return mixed
      */
     public function getUnitList( Request $request, $project, $limit = 5 )
     {
@@ -77,6 +79,27 @@ class UnitModel extends Model
 
         return $this->transformContent( $data );
 
+    }
+
+    /**
+     * Get relate unit detail pge
+     *
+     * @param     $unit
+     * @param     $project
+     * @param int $limit
+     *
+     * @return mixed
+     */
+    public function getUnitRelate( $unit, $project, $limit = 5 )
+    {
+
+        $result = $this->with( [ 'unitLabel' ] )
+            //->where( 'project_id', $project->id ) check same project
+                       ->where( 'id', '!=', $unit )
+                       ->where( 'status', 'publish' )
+                       ->offset( 0 )->take( $limit )->get();
+
+        return $this->transformContent( $result );
     }
 
     /**
@@ -98,6 +121,23 @@ class UnitModel extends Model
     }
 
     /**
+     * Get Unit info
+     *
+     * @param $id
+     *
+     * @return mixed
+     */
+    public function getUnitInfo( $id )
+    {
+        $result = $this->with( [ 'unitLabel' ] )
+                       ->selectRaw( '*,360_video_link as video_link' )
+                       ->where( 'status', 'publish' )
+                       ->where( 'id', $id )->get();
+
+        return $this->transformContent( $result );
+    }
+
+    /**
      * Transform Unit data
      *
      * @param $content
@@ -116,6 +156,12 @@ class UnitModel extends Model
             $list->setAttribute( 'unit_sqm', Utility::getLanguageFields( 'unit_sqm', $list ) );
             $list->setAttribute( 'unit_facing', Utility::getLanguageFields( 'unit_facing', $list ) );
             $list->setAttribute( 'images', FileEbook::getFile( $list->unit_image ) );
+            $list->setAttribute( 'images_unit_layout', FileEbook::getFile( $list->unit_layout_upload_file ) );
+            $list->setAttribute( 'images_floor_layout', FileEbook::getFile( $list->floor_layout_upload_file ) );
+
+            if( isset( $list->unit_gallery ) ){
+                $list->setAttribute( 'gallery_files', GalleryModel::gallery( $list->unit_gallery ) );
+            }
 
             if( isset( $list->project_id ) ){
                 $list->setAttribute( 'project_info', ProjectModel::getProjectInfo( $list->project_id ) );

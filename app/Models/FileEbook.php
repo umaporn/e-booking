@@ -28,4 +28,12 @@ class FileEbook extends Model
         return $filesUrl;
     }
 
+    public function getFileInfo( $id )
+    {
+        $result = FileEbook::where( 'id', $id )->first();
+
+        return [ 'file_url' => env( 'BACKEND_URL_FILES' ) . $id, 'title' => $result->title, 'filename_disk' => $result->filename_disk, 'filename_download' => $result->filename_download ];
+
+    }
+
 }
