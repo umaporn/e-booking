@@ -9,7 +9,7 @@
                 @if($key === 0)
                     <div class="col-md-8 mb-4">
                         <article class="card-project-highlight">
-                            <a href="{{ $item->slug }}" class="box-click">
+                            <a href="{{ route('projects.detail',['slug'=> $item->slug]) }}" class="box-click">
                                 <figure class="image my-0">
                                     <img src="{{ $item->project_thumbnail.'?access_token='.$token }}" alt="{{ $item->project_name }}">
                                     <div class="status">
@@ -30,7 +30,7 @@
                 @else
                     <div class="col-md-4 mb-4">
                         <article class="card-project">
-                            <a href="{{ $item->slug }}" class="box-click">
+                            <a href="{{ route('projects.detail',['slug'=> $item->slug]) }}" class="box-click">
                                 <figure class="logo">
                                     <img src="{{ $item->project_logo.'?access_token='.$token }}" alt="{{ $item->project_name }}">
                                 </figure>

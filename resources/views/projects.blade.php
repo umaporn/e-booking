@@ -92,7 +92,8 @@
                     <div class="mb-5">
                         <div class="d-flex justify-content-between align-items-center mb-1">
                             <h2 class="online-content title mb-0">@lang('projects.title.unit')</h2>
-                            <a href="#" class="d-none d-md-block button more-text hidden-md">All Units</a>
+                            <a href="{{ route('unit.index') }}" class="d-none d-md-block button more-text hidden-md">All
+                                                                                                                     Units</a>
                         </div>
                         <p>@lang('projects.unit_banner')</p>
                     </div>
@@ -109,7 +110,7 @@
                                         {{--<img src="{{asset( config('images.icons.compare'))}}" alt="compare icon">--}}
                                         {{--</a>--}}
                                         {{--</section>--}}
-                                        <a href="{{ $item->slug }}" class="box-click">
+                                        <a href="{{  route('unit.detail',['id'=>$item->id,'slug'=>$item->slug]) }}" class="box-click">
                                             <figure class="image">
                                                 <img src="{{ $item->images.'?access_token='.$token }}" alt="{{ $item->unit_name }}">
                                                 <div class="status">

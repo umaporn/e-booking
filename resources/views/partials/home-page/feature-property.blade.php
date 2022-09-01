@@ -21,7 +21,7 @@
                             <img src="{{ $itemProject->project_thumbnail.'?access_token='.$token }}" alt="{{ $itemProject->project_name }}">
                         </figure>
                         <section class="detail">
-                            <a href="{{ $itemProject->slug }}" target="_blank" class="box">
+                            <a href="{{ route('projects.detail',['slug'=>$itemProject->slug ]) }}" target="_blank" class="box">
                                 <h2 class="online-content sub-header color-white mb-0">{{ $itemProject->project_name }}</h2>
                                 <p class="online-content color-white mb-2">{!! $itemProject->project_detail !!}</p>
                                 <button class="btn button link">@lang('home.view_project')</button>
@@ -44,7 +44,7 @@
                                             {{--<img src="{{asset( config('images.icons.compare'))}}" alt="compare icon">--}}
                                             {{--</a>--}}
                                             {{--</section>--}}
-                                            <a href="{{ $itemUnit->slug }}" class="box-click">
+                                            <a href="{{ route('unit.detail',['id'=>$itemUnit->id,'slug'=>$itemUnit->slug]) }}" class="box-click">
                                                 <figure class="image">
                                                     <img src="{{ $itemUnit->images.'?access_token='.$token }}" alt="{{ $itemUnit->unit_label_title }}">
                                                     <div class="status">
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="col-12 home-more {{ $moreClass }}">
-                    <a href="{{ $itemProject->slug }}" class="button link">@lang('home.all_unit')</a>
+                    <a href="{{ route('projects.detail',['slug'=> $itemProject->slug]) }}" class="button link">@lang('home.all_unit')</a>
                 </div>
             </div>
         @endforeach

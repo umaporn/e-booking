@@ -2,7 +2,7 @@
     <div class="container online-content content-padding pt-0">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="online-content title mb-0">@lang('home.feature-unit.header_line')</h2>
-            <a href="#" class="button more-text">@lang('home.feature-unit.button.all_unit')</a>
+            <a href="{{ route('unit.index') }}" class="button more-text">@lang('home.feature-unit.button.all_unit')</a>
         </div>
         <section class="unit-show">
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
@@ -18,7 +18,7 @@
                                 {{--<img src="{{asset( config('images.icons.compare'))}}" alt="compare icon">--}}
                                 {{--</a>--}}
                                 {{--</section>--}}
-                                <a href="{{ $item->slug }}" class="box-click">
+                                <a href="{{  route('unit.detail',['id'=>$item->id,'slug'=>$item->slug]) }}" class="box-click">
                                     <figure class="image">
                                         <img src="{{ $item->images.'?access_token='.$token }}" alt="{{ $item->unit_name }}">
                                         <div class="status">
