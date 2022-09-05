@@ -36,8 +36,8 @@ class CreateProjectManagementTable extends Migration
             $table->string( 'total_unit_thai', 255 );
             $table->string( 'total_project_area_english', 255 );
             $table->string( 'total_project_area_thai', 255 );
-            $table->string( 'facility_detail_english', 255 );
-            $table->string( 'facility_detail_thai', 255 );
+            $table->text( 'facility_detail_english' );
+            $table->text( 'facility_detail_thai' );
             $table->text( 'project_unit_info' );
             $table->string( 'payment_gateway', 255 );
             $table->string( 'project_gallery', 255 );
