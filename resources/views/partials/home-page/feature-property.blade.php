@@ -23,7 +23,6 @@
                         <section class="detail">
                             <a href="{{ route('projects.detail',['slug'=>$itemProject->slug ]) }}" target="_blank" class="box">
                                 <h2 class="online-content sub-header color-white mb-0">{{ $itemProject->project_name }}</h2>
-                                <p class="online-content color-white mb-2">{!! $itemProject->project_detail !!}</p>
                                 <button class="btn button link">@lang('home.view_project')</button>
                             </a>
                         </section>
@@ -36,14 +35,6 @@
                                 @foreach($itemProject->unit_property as $itemUnit)
                                     <li class="uk-width-4-5 uk-width-1-2@s">
                                         <article class="card-project-unit">
-                                            {{--<section class="icons">--}}
-                                            {{--<a href="#" class="icon icon-fav">--}}
-                                            {{--<img src="{{asset( config('images.icons.favorite'))}}" alt="favorite icon">--}}
-                                            {{--</a>--}}
-                                            {{--<a href="#" class="icon icon-compare">--}}
-                                            {{--<img src="{{asset( config('images.icons.compare'))}}" alt="compare icon">--}}
-                                            {{--</a>--}}
-                                            {{--</section>--}}
                                             <a href="{{ route('unit.detail',['id'=>$itemUnit->id,'slug'=>$itemUnit->slug]) }}" class="box-click">
                                                 <figure class="image">
                                                     <img src="{{ $itemUnit->images.'?access_token='.$token }}" alt="{{ $itemUnit->unit_label_title }}">

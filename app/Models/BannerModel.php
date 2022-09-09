@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Libraries\Utility;
-use App\Models\FileEbook;
 
 class BannerModel extends Model
 {
@@ -18,9 +17,8 @@ class BannerModel extends Model
      */
     public function getBanner()
     {
-        $result = $this->whereRaw( "case expired_status 
-        when 'yes'  then  DATE_FORMAT(expired_date,'%Y-%m-%d') >= '" . date( 'Y-m-d' ) . "'
-        else  DATE_FORMAT(publish_date,'%Y-%m-%d') <= '" . date( 'Y-m-d' ) . "' end" )
+        $result = $this->whereRaw( "DATE_FORMAT(expired_date,'%Y-%m-%d') >= '" . date( 'Y-m-d' ) . "' and DATE_FORMAT(publish_date,'%Y-%m-%d') <= '" . date( 'Y-m-d' ) . "'" )
+                       ->where( 'expired_status', 'no' )
                        ->where( 'banner_status', 'publish' )
                        ->get();
 
@@ -43,7 +41,7 @@ class BannerModel extends Model
             $list->setAttribute( 'alt', Utility::getLanguageFields( 'alt_image_text', $list ) );
             $list->setAttribute( 'url', Utility::getLanguageFields( 'link', $list ) );
             $list->setAttribute( 'images', FileEbook::getFile( $list->image_desktop ) );
-            $list->setAttribute( 'images-m', FileEbook::getFile( $list->image_mobile ) );
+            $list->setAttribute( 'images_m', FileEbook::getFile( $list->image_mobile ) );
 
         }
 

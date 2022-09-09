@@ -21,8 +21,9 @@ class UnitModel extends Model
 
     public function project()
     {
-        return $this->belongsTo( 'App\Models\projectModel', 'unit_layout_id' );
+        return $this->belongsTo( 'App\Models\projectModel', 'project_id' );
     }
+
 
     /**
      * Get last update
@@ -33,8 +34,9 @@ class UnitModel extends Model
      */
     public function getUpdate( $limit = 4 )
     {
-        $result = $this->with( [ 'unitLabel' ] )
-                       ->where( 'status', '!=', '' )
+        $result = $this->with( [ 'project', 'unitLabel' ] )
+                       ->where( 'status', '=', 'publish' )
+                       ->whereRelation( 'project', 'status', '=', 'publish' )
                        ->offset( 0 )
                        ->take( $limit )
                        ->orderBy( 'created_at', 'DESC' )
@@ -56,6 +58,7 @@ class UnitModel extends Model
         $result = $this->with( [ 'unitLabel' ] )
                        ->where( 'project_id', $project->id )
                        ->where( 'status', 'publish' )
+                       ->where( 'feature_property', 'yes' )
                        ->orderby( 'publish_date', 'DESC' )
                        ->offset( 0 )->take( 2 )->get();
 

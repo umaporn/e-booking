@@ -47,8 +47,8 @@ class HomeController extends Controller
         $project     = $this->Project->getUpdate();
         $option      = $this->Project->getSearchOption();
         $unit        = $this->Unit->getUpdate();
-
         $propertyList = $this->Project->project_property();
+
         foreach( $propertyList as $item ){
             $unitProperty = $this->Unit->getUnitProperty( $item );
             $item->setAttribute( 'unit_property', $unitProperty );

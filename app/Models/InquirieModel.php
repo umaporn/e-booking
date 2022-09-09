@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Inquiries extends Model
+class InquirieModel extends Model
 {
     use Notifiable;
 

@@ -20,12 +20,11 @@
                                                 </article>
                                             </div>
                                         </div>
-                                        alt
                                     </div>
                                     <div class="row slide-box">
                                         <div class="offset-xl-7 col-xl-5 overflow-hidden">
                                             <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center-left">
-                                                <img src="{{ $itemBanner->images }}?access_token={{ $token }}" alt="{{ $itemBanner->alt }}" uk-cover>
+                                                <img srcset="{{ $itemBanner->images_m }}?access_token={{ $token }} 480px,{{ $itemBanner->images }}?access_token={{ $token }} 1200px" src="{{ $itemBanner->images }}?access_token={{ $token }}" alt="{{ $itemBanner->alt }}" uk-cover>
                                             </div>
                                         </div>
                                     </div>
