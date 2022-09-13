@@ -24,7 +24,6 @@ class UnitModel extends Model
         return $this->belongsTo( 'App\Models\projectModel', 'project_id' );
     }
 
-
     /**
      * Get last update
      *
@@ -36,6 +35,7 @@ class UnitModel extends Model
     {
         $result = $this->with( [ 'project', 'unitLabel' ] )
                        ->where( 'status', '=', 'publish' )
+                       ->whereRaw( " DATE_FORMAT(publish_date,'%Y-%m-%d') <= '" . date( 'Y-m-d' ) . "'" )
                        ->whereRelation( 'project', 'status', '=', 'publish' )
                        ->offset( 0 )
                        ->take( $limit )
@@ -58,6 +58,7 @@ class UnitModel extends Model
         $result = $this->with( [ 'unitLabel' ] )
                        ->where( 'project_id', $project->id )
                        ->where( 'status', 'publish' )
+                       ->whereRaw( " DATE_FORMAT(publish_date,'%Y-%m-%d') <= '" . date( 'Y-m-d' ) . "'" )
                        ->where( 'feature_property', 'yes' )
                        ->orderby( 'publish_date', 'DESC' )
                        ->offset( 0 )->take( 2 )->get();
@@ -75,9 +76,11 @@ class UnitModel extends Model
      */
     public function getUnitList( Request $request, $project, $limit = 5 )
     {
+
         $builder = $this->with( [ 'unitLabel' ] )
-                        ->where( 'project_id', $project->id )
-                        ->where( 'status', 'publish' );
+                        ->where( 'project_id', '=', $project->id )
+                        ->where( 'status', 'publish' )
+                        ->whereRaw( " DATE_FORMAT(publish_date,'%Y-%m-%d') <= '" . date( 'Y-m-d' ) . "'" );
         $data    = Search::search( $builder, 'unit', $request, [], $limit );
 
         return $this->transformContent( $data );
@@ -100,6 +103,7 @@ class UnitModel extends Model
             //->where( 'project_id', $project->id ) check same project
                        ->where( 'id', '!=', $unit )
                        ->where( 'status', 'publish' )
+                       ->whereRaw( " DATE_FORMAT(publish_date,'%Y-%m-%d') <= '" . date( 'Y-m-d' ) . "'" )
                        ->offset( 0 )->take( $limit )->get();
 
         return $this->transformContent( $result );
@@ -116,6 +120,7 @@ class UnitModel extends Model
     public function getList( Request $request, $limit = 5 )
     {
         $builder = $this->with( [ 'unitLabel' ] )
+                        ->whereRaw( " DATE_FORMAT(publish_date,'%Y-%m-%d') <= '" . date( 'Y-m-d' ) . "'" )
                         ->where( 'status', 'publish' );
         $data    = Search::search( $builder, 'unit', $request, [], $limit );
 

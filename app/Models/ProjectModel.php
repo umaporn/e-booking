@@ -43,7 +43,8 @@ class ProjectModel extends Model
     public function getUpdate( $limit = 5 )
     {
         $result = $this->with( [ 'projectType', 'projectStatus', 'projectLocation' ] )
-                       ->where( 'status', '!=', '' )
+                       ->where( 'status', '=', 'publish' )
+                       ->whereRaw( " DATE_FORMAT(publish_date,'%Y-%m-%d') <= '" . date( 'Y-m-d' ) . "'" )
                        ->orderBy( 'created_at', 'DESC' )
                        ->offset( 0 )->take( $limit )
                        ->get();
@@ -62,7 +63,8 @@ class ProjectModel extends Model
     {
         $result = $this->with( [ 'projectType', 'projectStatus', 'projectLocation' ] )
                        ->where( 'id', '!=', $project->id )
-                       ->where( 'status', '!=', '' )
+                       ->where( 'status', '=', 'publish' )
+                       ->whereRaw( " DATE_FORMAT(publish_date,'%Y-%m-%d') <= '" . date( 'Y-m-d' ) . "'" )
                        ->orderBy( 'created_at', 'DESC' )
                        ->offset( 0 )->take( 3 )
                        ->get();
@@ -223,6 +225,7 @@ class ProjectModel extends Model
     public function getList( Request $request )
     {
         $builder = $this->with( [ 'projectType', 'ProjectStatus', 'projectLocation' ] )
+                        ->whereRaw( " DATE_FORMAT(publish_date,'%Y-%m-%d') <= '" . date( 'Y-m-d' ) . "'" )
                         ->where( 'status', 'publish' );
         $data    = Search::search( $builder, 'project', $request, [], 3 );
 
