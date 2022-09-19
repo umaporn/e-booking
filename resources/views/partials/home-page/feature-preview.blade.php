@@ -6,7 +6,7 @@
                 @if($key === 0)
                     <div class="col-md-6">
                         <article class="card-video-highlight">
-                            <a href="#" class="box-click">
+                            <a href="{{  $item->youtube_link }}" target="_blank" class="box-click">
                                 <div class="image-box">
                                     <figure class="online-content image-16by9 mb-1">
                                         <img src="{{ $item->preview_thumbnail.'?access_token='.$token }}" alt="{!! $item->preview_title !!}">

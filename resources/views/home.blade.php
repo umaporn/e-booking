@@ -70,8 +70,8 @@
                                 <label for="priceSelect">@lang('home.search.price.title')</label>
                                 <select class="form-control uk-select" id="priceSelect">
                                     <option value="all">@lang('home.search.price.default')</option>
-                                    @foreach(__('home.search.price.option') as $itemPrice )
-                                        <option value="{{ $itemPrice  }}">{{ $itemPrice  }}</option>
+                                    @foreach(__('home.search.price.option') as$key =>$itemPrice )
+                                        <option value="{{ $key  }}">{{ $itemPrice  }}</option>
                                     @endforeach
                                 </select>
                             </div>

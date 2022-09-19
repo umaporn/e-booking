@@ -71,7 +71,7 @@ return [
         'price'    => [
             'title'   => 'Price',
             'default' => 'Select Price',
-            'option'  => [ '0 - 4.99 MB', '5 - 9.99 MB', '10+ MB' ],
+            'option'  => [ '0' => '0 - 4.99 MB', '5' => '5 - 9.99 MB', '10' => '10+ MB' ],
         ],
         'project'  => [
             'title'   => 'Project Name',

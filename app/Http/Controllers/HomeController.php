@@ -40,13 +40,13 @@ class HomeController extends Controller
      */
     public function homepage()
     {
-        $token       = isset( $this->access_token['data']['access_token'] ) ? $this->access_token['data']['access_token'] : '';
-        $banner      = $this->Banner->getBanner();
-        $projectType = $this->ProjectType->getTypeList();
-        $preview     = $this->Preview->getUpdate();
-        $project     = $this->Project->getUpdate();
-        $option      = $this->Project->getSearchOption();
-        $unit        = $this->Unit->getUpdate();
+        $token        = isset( $this->access_token['data']['access_token'] ) ? $this->access_token['data']['access_token'] : '';
+        $banner       = $this->Banner->getBanner();
+        $projectType  = $this->ProjectType->getTypeList();
+        $preview      = $this->Preview->getUpdate();
+        $project      = $this->Project->getUpdate();
+        $option       = $this->Project->getSearchOption();
+        $unit         = $this->Unit->getUpdate();
         $propertyList = $this->Project->project_property();
 
         foreach( $propertyList as $item ){
@@ -57,10 +57,15 @@ class HomeController extends Controller
         return view( 'home', compact( 'unit', 'project', 'preview', 'propertyList', 'banner', 'projectType', 'option', 'token' ) );
     }
 
-    public function search( $project, $type, $location, $unit, $price )
+    public function search( Request $request )
     {
-        dd( [ $project, $type, $location, $unit, $price ] );
+        $token   = isset( $this->access_token['data']['access_token'] ) ? $this->access_token['data']['access_token'] : '';
+        $unit    = $this->Unit->getUnitSearch( $request );
+        $project = $this->Project->getUpdate();
+
+        return view( 'search', compact( 'unit', 'project', 'token' ) );
     }
+
     /**
      * Get Search option home page
      *

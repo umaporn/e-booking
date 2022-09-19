@@ -7,6 +7,7 @@ use App\Models\FileEbook;
 use App\Libraries\Utility;
 use App\Libraries\Search;
 use App\Models\ProjectModel;
+use App\Models\ProjectTypeModel;
 use Illuminate\Http\Request;
 
 class UnitModel extends Model
@@ -100,7 +101,6 @@ class UnitModel extends Model
     {
 
         $result = $this->with( [ 'unitLabel' ] )
-            //->where( 'project_id', $project->id ) check same project
                        ->where( 'id', '!=', $unit )
                        ->where( 'status', 'publish' )
                        ->whereRaw( " DATE_FORMAT(publish_date,'%Y-%m-%d') <= '" . date( 'Y-m-d' ) . "'" )
@@ -137,12 +137,73 @@ class UnitModel extends Model
      */
     public function getUnitInfo( $id )
     {
-        $result = $this->with( [ 'unitLabel' ] )
-                       ->selectRaw( '*,360_video_link as video_link' )
-                       ->where( 'status', 'publish' )
-                       ->where( 'id', $id )->get();
+        $unit = $this->with( [ 'unitLabel' ] )
+                     ->selectRaw( '*,360_video_link as video_link' )
+                     ->where( 'status', 'publish' )
+                     ->where( 'id', $id )->get();
 
-        return $this->transformContent( $result );
+        return $this->transformContent( $unit );
+    }
+
+    /**
+     * Get unit list for search
+     *
+     * @param Request $request
+     */
+    public function getUnitSearch( Request $request )
+    {
+        $builder = $this->with( [ 'unitLabel', 'project' ] )
+                        ->whereRelation( 'project', 'status', '=', 'publish' )
+                        ->where( 'status', 'publish' )
+                        ->whereRaw( " DATE_FORMAT(publish_date,'%Y-%m-%d') <= '" . date( 'Y-m-d' ) . "'" );
+
+        /**
+         * Check condition
+         * project slug
+         * project type
+         * project location
+         * project Unit Type
+         * Unit total price
+         */
+        if( $request->project != 'all' ){
+            $builder->whereRelation( 'project', 'slug_english', '=', $request->project );
+            $builder->OrwhereRelation( 'project', 'slug_thai', '=', $request->project );
+        }
+
+        if( $request->type != 'all' ){
+            $projectType = ProjectTypeModel::getTypeId( $request->type );
+            if( isset( $projectType->id ) ){
+                $builder->whereRelation( 'project', 'project_type', '=', $projectType->id );
+            }
+        }
+
+        if( $request->location != 'all' ){
+            $location = ProjectLocationModel::getLocationId( $request->location );
+            if( isset( $location->id ) ){
+                $builder->whereRelation( 'project', 'project_location', '=', $location->id );
+            }
+        }
+
+        if( $request->unit != 'all' ){
+            $builder->whereRelation( 'project', 'project_unit_info', 'like', '%' . $request->unit . '%' );
+        }
+
+        if( $request->price != 'all' ){
+
+            if( $request->price == '0' ){
+                $builder->whereRaw( '(0+total_price) BETWEEN 0 and 4.99 ' );
+            } else if( $request->price == '5' ){
+                $builder->whereRaw( '(0+total_price) BETWEEN 5 and 9.99 ' );
+            } else if( $request->price == '10' ){
+                $builder->whereRaw( '(0+total_price) >= 10 ' );
+            }
+
+        }
+
+        $unitList = $builder->get();
+
+        return $this->transformContent( $unitList );
+
     }
 
     /**

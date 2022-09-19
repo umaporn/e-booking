@@ -30,7 +30,7 @@ const SearchBox = (function(){
 			    location         = $( '#locationSelect' ).val(),
 			    price            = $( '#priceSelect' ).val();
 			var url              = '/' + project + '/' + propertyType + '/' + location + '/' + unitType + '/' + price;
-			window.location.href = url;
+			window.location.href = encodeURI( url );
 		} );
 
 		function searchOption( selector ){
@@ -54,8 +54,8 @@ const SearchBox = (function(){
 
 					        $( '#projectSelect' ).empty();
 					        $( '#unitSelect' ).empty();
-					        $( '#locationSelect' ).empty();
 					        $( '#propertySelect' ).empty();
+					        $( '#locationSelect' ).empty();
 
 					        $( '#projectSelect' ).append( '<option value="all">Select Project</option>' );
 					        $.each( array[0].project, function( i, itemProject ){
@@ -64,7 +64,7 @@ const SearchBox = (function(){
 							        text:  itemProject.title,
 						        } ) );
 					        } );
-					        $( '#projectSelect option[value=' + project + ']' ).prop( 'selected', true );
+					        $( '#projectSelect option[value="' + project + '"]' ).prop( 'selected', true );
 
 					        $.each( array[0].unitType, function( j, itemUnit ){
 						        $( '#unitSelect' ).append( $( '<option>', {
@@ -81,7 +81,7 @@ const SearchBox = (function(){
 							        options: (itemLocation === location) ? 'selected' : '',
 						        } ) );
 					        } );
-					        $( '#locationSelect option[value=' + location + ']' ).prop( 'selected', true );
+					        $( '#locationSelect option[value="' + location + '"]' ).prop( 'selected', true );
 
 					        $( '#propertySelect' ).append( '<option value="all">Select Project</option>' );
 					        $.each( array[0].projectType, function( p, itemtype ){
@@ -91,7 +91,7 @@ const SearchBox = (function(){
 							        options: (itemtype === propertyType) ? 'selected' : '',
 						        } ) );
 					        } );
-					        $( '#propertySelect option[value=' + propertyType + ']' ).prop( 'selected', true );
+					        $( '#propertySelect option[value="' + propertyType + '"]' ).prop( 'selected', true );
 
 				        },
 			        } );

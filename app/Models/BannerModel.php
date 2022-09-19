@@ -18,7 +18,7 @@ class BannerModel extends Model
     public function getBanner()
     {
         $result = $this->whereRaw( "DATE_FORMAT(expired_date,'%Y-%m-%d') >= '" . date( 'Y-m-d' ) . "' and DATE_FORMAT(publish_date,'%Y-%m-%d') <= '" . date( 'Y-m-d' ) . "'" )
-                       ->where( 'expired_status', 'no' )
+                       ->where( 'expired_status', 'yes' )
                        ->where( 'banner_status', 'publish' )
                        ->get();
 

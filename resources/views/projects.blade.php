@@ -45,6 +45,7 @@
             <section class="project-list">
                 <div class="container width-xxl uk-margin-large-top uk-margin-large-bottom">
                     <div class="row" id="projects-list-box">
+                        @if($projectList)
                         @foreach($projectList as $project)
                             <div class="col-md-4 mb-4 uk-margin-medium-bottom">
                                 <article class="card-project">
@@ -75,6 +76,7 @@
                                 </article>
                             </div>
                         @endforeach
+                        @endif
                     </div>
                     @if($projectList->lastPage() > $projectList->currentPage())
                         <div class="col-12 load-more">

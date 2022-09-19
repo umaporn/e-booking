@@ -15,7 +15,7 @@
                             <img class="icon-down" src="{{asset( config('images.icons.arrow_double_down'))}}" alt="filter arrow down">
                         </div>
                     </span>
-                    <p class="price-booking">{{ $unitList[0]->booking_price }}</p>
+                    <p class="price-booking">{{ isset($unitList[0]->booking_price)?$unitList[0]->booking_price:'' }}</p>
                     <hr>
                     <p class="text-price">@lang('projects.card.price')</p>
                     <p class="price-show">{{ $project->price }}</p>
